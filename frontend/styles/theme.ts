@@ -1,0 +1,23 @@
+// 'use client';
+
+// import { inter } from "../utils/fonts";
+
+export const THEME = {
+    PRIMARY_COLOR: '#538D22',
+    DARK_PRIMARY_COLOR: '#1A4301',
+    LIGHT_PRIMARY_COLOR: '#AAD576',
+    SECONDARY_COLOR: '#FFFFFF',
+    SECONDARY_CONTRAST_COLOR: '#1A1D1F',
+    ROYAL_GRAY_COLOR: '#6F767E',
+    TABLE_BORDER_COLOR: 'rgba(75, 85, 99)',
+    DANGER_COLOR: '#FF4D4F',
+    PRIMARY_ICON_COLOR: '#7D7C7C',
+    UNDERGROUND_COLOR: '#f4f4f4',
+    CLICKABLE_COLOR: '#4096ff',
+    LAYOUT_ELEMENT_SPACE: '15px',
+    LAYOUT_ELEMENT_BORDER_RADIUS: '15px',
+    BODY_PADDING: '12px',
+    // LAYOUT_ELEMENT_SPACE: '0px',
+    // LAYOUT_ELEMENT_BORDER_RADIUS: '0px',
+    // BODY_PADDING: '0px'
+}

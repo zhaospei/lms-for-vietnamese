@@ -1,0 +1,8 @@
+import { THEME } from "./theme";
+
+export const NAVBAR_STYLE = {
+    ICON_COLOR: THEME.ROYAL_GRAY_COLOR,
+    ICON_SIZE: '1.5em',
+    ITEM_HIGHLIGHT_COLOR: '#1A1D1F',
+    ITEM_SELECTED_BACKGROUND_COLOR: '#EFEFEF'
+}

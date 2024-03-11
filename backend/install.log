@@ -1,0 +1,10 @@
+[01:35:17 2023-11-13] FETCHING Version 2.27.0
+[01:35:17 2023-11-13] CREATING /home/yoshino/.spicetify
+[01:35:17 2023-11-13] DOWNLOADING https://github.com/spicetify/spicetify-cli/releases/download/v2.27.0/spicetify-2.27.0-linux-amd64.tar.gz
+[01:35:19 2023-11-13] EXTRACTING /home/yoshino/.spicetify/spicetify.tar.gz
+[01:35:19 2023-11-13] SETTING EXECUTABLE PERMISSIONS TO /home/yoshino/.spicetify/spicetify
+[01:35:19 2023-11-13] REMOVING /home/yoshino/.spicetify/spicetify.tar.gz
+[01:35:19 2023-11-13] APPENDING /home/yoshino/.spicetify to PATH in /home/yoshino/.zshrc
+[01:35:19 2023-11-13] Restart your shell to have spicetify in your PATH.
+[01:35:19 2023-11-13] spicetify v2.27.0 was installed successfully to /home/yoshino/.spicetify
+[01:35:19 2023-11-13] Run 'spicetify --help' to get started
