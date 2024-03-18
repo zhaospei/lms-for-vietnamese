@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { CloseCircleFilled, CloseCircleTwoTone, EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons'
 import Fetcher from '@/api/Fetcher'
+import LogoIcon from '../../../public/images/logo_dark.png';
 import { useDispatch, useSelector } from 'react-redux'
 import { authSelector } from '@/redux/auth/authSelector'
 import { authActions } from '@/redux/auth/authSlice'
@@ -147,11 +148,12 @@ export default function SignIn() {
 
   return (
     <main className="flex justify-center p-[48px] bg-[#FCFCFC] h-screen relative">
-      <div className="max-w-[296px]">
-        <div>
+      <div className="max-w-5xl">
+        <div className=''>
           <button className="bg-transparent text-[48px] my-6 text-primary font-bold font-mainfont">
             <Link href="/">
-              <Avatar className="" src={'https://static.vecteezy.com/system/resources/previews/024/241/000/original/colorful-shiba-inu-dog-shiba-inu-portrait-dog-sticker-clip-art-dog-lover-design-ai-generated-png.png'} size={96}></Avatar>
+              <Image src={LogoIcon} alt="logo" height={200} />
+              {/* <Avatar className="" src={'https://static.vecteezy.com/system/resources/previews/024/241/000/original/colorful-shiba-inu-dog-shiba-inu-portrait-dog-sticker-clip-art-dog-lover-design-ai-generated-png.png'} size={96}></Avatar> */}
               {/* <div className="text-[64px] text-sky-700 font-bold my-8 tracking-tighter">UETable</div> */}
             </Link>
           </button>
@@ -172,10 +174,10 @@ export default function SignIn() {
               type="text"
               name='email'
               className={`focus:bg-white focus:border focus:border-[#9A9FA5] w-full pl-8 h-[48px] px-[10px] rounded-lg bg-[#F4F4F4] font-semibold ${inputFocused && inputValue === '' ? 'border-red-500' : ''}`}
-              placeholder="Nhập MSSV">
+              placeholder="Nhập tài khoản email">
             </input>
             {noMSSV && inputValue === '' && (
-              <p className="text-red-500 mt-2 ml-2 text-sm font-medium">*Vui lòng nhập MSSV</p>
+              <p className="text-red-500 mt-2 ml-2 text-sm font-medium">*Vui lòng nhập tài khoản email</p>
             )}
           </div>
         {/* </div> */}

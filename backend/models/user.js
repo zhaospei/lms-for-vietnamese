@@ -30,6 +30,11 @@ const User = sequelize.define("User", {
         defaultValue: 0,
         // allowNull: false
     },
+    Score: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        // allowNull: false
+    },
     Status: {
         type: DataTypes.BOOLEAN,
         defaultValue: 0,

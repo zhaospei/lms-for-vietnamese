@@ -2,6 +2,8 @@
 
 import { THEME } from "@/styles/theme";
 import React, { ReactNode, useEffect, useRef, useState } from "react";
+import LogoIcon from '../../../public/images/logo.png';
+import LogoIconDark from '../../../public/images/logo_dark.png';
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "@/redux/auth/authSlice";
 import { authSelector } from "@/redux/auth/authSelector";
@@ -19,6 +21,7 @@ import { UserInfoResponse } from "@/api/userAPI";
 import { cookies } from "@/app/(dashboard)/layout";
 import { contentt } from "../Settings";
 import Notifications from "./Notifications";
+import Image from "next/image";
 import { useDebouncedCallback } from "use-debounce";
 import { getURL } from "@/utils/navigation";
 interface TabProps {
@@ -29,7 +32,7 @@ interface TabProps {
 
 
 export default function Header() {
-  const [avtStrokeColor, setAvtStrokeColor] = useState<string>(THEME.PRIMARY_COLOR);
+  const [avtStrokeColor, setAvtStrokeColor] = useState<string>('#fff');
   const authState = useSelector(authSelector);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -88,45 +91,45 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-[1000] bg-underground"
+      className="sticky w-full top-0 z-[1000] bg-black"
       style={{
         transition: 'padding-left 0.3s ease-in-out'
       }}
     >
+
       <div
-        className="flex items-center h-[80px] bg-secondary px-8"
+        className="flex items-center h-[100px] px-8"
         style={{
           // borderTopLeftRadius: scroll ? 0 : THEME.LAYOUT_ELEMENT_BORDER_RADIUS,
           // borderBottomLeftRadius: scroll ? 0 : THEME.LAYOUT_ELEMENT_BORDER_RADIUS,
           transition: 'border-radius 0.3s ease-in-out',
-          boxShadow: 'inset 1px 0px 0px #F4F4F4, inset 0 -1px 0px #EFEFEF'
         }}
       >
-
-        
-
-        <div className="flex-1 md:flex-row flex-col md:items-center items-start gap-5 md:flex">
+        <div className="flex-1 text-lg md:flex-row flex-col md:items-center items-start gap-5 md:flex">
           <h3 className="m-1 group"> 
-            <a href="/" className="text-gray-800 font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">Trang chủ</a>
-            <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
+            <a href="/" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+              <Image src={LogoIcon} alt="logo" height={200} />
+            </a>
+            
+            {/* <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div> */}
           </h3>
 
           <h3 className="m-1 group"> 
-            <a href="/chang-1" className="text-gray-800 font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+            <a href="/chang-1" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
               Chặng 1: Dữ liệu đa phương thức
             </a>
             <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
           </h3>
 
           <h3 className="m-1 group"> 
-            <a href="/chang-2" className="text-gray-800 font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+            <a href="/chang-2" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
               Chặng 2: Trò chơi kiểm tra tri thức
             </a>
             <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
           </h3>
 
           <h3 className="m-1 group"> 
-            <a href="/chang-3" className="text-gray-800 font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+            <a href="/chang-3" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
               Chặng 3: Diễn đàn trao đổi
             </a>
             <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
@@ -146,8 +149,8 @@ export default function Header() {
             <div className="flex mr-5 items-center">
               {/* <Notifications /> */}
               <button
-                onMouseEnter={() => setAvtStrokeColor(THEME.DARK_PRIMARY_COLOR)}
-                onMouseLeave={() => setAvtStrokeColor(THEME.PRIMARY_COLOR)}
+                onMouseEnter={() => setAvtStrokeColor('#ccc')}
+                onMouseLeave={() => setAvtStrokeColor('#fff')}
               >
                 <div className="relative flex">
                   <Popover
@@ -164,10 +167,10 @@ export default function Header() {
                   </Popover>
                 </div>
               </button>
-              <div className="ml-3">
+              {/* <div className="ml-3 text-white">
                 <div className="font-semibold ">Xin chào,</div>
-                <div className="text-xs font-semibold">{`${authState.studentId} ${authState.name}`}</div>
-              </div>
+                <div className="text-xs font-semibold">{` ${authState.name}`}</div>
+              </div> */}
             </div>
             :
             <div className="flex gap-4">

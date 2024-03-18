@@ -421,3 +421,48 @@ export const changeBio = async(req, res) => {
         res.status(500).json(err);
     }
 }
+
+export const changeScore = async(req, res) => {
+    try {
+        let score = req.body.score;
+        console.log(score);
+        let decodedUser = res.locals.decodedUser;
+        let user = await User.findOne({
+            where: {
+                Id: decodedUser.Id
+            }
+        });
+        // console.log(user);
+        if (user.Score < score) {
+            user.Score = score;
+        }
+        await user.save();
+        res.status(200).json("changed successfully!")
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}
+
+
+// export const getScore = async(req, res) => {
+//     try {
+//         let score = req.body.score;
+//         console.log(score);
+//         let decodedUser = res.locals.decodedUser;
+//         let user = await User.findOne({
+//             where: {
+//                 Id: decodedUser.Id
+//             }
+//         });
+//         // console.log(user);
+//         if (user.Score < score) {
+//             user.Score = score;
+//         }
+//         await user.save();
+//         res.status(200).json("changed successfully!")
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// }
+
+

@@ -63,6 +63,10 @@ app.get('/forgotpassword', (req, res) => {
 app.get('/links', (req, res) => {
     res.sendFile(path.join(__dirname, 'out', 'links.html'));
 });
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'out', 'index.html'));
+});
 app.get('/profile', (req, res) => {
     res.sendFile(path.join(__dirname, 'out', 'profile.html'));
 });
@@ -143,6 +147,10 @@ app.get('/mysubjects/registered/details', (req, res) => {
 });
 // app.use('/mysubjects/registered/details', express.static('./out'));
 app.get('/images', (req, res) => {
+    res.sendFile(path.join(__dirname, 'out', 'images'));
+});
+
+app.get('/api/games/fish-game/images/', (req, res) => {
     res.sendFile(path.join(__dirname, 'out', 'images'));
 });
 // app.use('/images', express.static('./out'));

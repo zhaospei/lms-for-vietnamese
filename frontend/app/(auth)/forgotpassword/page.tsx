@@ -93,10 +93,10 @@ export default function ForgotPassword() {
               type="text"
               name='email'
               className={`focus:bg-white focus:border focus:border-[#9A9FA5] w-full pl-8 h-[48px] px-[10px] rounded-lg bg-[#F4F4F4] font-semibold ${inputFocused && inputMSSV === '' ? 'border-red-500' : ''}`}
-              placeholder="Nhập MSSV">
+              placeholder="Nhập tài khoản gmail">
             </input>
             {noMSSV && inputMSSV === '' && (
-              <p className="text-red-500 mt-2 ml-2 text-sm font-medium">*Vui lòng nhập MSSV</p>
+              <p className="text-red-500 mt-2 ml-2 text-sm font-medium">*Vui lòng nhập tài khoản email</p>
             )}
           </div>
         {/* </div> */}
