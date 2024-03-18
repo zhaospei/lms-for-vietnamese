@@ -3,6 +3,9 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { LikeOutlined, DownloadOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { Typography, Progress, Avatar, DatePicker, DatePickerProps, List, Space } from 'antd';
 import Image from 'next/image';
+import ShareImg from '../../../public/images/ill/share.png'; 
+import QaImg from '../../../public/images/ill/qa.png';
+import SpeakImg from '../../../public/images/ill/speak.jpg';
 import Fetcher from '@/api/Fetcher';
 import { UserInfoResponse } from '@/api/userAPI';
 import Cookies from 'universal-cookie';
@@ -216,6 +219,7 @@ export default function Profile() {
         <div className="grid md:grid-cols-3 grid-cols-1 gap-10 relative mx-16">
             <a className="bg-white flex justify-center 
                 rounded-lg p-10 
+                border-2 border-black
                 border-2 relative top-0 
                 hover:-top-5 transition-inset duration-300 
                 ease-in-out cursor-pointer" 
@@ -230,7 +234,8 @@ export default function Profile() {
                         CỬA 1 
                     </div>
                 </div>
-                <div className="text-center">
+                <div className="text-center flex flex-col items-center">
+                    <Image src={ShareImg} width={600} height={400} alt="share"></Image>
                     <h3 className="font-bold text-2xl mt-8"> Chia sẻ sản phẩm </h3>
                     <p className="font-medium mt-4 text-gray-500"> 
                     Bộ tài liệu đã giúp 600 học viên đã đạt IELTS 7.0-8.5 tính tới tháng 5/2021 
@@ -254,14 +259,14 @@ export default function Profile() {
                         CỬA 2 
                     </div>
                 </div>
-                <div className="text-center">
+                <div className="text-center flex flex-col items-center">
+                    <Image src={QaImg} width={200} height={200} alt="share"></Image>
                     <h3 className="font-bold text-2xl mt-8"> Câu hỏi và giải đáp </h3>
                     <p className="font-medium mt-4 text-gray-500"> 
                     Bộ tài liệu đã giúp 600 học viên đã đạt IELTS 7.0-8.5 tính tới tháng 5/2021 
                     </p>
                 </div>
             </a>
-
             <a className="bg-white flex justify-center 
                 rounded-lg p-10 
                 border-2 relative top-0 
@@ -270,21 +275,23 @@ export default function Profile() {
                 style={{"border": "2px solid #f5f6fa"}} 
                 href="/chang-3/phong-thuc-hanh-noi">
                 <div className="absolute z-10 -top-[11px] flex items-start justify-center">
-                    <div className="w-[194px] h-[11px] bg-blue-300 rounded-t-[10px] relative z-10">
+                    <div className="w-[194px] h-[11px] bg-[#1A4301] rounded-t-[10px] relative z-10">
 
                     </div>
-                    <div className="w-[164px] h-[41px] bg-blue-200 rounded-b-[30px] absolute z-20 
-                        text-blue-500 font-[600] flex items-center justify-center"> 
+                    <div className="w-[164px] h-[41px] bg-[#74A942] rounded-b-[30px] absolute z-20 
+                        text-[#143601] font-[700] text-xl flex items-center justify-center"> 
                         CỬA 3 
                     </div>
                 </div>
-                <div className="text-center">
+                <div className="text-center flex flex-col items-center">
+                    <Image src={SpeakImg} width={180} height={180} alt="share" style={{marginTop: '20px'}}></Image>
                     <h3 className="font-bold text-2xl mt-8"> Phòng thực hành nói </h3>
                     <p className="font-medium mt-4 text-gray-500"> 
                     Bộ tài liệu đã giúp 600 học viên đã đạt IELTS 7.0-8.5 tính tới tháng 5/2021 
                     </p>
                 </div>
             </a>
+
         </div>
 
 

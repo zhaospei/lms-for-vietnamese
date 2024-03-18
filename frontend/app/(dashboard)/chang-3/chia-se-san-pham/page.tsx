@@ -185,7 +185,7 @@ const changeImage = () => {
   };
 
   return (
-    <main className='min-h-screen mt-[200px]'>
+    <main className='min-h-screen mt-[50px]'>
         <div className='flex max-w-5xl mx-auto flex-col'>
           <div className='text-[#c04826]'>
               <TitleWithFont title='Chia sẻ sản phẩm' className='text-5xl'></TitleWithFont>

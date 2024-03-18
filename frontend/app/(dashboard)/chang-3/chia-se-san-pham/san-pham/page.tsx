@@ -203,7 +203,7 @@ export default function Documentdetail() {
     }
 
     return (<>
-        <Main title = "Tài liệu" className="w-[48rem] mx-auto rounded-lg my-12">
+        <Main title = "Tài liệu" className="w-[48rem] mx-auto rounded-lg my-12 p-[30px]">
             {/* <br />
             <div className = {`flex`}>
                 <div className = {`ml-[10px]`}>

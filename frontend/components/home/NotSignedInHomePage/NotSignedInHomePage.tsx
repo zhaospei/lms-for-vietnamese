@@ -67,7 +67,7 @@ function AboutScheduleAndMySubjects() {
     };
   }, []);
   return (
-      <div className="absolute top-0 w-full bg-white flex flex-col z-[0]">
+      <div className="absolute top-0 w-full bg-[E1F0DA] flex flex-col z-[0]">
         <div className='relative ' style={{width: '100%', height: '700px', position: 'relative'}}>
           <Image src={HomeMain} alt="home_main" fill sizes="100vw"/>
           

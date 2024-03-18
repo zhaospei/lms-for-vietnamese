@@ -32,9 +32,9 @@ export const registerUser = async (req, res) => {
 
         const token = jwt.sign({ name, studentid, password }, process.env.JWT_SECRET, { expiresIn: '30m' });
         const output = `
-        <h2>Please click on below link to activate your account</h2>
+        <h2>Vui lòng ấn vào link phía dưới để kích hoạt tài khoản</h2>
         <p>${process.env.CLIENT_URL}/signup/activate?token=${token}</p>
-        <p><b>NOTE: </b> The above activation link expires in 30 minutes.</p>
+        <p><b>NOTE: </b> Link kích hoạt phía trên có giới hạn trong 30 phút.</p>
         `;
         const transporter = nodemailer.createTransport({
             service: process.env.EMAIL_SERVICE,
@@ -53,7 +53,7 @@ export const registerUser = async (req, res) => {
         const mailOptions = {
             from: process.env.EMAIL_USERNAME, // sender address
             to: mailName, // receiver email
-            subject: "Account Verification on UETable", // Subject line
+            subject: "Kích hoạt tài khoản sử dụng Trang web: Chinh phục ngữ văn 10", // Subject line
             text: output,
             html: output,
         }
@@ -178,7 +178,7 @@ export const forgotPassword = async (req, res) => {
         const mailOptions = {
             from: process.env.EMAIL_USERNAME, // sender address
             to: mailName, // receiver email
-            subject: "Forget Password on UETable", // Subject line
+            subject: "[Chinh phục chuyên đề ngữ văn 10] Đổi mật khẩu", // Subject line
             text: output,
             html: output,
         }

@@ -44,7 +44,7 @@ const User = sequelize.define("User", {
     },
     Avatar: {
         type: DataTypes.TEXT,
-        defaultValue: "https://www.shareicon.net/data/128x128/2016/05/24/770137_man_512x512.png"
+        defaultValue: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6aMSd6UXIgSwBn5c9fvTlZwMjPjeP7vGfnSXXMy68evP4I6USVcPZqq5OYSbxUAtdbEk&usqp=CAU"
     }
  },
  {

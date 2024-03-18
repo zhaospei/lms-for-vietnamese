@@ -174,7 +174,7 @@ export default function Profile() {
                 <Paragraph className="font-semibold text-lg pt-3">{birth}</Paragraph>
               </div>
               <div className='flex-col'>
-                <label className="font-light text-gray-500">Mã số sinh viên</label>
+                <label className="font-light text-gray-500">Tài khoản email</label>
                 <Paragraph className="font-semibold text-lg pt-3">{mssv}</Paragraph>
               </div>
             </div>
@@ -215,7 +215,7 @@ export default function Profile() {
                     <DatePicker className='font-semibold text-lg' onChange={handleFinishEditBirth} value={dayjs(birth, 'YYYY-MM-DD')} />
                   </div>
                   <div className="flex-col">
-                    <div className="font-light text-gray-500">Mã số sinh viên</div>
+                    <div className="font-light text-gray-500">Tài khoản</div>
                     <Paragraph className="font-semibold text-lg pt-3">{mssv}</Paragraph>
                   </div>
                 </div>

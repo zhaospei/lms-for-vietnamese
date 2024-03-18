@@ -34,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${brices.variable} ${MAIN_FONT.className}`}>
-      <body className='bg-[#f2e9db]'>
+      <body className='bg-[#E1F0DA]'>
         <ReduxProvider>
           <ConfigProvider
             theme={{

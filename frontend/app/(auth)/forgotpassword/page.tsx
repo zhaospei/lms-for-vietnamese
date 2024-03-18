@@ -72,7 +72,7 @@ export default function ForgotPassword() {
         <div>
           <button className="bg-transparent text-[48px] my-6 text-primary font-bold font-mainfont">
             <Link href="/">
-            <Avatar className="" src={'https://static.vecteezy.com/system/resources/previews/024/241/000/original/colorful-shiba-inu-dog-shiba-inu-portrait-dog-sticker-clip-art-dog-lover-design-ai-generated-png.png'} size={96}></Avatar>
+            {/* <Avatar className="" src={'https://static.vecteezy.com/system/resources/previews/024/241/000/original/colorful-shiba-inu-dog-shiba-inu-portrait-dog-sticker-clip-art-dog-lover-design-ai-generated-png.png'} size={96}></Avatar> */}
               {/* <Image alt='logo' src="https://static.vecteezy.com/system/resources/previews/024/241/000/original/colorful-shiba-inu-dog-shiba-inu-portrait-dog-sticker-clip-art-dog-lover-design-ai-generated-png.png" width={96} height={96} /> */}
             </Link>
           </button>
