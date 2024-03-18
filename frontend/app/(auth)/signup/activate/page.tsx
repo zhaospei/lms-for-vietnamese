@@ -33,7 +33,7 @@ export default function ActivatePage() {
             }}
         >
             <div className="bg-secondary flex flex-col items-center pt-10 w-[420px] shadow-lg rounded-lg">
-                <span className="text-5xl text-primary font-bold">UETable</span>
+                <span className="text-5xl text-primary font-bold">Chinh phục chuyên đề ngữ văn 10</span>
                 <Result
                     title={status ? `Tài khoản kích hoạt ${status.ok ? 'thành công' : 'thất bại'}` : ''}
                     extra={[

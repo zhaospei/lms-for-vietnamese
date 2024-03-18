@@ -173,7 +173,7 @@ export const forgotPassword = async (req, res) => {
             },
         });
 
-        const mailName = studentid + "@" + process.env.EMAIL_ORG
+        const mailName = studentid
 
         const mailOptions = {
             from: process.env.EMAIL_USERNAME, // sender address
