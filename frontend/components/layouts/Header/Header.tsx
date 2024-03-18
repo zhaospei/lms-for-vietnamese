@@ -16,9 +16,9 @@ import { MAIN_FONT } from "@/styles/fonts";
 import NotificationIcon from "../../common/(Icons)/NotificationIcon";
 import Fetcher from "@/api/Fetcher";
 import { useRouter, useSearchParams } from "next/navigation";
-import Cookies from "universal-cookie";
+// import Cookies from "universal-cookie";
 import { UserInfoResponse } from "@/api/userAPI";
-import { cookies } from "@/app/(dashboard)/layout";
+// import { cookies } from "@/app/(dashboard)/layout";
 import { contentt } from "../Settings";
 import Notifications from "./Notifications";
 import Image from "next/image";
@@ -29,6 +29,8 @@ interface TabProps {
   children: ReactNode;
 }
 
+import Cookies from 'universal-cookie';
+const cookies = new Cookies()
 
 
 export default function Header() {

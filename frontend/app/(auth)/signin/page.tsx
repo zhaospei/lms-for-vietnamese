@@ -8,11 +8,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { authSelector } from '@/redux/auth/authSelector'
 import { authActions } from '@/redux/auth/authSlice'
 import { useRouter } from 'next/navigation'
-import { cookies } from '@/app/(dashboard)/layout'
+// import { cookies } from '@/app/(dashboard)/layout'
 import { isUndefined, set } from 'lodash'
 import { ClipLoader } from 'react-spinners'
 import Image from 'next/image'
 import { Avatar, Badge, Divider, Select, Popover } from "antd";
+
+import Cookies from 'universal-cookie';
+const cookies = new Cookies()
 
 interface SignInResponse {
   message: string,

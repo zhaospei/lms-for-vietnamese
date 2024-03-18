@@ -18,7 +18,7 @@ import strNormalize from "@/utils/strNormalize";
 interface UserUploadProps {
     subjectId: string,
     subjectName: string,
-    // categories: string[],
+    categories: string[],
     onEndUpload?: () => void,
     children?: React.ReactNode
 }
@@ -29,7 +29,7 @@ const formItemName = (key: keyof UserUploadFile) => key;
 export default function UserUpload({
     subjectId,
     subjectName,
-    // categories,
+    categories,
     onEndUpload,
     children
 }: UserUploadProps) {
@@ -54,7 +54,7 @@ export default function UserUpload({
                 onCancel={() => setUploading(false)}
                 subjectId={subjectId}
                 subjectName={subjectName}
-                // categories={categories}
+                categories={categories}
                 onEndUpload={onEndUpload}
             />
         </>
@@ -66,7 +66,7 @@ function UploadArea({
     uploading,
     onCancel,
     subjectName,
-    // categories,
+    categories,
     onEndUpload
 }: {
     uploading: boolean;
@@ -83,7 +83,7 @@ function UploadArea({
             closeIcon={null}
         >
             <Divider />
-            <FormUpload onCancel={onCancel} subjectId={subjectId} subjectName={subjectName} onEndUpload={onEndUpload} />
+            <FormUpload onCancel={onCancel} subjectId={subjectId} subjectName={subjectName} categories={categories} onEndUpload={onEndUpload} />
         </Modal>
     )
 
@@ -93,7 +93,7 @@ function FormUpload({
     onCancel,
     subjectId,
     subjectName,
-    // categories,
+    categories,
     onEndUpload
 }: {
     onCancel: () => void
@@ -158,7 +158,7 @@ function FormUpload({
                     <AutoComplete
                         placeholder='Chọn thẻ'
                         onChange={(newCa) => category.current = newCa}
-                        // options={categories.map((category) => ({ value: category }))}
+                        options={categories.map((category) => ({ value: category }))}
                         popupMatchSelectWidth={false}
                         filterOption={(inputValue, option) => {
                             if (isUndefined(option))
