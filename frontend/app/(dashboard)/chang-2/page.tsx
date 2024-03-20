@@ -6,8 +6,10 @@ import Image from 'next/image';
 import ShareImg from '../../../public/images/ill/share.png'; 
 import QaImg from '../../../public/images/ill/qa.png';
 import SpeakImg from '../../../public/images/ill/speak.jpg';
+import Chang2 from '@/public/images/background/chang2.png'
 import Fetcher from '@/api/Fetcher';
 import { UserInfoResponse } from '@/api/userAPI';
+import { BRICES_FONT, MAIN_FONT } from '@/styles/fonts';
 import Cookies from 'universal-cookie';
 import HomeMain from '../../../public/images/fish_game.png';
 import FishComing from '../../../public/images/fish_game_2.jpg';
@@ -38,10 +40,24 @@ export default function Profile() {
 
   return (
     <main className='min-h-screen'>
-        <div className='flex items-center justify-center m-12 mb-24'>
+        {/* <div className='flex items-center justify-center m-12 mb-24'>
             <div className='bg-[#AAD576] font-bold text-3xl rounded-full inline-block px-3'>
               Chặng 2: Trò chơi kiểm tra tri thức
             </div>
+        </div> */}
+        <div className='absolute top-[-148px]' style={{width: '100%', height: '400px', position: 'relative'}}>
+          <Image src={Chang2} alt="home_main" fill sizes="100vw"/>
+          
+          <div className="flex relative items-center text-center justify-center pt-[148px]" style={{display: 'flex', color: 'white', fontSize: '48px', zIndex: 2}}> 
+            <div className="">
+              <p className={BRICES_FONT.className} style={{color: "#E8751A"}}>Chặng 2</p> 
+              <p className='font-bold text-white'>Trò chơi kiểm tra tri thức</p>
+              <p className="text-xl"> Tham gia các trò chơi hấp dẫn để nhớ rõ tri thức đã học.</p>
+            </div>
+          </div>
+          <div className="z-[1] absolute w-full h-full top-0" style={{background: 'linear-gradient(0deg, rgba(225,240,218,1) 0%, rgba(0,0,0,0.5501050762101716) 50%, rgba(0,0,0,0.8582283255098915) 100%)'}}>
+
+          </div>
         </div>
 
         <div className="flex flex-col max-w-5xl mx-auto">

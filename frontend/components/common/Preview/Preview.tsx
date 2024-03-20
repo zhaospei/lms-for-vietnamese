@@ -5,6 +5,8 @@ import { Skeleton, Typography } from "antd";
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
+import NotFoundImage from '@/public/images/404-Not-found.svg';
+import './preview.css'
 import React from 'react'
 import { isUndefined } from "lodash";
 import { SearchParams } from "@/types/PageProps";
@@ -19,12 +21,13 @@ function getRandomImage(): string {
     return `/images/preview/${randomInteger(7)}.png`
 }
 export interface PreviewProps {
-    imgSrc?: string | StaticImport;
+    imgSrc?: any;
     imgAlt?: string;
     imgHeight?: number | string;
     star?: React.ReactNode;
     stared?: boolean;
     url: string;
+    color: string;
     newTab?: boolean;
     params?: SearchParams;
     title: string;
@@ -35,9 +38,9 @@ export interface PreviewProps {
 }
 
 export default function Preview({
-    imgSrc, imgAlt, star, stared = false, url,
+    imgSrc, imgAlt, star, stared = false, url, color,
     newTab = false, params, title, info, tag,
-    loading = false, imgHeight = 200, children
+    loading = false, imgHeight = 200, children, 
 }: PreviewProps) {
     const router = useRouter();
 
@@ -50,19 +53,18 @@ export default function Preview({
             </div>
         )
 
-    const onClick = () => {
-        if (isUndefined(url))
-            return;
-        if (newTab)
-            openNewTab(url, params);
-        else
-            router.push(getURL(url, params))
-    }
+    // const onClick = () => {
+    //     if (isUndefined(url))
+    //         return;
+    //     if (newTab)
+    //         openNewTab(url, params);
+    //     else
+    //         router.push(getURL(url, params))
+    // }
 
     return (
-        <div className='group/preview cursor-pointer flex flex-col gap-3 w-full h-fit relative animate__animated animate__fadeIn' onClick={onClick}>
-            <div className='relative overflow-hidden' style={{height: imgHeight}}>
-                <PreviewImage imgSrc={imgSrc} imgAlt={imgAlt} url={url}/>
+        <div className='card group/preview flex flex-col gap-3 w-full h-fit relative animate__animated animate__fadeIn' style={{borderColor: color, boxShadow: "-7px 7px 0 0" + color}}>
+            {/* <div className='relative overflow-hidden' style={{height: imgHeight}}>
                 <div className='absolute top-0 left-0 group-hover/preview:bg-[rgba(17,19,21,0.8)] w-full h-full transition-all duration-300 rounded-[15px]'/>
                 <div
                     className={`z-20 absolute top-4 right-4 ${stared ? '' : 'hidden opacity-0 group-hover/preview:block group-hover/preview:opacity-100 transition-opacity duration-300'}`}
@@ -76,10 +78,28 @@ export default function Preview({
                     {info}
                 </div>
                 <div className="">{tag}</div>
+            </div> */}
+            <div style={{gridColumnGap: "18px",
+    padding: "24px 20px 18px 24px",
+    display: "flex"}}>
+                <Image src={imgSrc} alt='404 Not Found' className="image"></Image>
+                <div style={{gridRowGap: "10px",
+    flexDirection: "column",
+    alignSelf: "center",
+    display: "flex",}}>
+                    <div className="title-home">{info}</div>
+                    <div className="title-small">{tag}</div>
+                </div>
+
+            </div>
+            <div className="copy">
+            {title}
             </div>
         </div>
     )
 }
+
+                {/* <PreviewImage imgSrc={imgSrc} imgAlt={imgAlt} url={url}/> */}
 
 const PreviewImage = React.memo(function PreviewImage({
     imgSrc, imgAlt, url

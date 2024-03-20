@@ -30,190 +30,27 @@ import search from '@/utils/search';
 import SearchBar from '@/components/common/SearchBar/SearchBar';
 import Editor from '@/components/common/Editor/Editor';
 const { Paragraph, Text, Title } = Typography;
+import Chang2 from '@/public/images/background/chang2.png'
+import Chang3 from '@/public/images/background/chang3.png'
+import { BRICES_FONT, MAIN_FONT } from '@/styles/fonts';
 
-const cookies = new Cookies();
 export default function Profile() {
-
-  const searchParams = useSearchParams();
-  const studentid = searchParams.get('studentid') || '';
-
-  const [name, setName] = useState("");
-  const [birth, setBirth] = useState("");
-  const [mssv, setMSSV] = useState("");
-  const [bio, setBio] = useState("");
-  const [changedImage, hasChangedImage] = useState(false);
-  const [setUpAccount, hasSetUpAccount] = useState(true);
-  const [personalInfo, finishedPersonalInfo] = useState(true);
-  const [biography, hasBiogrpahy] = useState(true);
-  const [other, setOther] = useState(false);
-  const [docData, setDocData] = useState<DocumentClass[]>([]);
-  const router = useRouter();
-  const [percentage, setPercentage] = useState(20);
-  const currentStudentId = cookies.get('studentid');
-  const [otherAvt, setOtherAvt] = useState('')
-  const [searchDoc, setSearchDoc] = useState('');
-  const handleSearchDoc = useDebouncedCallback((search) => {
-    setSearchDoc(search)
-  }, 300)
-  const filterDoc = useMemo(() => search(searchDoc, docData, ['name', 'subjectName']), [docData, searchDoc])
-
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-
-  const dispatch = useDispatch();
-  const { avtLink } = useSelector(authSelector)
-
-  useEffect(() => {
-    if (studentid != currentStudentId) setOther(true);
-    Fetcher.get<any, UserInfoResponse>('/users/' + studentid)
-      .then((response) => {
-        // dispatch(authActions.updateAuthState({
-        //   avtLink: response.avatar
-        // }))
-        setOtherAvt(response.avatar)
-        setMSSV(response.studentId);
-        setName(response.name);
-        setBirth(response.date);
-        setBio(response.bio);
-      }).catch((error) => {
-        if (error.status == 401) {
-          router.push('/signin');
-        }
-        else if (error.status == 404) {
-          router.push('/');
-        }
-      });
-
-    Fetcher.get<any, Omit<DocumentClass, 'ext'>[]>('/document/getMyDocumentByStudentId', {
-      params: {
-        "studentId": studentid,
-      }
-    }).then((response) => {
-      let data = response;
-      for (let i = 0; i < data.length; i++) {
-        let time = data[i].createdAt.split('-');
-        let date = time[2].split('T');
-        data[i].createdAt = date[0] + '/' + time[1] + '/' + time[0];
-
-      }
-      setDocData(response.map((g) => ({ ...g, ext: getExtOfFile(g.link).ext })));
-    }).catch((error) => {
-
-    })
-  }, [studentid, currentStudentId, other, router, dispatch]);
-
-  useEffect(() => {
-    setPercentage(20);
-    if (avtLink) {
-      hasChangedImage(true);
-      setPercentage(p => p + 30);
-    } else {
-      hasChangedImage(false);
-    }
-    if (bio) {
-      hasBiogrpahy(true);
-      setPercentage(p => p + 20);
-    } else {
-      hasBiogrpahy(false);
-    }
-    if (name && mssv && birth) {
-      finishedPersonalInfo(true);
-      setPercentage(p => p + 30);
-    } else {
-      finishedPersonalInfo(false);
-    }
-  }, [bio, name, avtLink, birth, mssv])
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] as File | undefined;
-    if (file) {
-      setSelectedFile(file);
-    } else {
-      setSelectedFile(null); // To clear the selected file
-    }
-  };
-
-  const handleFinishEditName = (newName: string) => {
-    dispatch(authActions.updateAuthState({
-      name: newName
-    }))
-    setName(newName);
-    Fetcher.put('/users/', {
-      "name": newName,
-      "avatar": avtLink,
-      "birth": birth,
-    }).then((response) => {
-
-    }).catch((error) => {
-
-    });
-  }
-
-  const handleFinishEditBirth: DatePickerProps['onChange'] = (date, dateString) => {
-    setBirth(dateString);
-    Fetcher.put('/users/', {
-      "name": name,
-      "avatar": avtLink,
-      "birth": dateString,
-    }).then((response) => {
-
-    }).catch((error) => {
-
-    });
-  }
-
-  const handleFinishEditBio = (newBio: string) => {
-    setBio(newBio);
-    Fetcher.post('/users/changeBio', {
-      "bio": newBio,
-    }).then((response) => {
-
-    }).catch((error) => {
-
-    });
-  }
-
-  const changeImage = () => {
-    if (selectedFile) {
-      const fileExtension = selectedFile.name.split('.').pop();
-
-      const allowedExtensions = ["jpg", "jpeg", "png"];
-
-      if (fileExtension && allowedExtensions.includes(fileExtension)) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          if (e.target) {
-            const dataURL = e.target.result as string;
-            dispatch(authActions.updateAuthState({
-              avtLink: dataURL
-            }))
-            hasChangedImage(true);
-          }
-        };
-        reader.readAsDataURL(selectedFile);
-        const formData = new FormData();
-        formData.append('up', selectedFile);
-        Fetcher.post('/users/changeAvatar', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          }
-        }).then((response) => {
-
-        }).catch((error) => {
-
-        });
-      }
-      else {
-        alert("Vui lòng upload ảnh bằng JPG hoặc PNG.");
-      }
-    }
-  };
 
   return (
     <main className='min-h-screen'>
-        <div className='flex items-center justify-center m-12 mb-24'>
-            <div className='bg-[#AAD576] font-bold text-3xl rounded-full inline-block px-3'>
-              Chặng 3: Diễn đàn trao đổi
+        <div className='absolute top-[-148px]' style={{width: '100%', height: '400px', position: 'relative'}}>
+          <Image src={Chang3} alt="home_main" fill sizes="100vw"/>
+          
+          <div className="flex relative items-center text-center justify-center pt-[148px]" style={{display: 'flex', color: 'white', fontSize: '48px', zIndex: 2}}> 
+            <div className="">
+              <p className={BRICES_FONT.className} style={{color: "#E8751A"}}>Chặng 3</p> 
+              <p className='font-bold text-white'>Diễn đàn trao đổi</p>
+              <p className="text-xl"> Tham gia cộng đồng văn học chia sẻ ý kiến, kiến thức và kinh nghiệm.</p>
             </div>
+          </div>
+          <div className="z-[1] absolute w-full h-full top-0" style={{background: 'linear-gradient(0deg, rgba(225,240,218,1) 0%, rgba(0,0,0,0.5501050762101716) 50%, rgba(0,0,0,0.8582283255098915) 100%)'}}>
+
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 grid-cols-1 gap-10 relative mx-16">

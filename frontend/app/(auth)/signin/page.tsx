@@ -282,7 +282,7 @@ export default function SignIn() {
         <div className="absolute z-[100] text-white flex flex-col items-center justify-center w-full">
           <p className="tracking-tighter text-white text-[48px] font-bold"> Bạn chưa có tài khoản? </p>
           <button className=" hover:bg-white hover:text-green-900 bg-green-200 bg-green-900 text-[36px] my-6 font-mainfont px-8 py-2">
-            <Link href="/signin">
+            <Link href="/signup">
               Tạo tài khoản mới thôi!
               {/* <Avatar className="" src={'https://static.vecteezy.com/system/resources/previews/024/241/000/original/colorful-shiba-inu-dog-shiba-inu-portrait-dog-sticker-clip-art-dog-lover-design-ai-generated-png.png'} size={96}></Avatar> */}
               {/* <div className="text-[64px] text-sky-700 font-bold my-8 tracking-tighter">UETable</div> */}

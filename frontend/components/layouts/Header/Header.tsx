@@ -4,6 +4,7 @@ import { THEME } from "@/styles/theme";
 import React, { ReactNode, useEffect, useRef, useState } from "react";
 import LogoIcon from '../../../public/images/logo.png';
 import LogoIconDark from '../../../public/images/logo_dark.png';
+import LogoUET from '../../../public/images/uet-logo.svg';
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "@/redux/auth/authSlice";
 import { authSelector } from "@/redux/auth/authSelector";
@@ -33,6 +34,8 @@ interface TabProps {
 
 import Cookies from 'universal-cookie';
 const cookies = new Cookies()
+
+const links = ['/', '/chang-1', '/chang-2', '/chang-3']
 
 
 export default function Header() {
@@ -95,7 +98,7 @@ export default function Header() {
   const pathName = usePathname();
   console.log(pathName)
 
-  const isHome = pathName === '/';
+  const isHome = links.includes(pathName);
 
   return isHome ? (
     <header
@@ -211,20 +214,21 @@ export default function Header() {
     </header>
   )
   : (    <header
-    className="sticky w-full top-0 z-[1000]"
+    className="sticky w-full top-0  z-[1000] bg-white shadow"
     style={{
       transition: 'padding-left 0.3s ease-in-out',
-      background: `url(${HomeMain.src})`,
-      backgroundRepeat: 'no-repeat',
+      // background: `url(${HomeMain.src})`,
+      // backgroundRepeat: 'no-repeat',
       // backgroundSize: '100% 100%'
     }}
   >
-    <div className="z-[1] absolute w-full h-full top-0" style={{backgroundColor: 'rgba(0, 0, 0, 0.6'}}>
+    <div className="z-[1] absolute w-full h-full top-0" style={{ transition: 'border-radius 0.3s ease-in-out',
+          boxShadow: 'inset 1px 0px 0px #F4F4F4, inset 0 -1px 0px #EFEFEF'}}>
 
    </div>
 
     <div
-      className="relative flex items-center h-[100px] px-8 z-[100]"
+      className="relative flex items-center px-8 z-[100] h-[80px]"
       style={{
         // borderTopLeftRadius: scroll ? 0 : THEME.LAYOUT_ELEMENT_BORDER_RADIUS,
         // borderBottomLeftRadius: scroll ? 0 : THEME.LAYOUT_ELEMENT_BORDER_RADIUS,
@@ -233,29 +237,29 @@ export default function Header() {
     >
       <div className="flex-1 text-lg md:flex-row flex-col md:items-center items-start gap-5 md:flex">
         <h3 className="m-1 group"> 
-          <a href="/" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
-            <Image src={LogoIcon} alt="logo" height={200} />
+          <a href="/" className="text-primary font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+            <Image src={LogoUET} alt="logo" height={50} className="mr-8"/>
           </a>
           
           {/* <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div> */}
         </h3>
 
         <h3 className="m-1 group"> 
-          <a href="/chang-1" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+          <a href="/chang-1" className="text-primary font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
             Chặng 1: Dữ liệu đa phương thức
           </a>
           <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
         </h3>
 
         <h3 className="m-1 group"> 
-          <a href="/chang-2" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+          <a href="/chang-2" className="text-primary font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
             Chặng 2: Trò chơi kiểm tra tri thức
           </a>
           <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
         </h3>
 
         <h3 className="m-1 group"> 
-          <a href="/chang-3" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+          <a href="/chang-3" className="text-primary font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
             Chặng 3: Diễn đàn trao đổi
           </a>
           <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
