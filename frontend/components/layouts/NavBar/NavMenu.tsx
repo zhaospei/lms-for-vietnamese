@@ -14,7 +14,22 @@ import { useAutoAnimate } from '@formkit/auto-animate/react';
 import LinkIcon from '@/components/common/(Icons)/NavIcons/LinkIcon';
 import { usePathname, useRouter } from 'next/navigation';
 import _, { isUndefined } from 'lodash';
-import { accessibleRoute, cookies } from '@/app/(dashboard)/layout';
+// import { accessibleRoute, cookies } from '@/app/(dashboard)/layout';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies()
+
+const publicRoutes: AllRouteKey[] = ['', 'links']
+
+function accessibleRoute(pathName: string) {
+    const pathKey = pathName.split('/').slice(1);
+    if (isUndefined(cookies.get('authToken'))) {
+        let check: boolean = false
+        for (const subKey of pathKey)
+            check = check || publicRoutes.includes(subKey as AllRouteKey)
+        return check
+    }
+    return true;
+}
 
 type GroupKey = 'general' | 'explore';
 type MenuKey = '' | 'schedule' | 'mysubjects' | 'all-subjects' | 'statistic' | 'links';

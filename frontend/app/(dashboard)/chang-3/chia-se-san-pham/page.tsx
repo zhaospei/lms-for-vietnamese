@@ -36,6 +36,7 @@ import {CauHoiType} from '@/types/cauhoi';
 import ClipLoader from "react-spinners/ClipLoader";
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import HeartIcon from "@/components/common/(Icons)/HeartIcon";
+import TitleWithFont from '@/components/common/TitleWithFont';
 
 const cookies = new Cookies();
 export default function Profile() {
@@ -184,23 +185,18 @@ const changeImage = () => {
   };
 
   return (
-    <main className='min-h-screen'>
-        <div className='flex items-center justify-center m-12'>
-            <div className='bg-[#AAD576] font-bold text-3xl rounded-full inline-block px-3'>
-              Chia sẻ sản phẩm chuyên đề ngữ văn 10
-            </div>
-        </div>
-        
-        
-        
+    <main className='min-h-screen mt-[50px]'>
         <div className='flex max-w-5xl mx-auto flex-col'>
-          
+          <div className='text-[#c04826]'>
+              <TitleWithFont title='Chia sẻ sản phẩm' className='text-5xl'></TitleWithFont>
+              <TitleWithFont title='Chuyên đề ngữ văn 10' className='text-7xl'></TitleWithFont>
+          </div>
             <div className='mb-12'>
                 <div className="flex justify-end items-end mt-2">
-                    <button className="flex items-center text-xl font-bold text-white 
-                    rounded-lg bg-[#143601] px-4 py-2 hover:bg-dark-primary"
+                    <button className="flex items-center text-xl font-bold text-[#c04826] 
+                     bg-transparent px-4 py-2 hover:bg-[#c04826] hover:text-white border-dotted	border-2 border-[#c04826]"
                         onClick={toggleOpen}>
-                        <EditIcon color='white' className='group-hover:fill-black mr-4' size='20px' />
+                        <EditIcon color='#c04826' className='group-hover:fill-black mr-4' size='20px' />
                         Chia sẻ sản phẩm
                     </button>
                     {/* <UserUpload

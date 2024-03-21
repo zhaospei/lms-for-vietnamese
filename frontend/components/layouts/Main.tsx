@@ -23,7 +23,6 @@ export default function Main({
             <main
                 className={twMerge(`
                 bg-secondary
-                p-8
                 min-h-[calc(100vh-109px)]
                 shadow
             `,

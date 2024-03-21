@@ -80,22 +80,6 @@ export default function Profile() {
         }
       });
 
-    Fetcher.get<any, Omit<DocumentClass, 'ext'>[]>('/document/getMyDocumentByStudentId', {
-      params: {
-        "studentId": studentid,
-      }
-    }).then((response) => {
-      let data = response;
-      for (let i = 0; i < data.length; i++) {
-        let time = data[i].createdAt.split('-');
-        let date = time[2].split('T');
-        data[i].createdAt = date[0] + '/' + time[1] + '/' + time[0];
-
-      }
-      setDocData(response.map((g) => ({ ...g, ext: getExtOfFile(g.link).ext })));
-    }).catch((error) => {
-
-    })
   }, [studentid, currentStudentId, other, router, dispatch]);
 
   useEffect(() => {
@@ -222,7 +206,7 @@ export default function Profile() {
                 <Paragraph className="font-semibold text-lg pt-3">{birth}</Paragraph>
               </div>
               <div className='flex-col'>
-                <label className="font-light text-gray-500">Mã số sinh viên</label>
+                <label className="font-light text-gray-500">Tài khoản email</label>
                 <Paragraph className="font-semibold text-lg pt-3">{mssv}</Paragraph>
               </div>
             </div>
@@ -268,7 +252,7 @@ export default function Profile() {
                     <DatePicker className='font-semibold text-lg' onChange={handleFinishEditBirth} value={dayjs(birth, 'YYYY-MM-DD')} />
                   </div>
                   <div className="flex-col">
-                    <div className="font-light text-gray-500">Mã số sinh viên</div>
+                    <div className="font-light text-gray-500">Tài khoản email</div>
                     <Paragraph className="font-semibold text-lg pt-3">{mssv}</Paragraph>
                   </div>
                 </div>
@@ -307,59 +291,6 @@ export default function Profile() {
               )
             }
 
-            <div className="w-full bg-white border rounded-2xl hover:shadow p-6">
-            <div className="flex mb-4 gap-5 items-center">
-              <span className="font-bold text-2xl ">Tài liệu</span>
-              <SearchBar
-                placeholder='Tìm kiếm tài liệu'
-                onChange={(e) => handleSearchDoc(e.target.value)}
-                className='h-[40px] w-[25vw]'
-              />
-            </div>
-              {filterDoc.length === 0 ?
-                <Text strong type='secondary' italic>Không có tài liệu</Text>
-              :
-              <List>
-                {
-                  filterDoc.map((doc) => {
-                    return (
-                      <List.Item key={doc.id}>
-                        <Link
-                          href={getURL('/all-subjects/documents/details', {
-                            documentId: doc.id
-                          })}
-                          className='w-full'
-                        >
-                          <div className='flex w-full items-center'>
-                            <div className='flex gap-1 items-center'>
-                              <DocumentImage ext={doc.ext} />
-                              <p>
-                                <Text strong className='text-inherit'>{doc.name}</Text> <br />
-                                <Text type='secondary' strong>{`${doc.subjectName}`}</Text>
-                              </p>
-                            </div>
-                          </div>
-                        </Link>
-                        <div className='flex flex-col gap-2 ml-auto'>
-                          <Space size={'large'}>
-                            <Space className=''>
-                              <LikeIcon />
-                              <Text strong>{doc.like}</Text>
-                            </Space>
-                            <Space>
-                              <DownloadIcon className='fill-contrast' size={'1.5em'} />
-                              <Text strong>{doc.download}</Text>
-                            </Space>
-                          </Space>
-                          <Text strong type='secondary'>{doc.createdAt}</Text>
-                        </div>
-                      </List.Item>
-                    )
-                  })
-                }
-              </List>
-              }
-            </div>
           </div>
         </div>
         {!other &&

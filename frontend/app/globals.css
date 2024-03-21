@@ -97,3 +97,14 @@ body {
 img {
   object-fit: cover;
 }
+
+.vanta { 
+  min-height: 300px;
+  color: white;
+  padding: 20px;
+  font-size: 24px;
+}
+
+a:hover {
+  color: rgb(34 197 94)
+}

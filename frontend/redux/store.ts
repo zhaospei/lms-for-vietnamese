@@ -4,13 +4,15 @@ import { scheduleReducer } from "./schedule/scheduleSlice";
 import { semesterReducer } from "./semester/semesterSlice";
 import { useDispatch } from "react-redux";
 import { allSubjectsReducer } from "./allsubjects/allSubjectsSlice";
+import { boSachReducer } from "./bosach/bosachSlice";
 
 export const store = configureStore({
     reducer: {
         auth: authReducer,
         schedule: scheduleReducer,
         semester: semesterReducer,
-        allSubjects: allSubjectsReducer
+        allSubjects: allSubjectsReducer,
+        boSach: boSachReducer
     }
 });
 

@@ -73,7 +73,7 @@ export default function NavBar() {
                         expand &&
                         <Link href='/'>
                             <div className="text-3xl font-extrabold tracking-wide text-primary">
-                                UETable
+                                Chinh phục chuyên đề ngữ văn 10
                             </div>
                         </Link>
                     }

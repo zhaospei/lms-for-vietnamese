@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="main.js"></script>  
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function(){
+
+            var questions = [
+                ['Câu 1: Đặc điểm cơ bản của văn học dân gian bao gồm:',
+                'A.  Tính nguyên hợp, tính tập thể, tính truyền miệng , tính diễn xướng, tính dị bản.',
+'B. Tính truyền miệng,  tính diễn xướng, tính ước lệ, tượng trưng',
+'C. Tính nguyên hợp, tính tập thể, tính vô ngã, tính sùng cổ, tính truyền miệng',
+'D. Tính giáo huấn, tính nguyên hợp, tính dị bản, tính bác học và cao nhã',
+'A'],
+[
+'Câu 2: Điền từ vào chỗ trống: (....) loại văn bản trình bày kết quả tìm hiểu, khám phá sâu về một vấn đề xã hội hoặc văn học và những kiến giải riêng của người viết về vấn đề nghiên cứu đó trên cơ sở các thông tin phong phú thu thập được.',
+'A. Thư từ',
+'B. Báo cáo khoa học',
+'C. Hồ sơ nghiên cứu',
+'D. Báo cáo cá nhân',
+'B'],
+['Câu 3: Thông thường, một bài báo cáo khoa học có cấu trúc như thế nào?',
+'A. Ý kiến của người viết; Ý kiến của chuyên gia; Kết luận vấn đề; Tài liệu tham khảo.',
+'B. Lời mở đầu; Đánh giá vấn đề; Phân tích vấn đề; So sánh; Kết luận',
+'C. Đặt vấn đề/ Mở đầu; Giải quyết vấn đề/ Nội dung; Kết thúc vấn đề/ Kết luận; Mở rộng vấn đề, định hướng nghiên cứu mới',
+'D. Đặt vấn đề/ Mở đầu; Giải quyết vấn đề/ Nội dung; Kết thúc vấn đề/ Kết luận; Tài liệu tham khảo; Phụ lục. ',
+'D'],
+[
+'Câu 4. Hoạt động đầu tiên khi tập nghiên cứu một vấn đề văn học dân gian là?',
+'Tìm tài liệu để đọc',
+'Xác định vấn đề cần nghiên cứu',
+'Lập kế hoạch nghiên cứu',
+'Đi phỏng vấn chuyên gia',
+'B'],
+
+['Câu 5. Vì sao cần phải tìm hiểu, trải nghiệm thực tiễn  khi tập nghiên cứu về văn học dân gian?',
+'A. Văn học dân gian gắn liền với đời sống lao động của nhân dân và được lưu truyền trong dân gian với nhiều dị bản.',
+'B. Văn học dân gian không  được ghi chép nhiều trong các tài liệu giấy.',
+'C. Văn học dân gian có tính ước lệ, tượng trưng khó hiểu nên phải tìm hiểu thực tế.',
+'D. Văn học dân gian có tính sùng cổ, tính nguyên hợp nên phải tìm hiểu từ người lớn tuổi mới hiểu rõ.',
+'A'],
+['Câu 6: Các bước thực hiện một báo cáo về một vấn đề văn học dân gian bao gồm:',
+'A. Bước 1: Lập kế hoạch → Bước 2: Viết báo cáo → Bước 3: Hỏi ý kiến chuyên gia → Bước 4: Hoàn thiện',
+'B. Bước 1: Chuẩn bị → Bước 2: Tìm ý, lập đề cương → Bước 3: Viết  → Bước 4: Chỉnh sửa, hoàn thiện',
+'C. Bước 1: Chuẩn bị → Bước 2: Lập hồ sơ tài liệu → Bước 3: Viết → Bước 4: Chỉnh sửa, hoàn thiện',
+'D. Bước 1: Lập kế hoạch → Bước 2: Viết → Bước 3: Chỉnh sửa → Bước 4: Lập hồ sơ tài liệu ',
+'B',],
+['Câu 7: Đâu là cách trích dẫn tài liệu tham khảo đúng?',
+'A. Nguyễn Đổng Chi , Kho tàng truyện cổ tích Việt Nam (2000) (tập 1), NXB Giáo dục, Hà Nội. ',
+'B. Nguyễn Đổng Chi (2000), Kho tàng truyện cổ tích Việt Nam (tập 1), NXB Giáo dục, Hà Nội. ',
+'C. Nguyễn Đổng Chi (2000), Kho tàng truyện cổ tích Việt Nam (tập 1), NXB Giáo dục, Hà Nội. ',
+'D. Kho tàng truyện cổ tích Việt Nam (tập 1), Nguyễn Đổng Chi (2000), NXB Giáo dục, Hà Nội.',
+'C'],
+['Câu 8: Điền từ vào chỗ trống: (....) là việc tổng hợp và sắp xếp văn bản tài liệu có được trong quá trình tìm hiểu đề tài, vấn đề thành hồ sơ theo những nguyên tắc phương pháp nhất định và mục tiêu nghiên cứu đã xác định. ',
+'A. Lập hồ sơ tài liệu',
+'B. Lập kế hoạch nghiên cứu',
+'C. Báo cáo khoa học',
+'D. Tiến hành viết báo cáo',
+'A'],
+['Câu 9: Điểm nào cần tránh khi lựa chọn đề tài nghiên cứu ?',
+'A. Đề tài phù hợp sở trường và hứng thú của HS/nhóm HS',
+'B. Đề tài rộng, bao quát nhiều vấn đề về văn học dân gian',
+'C. Đề tài gắn với một nội dung học tập, có thể tiếp tục mở rộng và khơi sâu.',
+'D. Đề tài học sinh có nhiều tư liệu, thông tin, có chuyên gia để hỏi ý kiến.',
+'B'], [
+'Câu 10: Nội dung cần phải có trong phần kết luận của báo cáo khoa học là ? ',
+'A. Nhận xét và đánh giá sức sống của đối tượng nghiên cứu trong đời sống hiện tại. ',
+'B. So sánh với các nghiên cứu đã có trước đó để khẳng định giá trị của đề tài báo cáo.',
+'C. Khẳng định giá trị đặc sắc của đối tượng nghiên cứu và nêu những vấn đề/ hướng cần tiếp tục nghiên cứu.',
+'D. Danh mục các tài liệu tham khảo được sử dụng trong báo cáo nghiên cứu và các chú thích cần có.',
+'C']
+
+]
+        
+            var oBox = document.getElementById('playBox');//游戏盒子
+            var audio = new Audio('sounds/background.mp3');
+            audio.play();
+			var gd = oBox.getContext('2d');//用来绘制元素
+            var aBox = document.getElementById('answerBox');//答案盒子
+            var aFish = [];//鱼数组
+            var fishs = [1, 2, 3, 1, 2, 3, 1, 2, 3, 3]
+            let answer = false;
+            let score = 100;
+            let curFish = 0;
+            let delayTime = 0;
+            let timeAnswer = 0;
+            let winGame = false;
+            let aX = 0;
+            let aY  = 0;
+            let time = 300;
+            let allFish = 10;
+            const BackgroundImg = new Image();
+            var params = location.href.split('?')[1].split('&');
+            data = {};
+            for (x in params){
+                data[params[x].split('=')[0]] = params[x].split('=')[1];
+            }
+            console.log(data);
+            BackgroundImg.src = 'images/background.png';
+            const Fish_1Img = new Image();
+            Fish_1Img.src = 'images/characters/fishmain/mainlv3/main.png';
+            const Fish_2Img = new Image();
+            Fish_2Img.src = 'images/characters/fishmain/mainlv3/main1.png';
+            const Fish_3Img = new Image();
+            Fish_3Img.src = 'images/characters/fishmain/mainlv3/main2.png';
+            const Fish_4Img = new Image();
+            Fish_4Img.src = 'images/characters/fishmain/mainlv3/main3.png';
+            const Fish_5Img = new Image();
+            Fish_5Img.src = 'images/characters/fishmain/mainlv3/main4.png';
+            const FishLV3_1Img = new Image();
+            FishLV3_1Img.src = 'images/characters/fishlv3/fishlv3.png';
+            const FishLV3_2Img = new Image();
+            FishLV3_2Img.src = 'images/characters/fishlv3/fishlv3_1.png';
+            const FishLV3_3Img = new Image();
+            FishLV3_3Img.src = 'images/characters/fishlv3/fishlv3_2.png';
+            const FishLV2_1Img = new Image();
+            FishLV2_1Img.src = 'images/characters/fishlv2/fishlv2.png';
+            const FishLV2_2Img = new Image();
+            FishLV2_2Img.src = 'images/characters/fishlv2/Fish2-1.png';
+            const FishLV2_3Img = new Image();
+            FishLV2_3Img.src = 'images/characters/fishlv2/Fish2-2.png';
+            const FishLV2_4Img = new Image();
+            FishLV2_4Img.src = 'images/characters/fishlv2/Fish2-3.png';
+            const FishLV1_1Img = new Image();
+            FishLV1_1Img.src = 'images/characters/fishlv1/fishlv1.png';
+            const FishLV1_2Img = new Image();
+            FishLV1_2Img.src = 'images/characters/fishlv1/fishlv1_1.png';
+            const FishLV1_3Img = new Image();
+            FishLV1_3Img.src = 'images/characters/fishlv1/fishlv1_2.png';
+
+            function checkColison(x, y, Box) {
+                if (x < Box.right &&
+                    x > Box.left && 
+                    y < Box.bottom &&
+                    y > Box.top) {
+                        return true;
+                    }
+                return false;
+            }
+
+            function nextFish(i) {
+                if (i > 9) return;
+                setTimeout(function(){
+                    // var _fish = fishs[Math.floor(Math.random() * fishs.length)];
+                    var _fish = fishs[i];
+                    var oF = new Fish(50, 25, [Fish_1Img, Fish_2Img, Fish_3Img, Fish_4Img, Fish_5Img], 1, 1);
+                    if (_fish === 1) {
+                        oF = new Fish(50, 25, [FishLV1_1Img, FishLV1_2Img, FishLV1_3Img], 100, 1);
+                    } else if (_fish == 2) {
+                        oF = new Fish(60, 30, [FishLV2_1Img, FishLV2_2Img, FishLV2_3Img, FishLV2_4Img], 200, 1);
+                    } else if (_fish == 3) {
+                        oF = new Fish(100, 50, [FishLV3_1Img, FishLV3_2Img, FishLV3_3Img], 300, -1);
+                    }
+
+                    oF.question = questions[i][0];
+                    oF.A = questions[i][1];
+                    oF.B = questions[i][2];
+                    oF.C = questions[i][3];
+                    oF.D = questions[i][4];
+                    oF.answer = questions[i][5];
+                    
+                    // if (Math.random() < 0.5){
+                    oF.x = 0
+                    if (oF.rotate == 1) {
+                        oF.x = oBox.width?? 0;
+                    }
+                    oF.y = Math.random() * ((oBox.height?? 0) - 100) + 100;
+                    // oF.y = 100;
+                    // oF.score = 1;
+                    aFish.push(oF);
+                    nextFish(i + 1);
+                }, 1000);
+                // return oF;
+            }
+            nextFish(0);
+            
+                
+
+            // var oF = new Fish(150, 75, [Fish_1Img, Fish_2Img, Fish_3Img, Fish_4Img, Fish_5Img], 1, -1);
+            // aFish.push(oF)
+            const mainFish = new MainFish(100, 50, [Fish_1Img, Fish_2Img, Fish_3Img, Fish_4Img, Fish_5Img], 1, 1);
+                var gameLoop = setInterval(() => {
+                    // console.log(aFish.length)
+                    if (allFish == 0) {
+                        winGame = true;
+                        aBox.style.display = 'flex';
+                        aBox.innerHTML = 'Chúc mừng bạn đã hoàn thành trò chơi với số điểm là: ' + score;
+                    }
+                    if (winGame) {
+                        clearInterval(gameLoop);
+                        fetch('http://112.137.129.161:8000/api/users/changeScore', {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': 'Bearer ' + data['authToken'],
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({score: parseInt(score)})  
+                            })
+                            .then(resp => resp.json())
+                            .then(json => console.log(JSON.stringify(json)))
+                    }
+                    if (!answer) {
+                        if (curFish < 100) {
+                            aFish.splice(curFish--, 1);
+                            console.log(curFish);
+                            curFish = 1000;
+                            allFish--;
+                        }
+                    
+                        delayTime -= 1;
+                        if (delayTime < 0) delayTime = 0;
+
+                    // if (oBox != null && gd != null) {
+                        const context = oBox.getContext("2d");
+                        // gd.fillStyle = "#000000"
+                        // gd.fillRect(0, 0, gd.canvas.width, gd.canvas.height)
+                        // console.log(aFish);
+                        // .onload = () => {
+                        if (context != null) {
+                            context.clearRect(0, 0, context?.canvas.width, context?.canvas.height);
+                            context.drawImage(BackgroundImg, 0, 0)
+                        }
+                        // // console.log("OK");
+                        
+                            for(let i = 0; i < aFish.length; i++){
+                                // if(util.isNotInScreen(oBox.width, oBox.height, aFish[i], 75)){
+                                //     aFish.splice(i--, 1);
+                                //     // aFish
+                                //     continue;
+                                // }
+                                aFish[i].move(context);
+                                // console.log(aFish[i].x, aFish[i].y, aFish[i].w, aFish[i].h, aFish[i].frame[aFish[i].nowFrame]);
+                                // if (context != null) context.drawImage(aFish[i].frame[aFish[i].nowFrame], aFish[i].x, aFish[i].y, aFish[i].w, aFish[i].h);
+                                aFish[i].draw(context);
+                            };
+                            mainFish.draw(context);
+                            mainFish.move(context);
+                            if (delayTime == 0) {
+                                for(let f = 0; f < aFish.length; f++){ 
+                                    
+                                    // console.log(util.isNotCollision(aFish[f], mainFish));
+                                    if (
+                                        aFish[f].x < mainFish.x + mainFish.w &&
+                                        aFish[f].x + aFish[f].w > mainFish.x &&
+                                        aFish[f].y < mainFish.y + mainFish.h &&
+                                        aFish[f].y + aFish[f].h > mainFish.y    
+                                    ) {
+                                    // if (util.isNotCollision(aFish[f], MainFish) == true) {
+                                        console.log("OK");
+                                        // setAnswer((old) =>  true);
+
+                                        answer = true;
+                                        aBox.style.display = 'flex';
+                                        console.log(aFish[f])
+                                        var QBox = document.getElementById('cauhoi');
+                                        var ABox = document.getElementById('A');
+                                        var BBox = document.getElementById('B');
+                                        var CBox = document.getElementById('C');
+                                        var DBox = document.getElementById('D');
+                                        aX = mainFish.x;
+                                        aY = mainFish.y;
+                                        
+                                        // setAnswer((oldValue) => !oldValue);
+                                        QBox.innerHTML = aFish[f].question;
+                                        ABox.innerHTML = aFish[f].A;
+                                        BBox.innerHTML = aFish[f].B;
+                                        CBox.innerHTML = aFish[f].C;
+                                        DBox.innerHTML = aFish[f].D;
+                                        QBox.className = "";
+                                        QBox.classList.add(aFish[f].answer);
+                                        timeAnswer = 15;
+                                        curFish = f;
+                                        break;
+                                        
+                                        // console.log(answer);
+                                        // aFish.splice(f--, 1);
+                                        // console.log(aFish);
+                                    }
+                                }
+                            }
+                        }
+                    // }
+                }, 16);
+                setInterval(function(){
+                    for(var i = 0; i < aFish.length; i++){
+                        aFish[i].nextFrame();
+                    }
+                    mainFish.nextFrame();
+                    // for(var i = 0; i < aCoin.length; i++){
+                    //     aCoin[i].nextFrame();
+                    // }
+                    // for(var i = 0; i < aDeadFish.length; i++){
+                    //     aDeadFish[i].nextFrame();
+                    // }
+                    // cannon.nextFrame();
+                }, 150);
+
+                setInterval(function() {
+                    const timeAnswerBox = document.getElementById('time-answer');
+                    if (timeAnswerBox) {
+                        timeAnswerBox.innerHTML = timeAnswer;
+                    }
+                    time = time - 1;
+                    const timeBox = document.getElementById('time-all');
+                    if (timeBox) {
+                        var cc = ''
+                        cc = Math.floor(time / 60) + '-';
+                        if (time % 60 < 10) {
+                            cc += '0';
+                        }
+                        cc += time % 60;
+                        timeBox.innerHTML = cc;
+                    }
+                    if (time < 0) {
+                        winGame = true;
+                    }
+                    
+                    timeAnswer -= 1;
+                    if (timeAnswer < 0) {
+                        timeAnswer = 0;
+                    }
+                    if (timeAnswer == 0 && answer) {
+                        curFish = 1000;
+                        aBox.style.display = 'none';
+                        answer = false;
+                        delayTime = 100;
+                    }
+                }, 1000);
+                const handler = (e) => {
+                    // console.log({x: e.clientX, y: e.clientY})
+                    const currentPoint = computePointInCanvas(e)
+                    if (!currentPoint) return
+
+                    if (!answer) {
+                    // console.log(currentPoint)
+                        mainFish.wX = currentPoint.x - 50;
+                        mainFish.wY = currentPoint.y;
+                    }
+                }
+
+                const computePointInCanvas = (e) => {
+                    const canvas = oBox
+                    if (!canvas) return
+
+                    const rect = canvas.getBoundingClientRect()
+                    const x = e.clientX - rect.left
+                    const y = e.clientY - rect.top
+
+                    return {x, y}
+                }
+
+                oBox.addEventListener('mousemove', handler)
+
+                document.onclick = function(ev){
+                    if (answer) {
+						var x1 = ev.pageX;
+						var y1 = ev.pageY;
+                        var QBox = document.getElementById('cauhoi');
+                        var ABox = document.getElementById('A').getBoundingClientRect();
+                        var BBox = document.getElementById('B').getBoundingClientRect();
+                        var CBox = document.getElementById('C').getBoundingClientRect();
+                        var DBox = document.getElementById('D').getBoundingClientRect();
+						var cur = 'X'
+                        if (checkColison(x1, y1, ABox)) {
+                            cur = 'A'
+                        } else if (checkColison(x1, y1, BBox)) {
+                            cur = 'B'
+                        } else if (checkColison(x1, y1, CBox)) {
+                            cur = 'C'
+                        } else if (checkColison(x1, y1, DBox)) {
+                            cur = 'D'
+                        }
+                        console.log(cur);
+                        // console.log(QBox.classList)
+                        if (cur != 'X') {
+                            var animationBox = document.getElementById('animationBox');
+                            var chuoiBox = document.getElementById('chuoi');
+                            var sadBox = document.getElementById('sad');
+                            animationBox.style.left = aX + 'px';
+                            animationBox.style.top = aY + 'px';
+                            if (cur == QBox.classList[0]) {
+                                var cscore = aFish[curFish].score + (timeAnswer - 15) * aFish[curFish].score * 0.01;
+                                score += cscore;
+                                var scoreBox = document.getElementById('score');
+                                animationBox.innerHTML = '+' + parseInt(cscore); 
+                                animationBox.style.color = 'green';
+                                animationBox.style.display = 'block';
+                                scoreBox.innerHTML = parseInt(score);
+                                chuoiBox.style.display = 'block';
+                                
+                                console.log(score);
+                            } else {
+                                aFish[curFish].score -= aFish[curFish].score * 0.1;
+                                curFish = 1000;
+                                animationBox.innerHTML = 'Sai rồi!'
+                                animationBox.style.color = 'red';
+                                animationBox.style.display = 'block';
+                                sadBox.style.display = 'block'
+                            }
+                            aBox.style.display = 'none';
+                            
+                            setTimeout(function() {
+                                animationBox.style.display = 'none';
+                                chuoiBox.style.display = 'none';
+                                sadBox.style.display = 'none';
+                            }, 1000);
+                            
+                            answer = false;
+                            delayTime = 100;
+                        }
+					};
+                }
+                // return () => oBox.addEventListener('mousemove', handler)
+            }, false);
+  // State variables to manage recording status, completion, and transcript
+  
+
+  // Render the microphone component with appropriate UI based on recording state
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+        #answerBox {
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        #animationBox {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            background-color: white;
+            border-radius: 10px;
+            animation-name: example;
+            animation-duration: 1s;
+            padding: 10px;
+        }
+
+        #scoreBox {
+            font-family: 'Work Sans', sans-serif;
+            position: absolute;
+            display: flex;
+            top: 20px;
+            left: 200px;
+            /* padding: 20px; */
+            color: white;
+            background-color: rgba(0, 0, 0, 0.588);
+            font-size: 24px;
+            font-weight: 800;
+            z-index: 100;
+        }
+
+        .answerB {
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            /* margin: 10px; */
+            cursor: pointer;
+        }
+
+        .correct {
+            color: green;
+            border-color: green;
+        }
+
+        .wrong {
+            color: red;
+            border-color: red;
+        }
+        @keyframes example {
+            0%   { font-size: 10px;}
+            100%  { font-size: 20px;}
+        }
+    </style>
+</head>
+<body>
+    <canvas id="playBox" width="1024" height="600">
+
+    </canvas>
+
+    <div id="scoreBox">
+        <div style="padding-left: 10px;"> Thời gian:</div> 
+        <div id="time-all" style="margin-left: 10px;">
+            0-0
+        </div>
+        <div style="margin-left: 20px;"> Điểm: </div> 
+        <div id="score" style="margin-left: 20px; padding-right: 10px;">
+            0
+        </div>
+
+    </div>
+
+    
+
+    <div id='animationBox' style="display: none; position: absolute; z-index: 1; top: 0;  color: rgb(92, 244, 92)">
+        +100
+    </div>
+
+
+    <div id='answerBox' style="box-sizing: border-box; padding: 20px; display: none; flex-direction: column; justify-content: flex-end; width: 1024px; height: 600px; position: absolute; z-index: 1; top: 0; background-color: rgba(0, 0, 0, 0.7); color: white">
+        <div>
+            <image src="https://media4.giphy.com/media/SqfHFPbzxw98xwFOiE/200.gif?cid=6c09b952wss8ut67nv82r1mp6uvm6spr4dz2n6c4g0eo43u9&ep=v1_gifs_search&rid=200.gif&ct=g"></image>
+        </div>
+        <div id='time-answer' style="font-size: 36px; font-weight: 800; margin-bottom: 20px; ">
+            0
+        </div>
+        <div id='cauhoi' style="font-size: larger; margin-bottom: 20px;">
+            Điền từ vào chỗ trống: (....) là việc tổng hợp và sắp xếp văn bản tài liệu có được trong quá trình tìm hiểu đề tài, vấn đề thành hồ sơ theo những nguyên tắc phương pháp nhất định và mục tiêu nghiên cứu đã xác định. 
+        </div>
+        <div style="display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;">
+            <div id='A' class="answerB">
+                A. Nguyễn Đổng Chi , Kho tàng truyện cổ tích Việt Nam (2000) (tập 1), NXB Giáo dục, Hà Nội. 
+            </div>
+            <div id='B' class="answerB">
+                B. Nguyễn Đổng Chi (2000), Kho tàng truyện cổ tích Việt Nam (tập 1), NXB Giáo dục, Hà Nội. 
+            </div>
+            <div id='C' class="answerB">
+                C. Nguyễn Đổng Chi (2000), Kho tàng truyện cổ tích Việt Nam (tập 1), NXB Giáo dục, Hà Nội. 
+            </div>
+            <div id='D' class="answerB">
+                D. Kho tàng truyện cổ tích Việt Nam (tập 1), Nguyễn Đổng Chi (2000), NXB Giáo dục, Hà Nội. 
+            </div>
+        </div>
+
+    </div>
+    <div id="chuoi" style="display: none; position: absolute; top: 0; left: 600px">
+        <image width="200px" src="https://cdn.pixabay.com/animation/2023/02/11/17/56/17-56-09-296_512.gif"></image>
+    </div>
+
+    <div id="sad" style="display: none; position: absolute; top: 20px; left: 600px">
+        <image width="200px" src="https://media2.giphy.com/media/OPU6wzx8JrHna/200w.gif?cid=6c09b952674zfht7cplrtsiqkmls9665wjghtwdzqunhx9kp&ep=v1_gifs_search&rid=200w.gif&ct=g"></image>
+    </div>
+
+    
+</body>
+</html>

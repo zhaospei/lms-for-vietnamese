@@ -3,15 +3,20 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { CloseCircleFilled, CloseCircleTwoTone, EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons'
 import Fetcher from '@/api/Fetcher'
+import LogoIcon from '../../../public/images/logo_dark.png';
 import { useDispatch, useSelector } from 'react-redux'
 import { authSelector } from '@/redux/auth/authSelector'
+import HomeImage from '@/public/images/home_main.png';
 import { authActions } from '@/redux/auth/authSlice'
 import { useRouter } from 'next/navigation'
-import { cookies } from '@/app/(dashboard)/layout'
+// import { cookies } from '@/app/(dashboard)/layout'
 import { isUndefined, set } from 'lodash'
 import { ClipLoader } from 'react-spinners'
 import Image from 'next/image'
 import { Avatar, Badge, Divider, Select, Popover } from "antd";
+
+import Cookies from 'universal-cookie';
+const cookies = new Cookies()
 
 interface SignInResponse {
   message: string,
@@ -87,12 +92,12 @@ export default function SignIn() {
 
   async function onSignInClick() {
     setLogInError("");
-    
+
     let check = false;
     if (inputValue === '') {
       setNoMSSV(true);
       check = true;
-    } 
+    }
     if (inputPasswordValue === '') {
       setNoPassWord(true);
       check = true;
@@ -146,41 +151,43 @@ export default function SignIn() {
   //   return <></>
 
   return (
-    <main className="flex justify-center p-[48px] bg-[#FCFCFC] h-screen relative">
-      <div className="max-w-[296px]">
-        <div>
+    <main className="bg-white flex relative justify-between" style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
+      <div className="w-[400px] mx-auto">
+        <div className='h-[100px]'>
           <button className="bg-transparent text-[48px] my-6 text-primary font-bold font-mainfont">
-            <Link href="/">
-              <Avatar className="" src={'https://static.vecteezy.com/system/resources/previews/024/241/000/original/colorful-shiba-inu-dog-shiba-inu-portrait-dog-sticker-clip-art-dog-lover-design-ai-generated-png.png'} size={96}></Avatar>
-              {/* <div className="text-[64px] text-sky-700 font-bold my-8 tracking-tighter">UETable</div> */}
-            </Link>
+            {/* <Link href="/">
+              <Image src={LogoIcon} alt="logo" height={100  } />
+            </Link> */}
           </button>
         </div>
-        <div className="text-[48px] text-black font-semibold my-8 tracking-tighter">Đăng Nhập</div>
+        <div className="text-[48px] text-green-900 font-semibold my-8 tracking-tighter">
+          <p> Ồ ồ, </p>
+          <p> mừng bạn quay lại </p>
+        </div>
         {/* <div className="flex flex-col justify-center items-center"> */}
-        
+
         {/* <div className="w-full justify-center relative"> */}
-          {/* <div className="absolute bottom-21 left-5 bg-white px-2 flex gap-[2px]">
+        {/* <div className="absolute bottom-21 left-5 bg-white px-2 flex gap-[2px]">
             <pre className='text-red-500 text-xs'>*</pre>
             <p className="text-gray-500 text-xs font-semibold">MSSV</p>
           </div> */}
-          <div className="w-full mb-4 relative">
-            <input
-              value={inputValue}
-              onChange={handleInputChange}
-              onFocus={handleInputFocus}
-              type="text"
-              name='email'
-              className={`focus:bg-white focus:border focus:border-[#9A9FA5] w-full pl-8 h-[48px] px-[10px] rounded-lg bg-[#F4F4F4] font-semibold ${inputFocused && inputValue === '' ? 'border-red-500' : ''}`}
-              placeholder="Nhập MSSV">
-            </input>
-            {noMSSV && inputValue === '' && (
-              <p className="text-red-500 mt-2 ml-2 text-sm font-medium">*Vui lòng nhập MSSV</p>
-            )}
-          </div>
+        <div className="w-full mb-4 relative">
+          <input
+            value={inputValue}
+            onChange={handleInputChange}
+            onFocus={handleInputFocus}
+            type="text"
+            name='email'
+            className={`focus:bg-white focus:border focus:border-[#9A9FA5] w-full pl-8 h-[48px] px-[10px] rounded-lg bg-[#F4F4F4] font-semibold ${inputFocused && inputValue === '' ? 'border-red-500' : ''}`}
+            placeholder="Nhập tài khoản email">
+          </input>
+          {noMSSV && inputValue === '' && (
+            <p className="text-red-500 mt-2 ml-2 text-sm font-medium">*Vui lòng nhập tài khoản email</p>
+          )}
+        </div>
         {/* </div> */}
         <div className="w-full mb-2 relative">
-          <div className='w-full relative'> 
+          <div className='w-full relative'>
             <input
               value={inputPasswordValue}
               onChange={handleInputPasswordChange}
@@ -191,40 +198,40 @@ export default function SignIn() {
 
             </input>
             <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-                  {type == "password" && (
-                    <EyeInvisibleOutlined onClick={changeStatus} />
-                  )}
-                  {type == "text" && (
-                    <EyeOutlined  onClick={changeStatus} />
-                  )}
+              {type == "password" && (
+                <EyeInvisibleOutlined onClick={changeStatus} />
+              )}
+              {type == "text" && (
+                <EyeOutlined onClick={changeStatus} />
+              )}
             </div>
           </div>
-        
+
           {noPassWord && inputPasswordValue === '' && (
             <p className="text-red-500 mt-2 ml-2 text-sm font-medium">*Vui lòng nhập mật khẩu</p>
           )}
 
-          
+
         </div>
-          
-          
-          {/* <div className="w-full flex flex-col justify-center items-center p-6"> */}
-      
-        
-          {/* </div> */}
+
+
+        {/* <div className="w-full flex flex-col justify-center items-center p-6"> */}
+
+
+        {/* </div> */}
         {/* </div> */}
 
         {/* <div className="w-full flex justify-between"> */}
-          {/* <button className="text-lg text-black rounded-lg px-6 py-2 font-bold ml-8 mt-16 hover:bg-slate-300">
+        {/* <button className="text-lg text-black rounded-lg px-6 py-2 font-bold ml-8 mt-16 hover:bg-slate-300">
             <Link href="/">Quay lại</Link>
           </button> */}
-          <div className='w-full mt-4'>
-            <button className="font-bold text-white rounded-lg bg-primary w-full py-2 hover:bg-dark-primary" onClick={onSignInClick}>
-                {
-                  isSending===true? (<span>Đang đăng nhập  </span>) : (<span>Đăng nhập </span>)
-                }
-                
-              {/* <span className={isSending===false?"flex items-center ml-2": "hidden items-center ml-2"}>
+        <div className='w-full mt-4'>
+          <button className="font-bold text-white rounded-lg bg-primary w-full py-2 hover:bg-dark-primary" onClick={onSignInClick}>
+            {
+              isSending === true ? (<span>Đang đăng nhập  </span>) : (<span>Đăng nhập </span>)
+            }
+
+            {/* <span className={isSending===false?"flex items-center ml-2": "hidden items-center ml-2"}>
                   <ClipLoader
                   color="#2A85FF"
                   size={24}
@@ -233,9 +240,9 @@ export default function SignIn() {
                   }}
                   />
               </span> */}
-            </button>
-          </div>
-          
+          </button>
+        </div>
+
         {/* </div> */}
         <div className="w-full flex justify-end items-end mt-2">
           <button className="text-sm text-primary font-semibold text-gray-600 hover:underline hover:underline-offset-2" onClick={handleForgotPasswordClick}>Quên mật khẩu?</button>
@@ -256,7 +263,34 @@ export default function SignIn() {
             <Link href="/signup">Đăng ký ngay</Link>
           </button>
         </div>
-        
+
+      </div>
+      <div className='flex w-[600px] bg-[#F4F4F4] relative items-center'
+        style={{
+          backgroundImage: `url(${HomeImage.src})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+
+        }}>
+        <div className="z-[1] absolute w-[600px] h-full top-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.6' }}>
+
+        </div>
+        {/* <div className={BRICES_FONT.className}>
+              <p className="text-[#FFC700]">Chinh phục Chuyên đề</p> 
+              <p style={{fontSize: '128px', lineHeight: "96px"}}>Ngữ văn <span className="text-[#007F73]" style={{fontSize: '200px'}}>10</span></p>
+            </div> */}
+        <div className="absolute z-[100] text-white flex flex-col items-center justify-center w-full">
+          <p className="tracking-tighter text-white text-[48px] font-bold"> Bạn chưa có tài khoản? </p>
+          <button className=" hover:bg-white hover:text-green-900 bg-green-200 bg-green-900 text-[36px] my-6 font-mainfont px-8 py-2">
+            <Link href="/signup">
+              Tạo tài khoản mới thôi!
+              {/* <Avatar className="" src={'https://static.vecteezy.com/system/resources/previews/024/241/000/original/colorful-shiba-inu-dog-shiba-inu-portrait-dog-sticker-clip-art-dog-lover-design-ai-generated-png.png'} size={96}></Avatar> */}
+              {/* <div className="text-[64px] text-sky-700 font-bold my-8 tracking-tighter">UETable</div> */}
+            </Link>
+          </button>
+        </div>
+
+
       </div>
     </main>
   )

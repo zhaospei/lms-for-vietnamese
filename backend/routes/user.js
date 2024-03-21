@@ -12,6 +12,7 @@ import {
   forgotPassword,
   changeAvatar,
   changeBio,
+  changeScore,
 } from '../controllers/user.js'
 import { auth } from '../middlewares/auth.js'
 import { superAuth } from '../middlewares/superauth.js'
@@ -33,5 +34,6 @@ router.route('/api/users/:studentid').get(auth, getUsersByStudentId)
 router.route('/api/users/change-password/').post(auth, changePassword)
 router.post('/api/users/changeAvatar', auth, avatarUpload.single('up'), changeAvatar);
 router.route('/api/users/changeBio').post(auth, changeBio);
+router.route('/api/users/changeScore').post(auth, changeScore);
 
 export default router;

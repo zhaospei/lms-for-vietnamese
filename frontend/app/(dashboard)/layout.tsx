@@ -14,10 +14,10 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Cookies from 'universal-cookie';
 
-export const cookies = new Cookies()
+const cookies = new Cookies()
 const publicRoutes: AllRouteKey[] = ['', 'links'] // route mà có thể truy cập nếu chưa đăng nhập
 
-export function accessibleRoute(pathName: string) {
+function accessibleRoute(pathName: string) {
     const pathKey = pathName.split('/').slice(1);
     if (isUndefined(cookies.get('authToken'))) {
         let check: boolean = false

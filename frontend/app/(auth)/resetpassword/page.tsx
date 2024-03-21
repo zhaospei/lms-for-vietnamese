@@ -48,7 +48,7 @@ export default function ResetPassword() {
             <div className="py-6 w-[420px] mx-auto bg-white rounded-xl shadow-lg border self-center">
                 <div className="flex flex-col justify-center items-center">
                     <button className="bg-transparent text-4xl my-6 text-primary font-bold font-mainfont">
-                        <Link href="/">UETable</Link>
+                        <Link href="/">Chinh phục chuyên đề ngữ văn 10</Link>
                     </button>
                     <div className="text-3xl text-black font-bold text-center my-8">Mật khẩu mới</div>
                     {

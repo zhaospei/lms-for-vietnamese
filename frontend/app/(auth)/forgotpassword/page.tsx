@@ -72,7 +72,7 @@ export default function ForgotPassword() {
         <div>
           <button className="bg-transparent text-[48px] my-6 text-primary font-bold font-mainfont">
             <Link href="/">
-            <Avatar className="" src={'https://static.vecteezy.com/system/resources/previews/024/241/000/original/colorful-shiba-inu-dog-shiba-inu-portrait-dog-sticker-clip-art-dog-lover-design-ai-generated-png.png'} size={96}></Avatar>
+            {/* <Avatar className="" src={'https://static.vecteezy.com/system/resources/previews/024/241/000/original/colorful-shiba-inu-dog-shiba-inu-portrait-dog-sticker-clip-art-dog-lover-design-ai-generated-png.png'} size={96}></Avatar> */}
               {/* <Image alt='logo' src="https://static.vecteezy.com/system/resources/previews/024/241/000/original/colorful-shiba-inu-dog-shiba-inu-portrait-dog-sticker-clip-art-dog-lover-design-ai-generated-png.png" width={96} height={96} /> */}
             </Link>
           </button>
@@ -93,10 +93,10 @@ export default function ForgotPassword() {
               type="text"
               name='email'
               className={`focus:bg-white focus:border focus:border-[#9A9FA5] w-full pl-8 h-[48px] px-[10px] rounded-lg bg-[#F4F4F4] font-semibold ${inputFocused && inputMSSV === '' ? 'border-red-500' : ''}`}
-              placeholder="Nhập MSSV">
+              placeholder="Nhập tài khoản gmail">
             </input>
             {noMSSV && inputMSSV === '' && (
-              <p className="text-red-500 mt-2 ml-2 text-sm font-medium">*Vui lòng nhập MSSV</p>
+              <p className="text-red-500 mt-2 ml-2 text-sm font-medium">*Vui lòng nhập tài khoản email</p>
             )}
           </div>
         {/* </div> */}

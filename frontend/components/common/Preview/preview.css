@@ -1,0 +1,43 @@
+.card {
+    /* width: 324px; */
+    height: 341px;
+    border: 2px solid #d5546d;
+    background-color: white;
+    box-shadow: -7px 7px 0 0 #d5546d;
+    border-radius: 12px;
+    margin-right: 24px;
+    vertical-align: top;
+    white-space: normal;
+    text-align: left;
+    display: inline-block;
+    position: relative;
+}
+.title-home {
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.title-small {
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 110%;
+}
+
+.copy {
+    color: #000;
+    padding-left: 24px;
+    padding-right: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 145%;
+}
+
+.image {
+    max-height: 84px;
+    max-width: 84px;
+    border-radius: 12px;
+    padding-right: 0;
+}
