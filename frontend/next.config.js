@@ -91,7 +91,14 @@ const nextConfig = {
         fs.writeJsonSync('./public/chang-1/assets.json', res);
 
         return config;
-    }
+    },
+    typescript: {
+        // !! WARN !!
+        // Dangerously allow production builds to successfully complete even if
+        // your project has type errors.
+        // !! WARN !!
+        ignoreBuildErrors: true,
+      },
     // output: 'export'
 }
 

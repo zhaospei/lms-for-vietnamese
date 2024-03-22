@@ -4,8 +4,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { SearchParams } from "@/types/PageProps";
 import { Col, Row, Typography } from "antd";
 import { nameToSlug, slugToName } from "@/utils/searchParams";
-import { cacChuyenDe, ThongTinChuyenDe, chuyenDeSlug2Name } from "./[chuyende]/page";
+import { cacChuyenDe, ThongTinChuyenDe, chuyenDeSlug2Name } from "@/types/slug";
 import Image from "next/image";
+import { DoorSlug, doorSlugName, DEFAULT_DOOR_SLUG } from "@/types/slug";
 
 const {Text} = Typography;
 
@@ -86,14 +87,4 @@ function Chuyende({
         </a>
     )
 }
-export type DoorName = 'Tri thức nền tảng' | 'Gợi mở' | 'Tài liệu tham khảo' | 'Bài mẫu';
-export type DoorSlug = 'tri-thuc-nen-tang' | 'goi-mo' | 'tai-lieu-tham-khao' | 'bai-mau';
-export const DEFAULT_DOOR_SLUG: DoorSlug = 'tri-thuc-nen-tang';
-export const doorSlugName: Record<DoorSlug, DoorName> = {
-    'tri-thuc-nen-tang': 'Tri thức nền tảng',
-    'goi-mo': 'Gợi mở',
-    'tai-lieu-tham-khao': 'Tài liệu tham khảo',
-    'bai-mau': 'Bài mẫu'
-};
-
 

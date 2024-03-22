@@ -1,14 +1,10 @@
 'use client';
 
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { usePathname, useRouter } from "next/navigation";
-import Vhdg from '@/public/images/chang-1/van-hoc-dan-gian.jpg';
-import Skh from '@/public/images/chang-1/san-khau-hoa.jpg';
-import Tttt from '@/public/images/chang-1/tho-truyen-tieu-thuyet.jpg';
 import { Col, Modal, Row, Typography } from "antd";
 import PdfViewer from "@/components/common/PdfViewer";
 import { boSachSlug2Name, TenBoSach, TenBoSachSlug } from "@/components/common/ChooseBook";
-import { DoorSlug } from "../page";
+import { DoorSlug } from "@/types/slug";
 import assets from '@/public/chang-1/assets.json';
 import { useSelector } from "react-redux";
 import { boSachActions } from "@/redux/bosach/bosachSlice";
@@ -20,6 +16,7 @@ import Link from "next/link";
 import DownloadImg from '@/public/images/download.png';
 import VideoThumbnail from 'react-video-thumbnail';
 import PlayVideoImg from '@/public/images/play-button.png';
+import { chuyenDeSlug2Name, DEFAULT_CHUYENDE_SLUG, ChuyenDeSlug, AssetInfo } from "@/types/slug";
 // import vcl from '../../../../../public/pdf.pdf';
 // import second from
 const { Text } = Typography;
@@ -70,43 +67,6 @@ export default function ChuyenDePage({
         </main>
     );
 }
-
-export type ChuyenDe = 'Văn học dân gian' | 'Sân khấu hoá' | 'Thơ, truyện, tiểu thuyết';
-export type ChuyenDeSlug = 'van-hoc-dan-gian' | 'san-khau-hoa' | 'tho-truyen-tieu-thuyet';
-export const DEFAULT_CHUYENDE_SLUG: ChuyenDeSlug = 'san-khau-hoa';
-export const chuyenDeSlug2Name: Record<ChuyenDeSlug, ChuyenDe> = {
-    'san-khau-hoa': 'Sân khấu hoá',
-    'van-hoc-dan-gian': 'Văn học dân gian',
-    'tho-truyen-tieu-thuyet': 'Thơ, truyện, tiểu thuyết'
-};
-export interface ThongTinChuyenDe {
-    id: string;
-    ten: ChuyenDe;
-    mota: string;
-    img: StaticImport;
-}
-
-export const cacChuyenDe: ThongTinChuyenDe[] = [{
-    id: "1",
-    ten: "Văn học dân gian",
-    mota: "Tập nghiên cứu và báo báo về một vấn đề văn học dân gian",
-    img: Vhdg
-}, {
-    id: "2",
-    ten: 'Sân khấu hoá',
-    mota: "Sân khấu hoá tác phẩm văn học",
-    img: Skh
-}, {
-    id: "3",
-    ten: "Thơ, truyện, tiểu thuyết",
-    mota: "Đọc, viết và giới thiệu một tập thơ, một tập truyện hoặc một tiểu thuyết",
-    img: Tttt
-}];
-
-export interface AssetInfo {
-    name: string,
-    type: 'pdf' | 'img' | 'video' | 'other'
-};
 
 function Preview({
     name,

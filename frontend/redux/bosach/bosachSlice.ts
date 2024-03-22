@@ -7,7 +7,7 @@ export interface BoSachState {
 }
 
 const initialState: BoSachState = {
-    currentChoice: localStorage.getItem('bosach') as TenBoSach || undefined
+    currentChoice: typeof window === 'undefined' ? undefined : localStorage.getItem('bosach') as TenBoSach || undefined
 }
 
 export const {reducer: boSachReducer, actions: boSachActions} = createSlice({

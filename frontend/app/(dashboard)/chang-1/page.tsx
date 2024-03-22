@@ -5,33 +5,12 @@ import 'dayjs/locale/en';
 import { useSelector } from 'react-redux';
 import { boSachSelector } from '@/redux/bosach/bosachSelector';
 import { isUndefined } from 'lodash';
-import Cua1 from '@/public/images/chang-1/cua-1.png';
-import Cua2 from '@/public/images/chang-1/cua-2.png';
-import Cua3 from '@/public/images/chang-1/cua-3.png';
-import Cua4 from '@/public/images/chang-1/cua-4.png';
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import Link from 'next/link';
 import { nameToSlug } from '@/utils/searchParams';
-import { DoorName, doorSlugName, DEFAULT_DOOR_SLUG } from './[cua]/page';
+import { doorSlugName, DEFAULT_DOOR_SLUG } from "@/types/slug";
+import { Cửa } from '@/types/slug';
 const { Paragraph, Text, Title } = Typography;
-
-export const Cửa: {
-  name: DoorName,
-  img: StaticImport
-}[] = [{
-  name: 'Tri thức nền tảng',
-  img: Cua1
-}, {
-  name: 'Gợi mở',
-  img: Cua2
-}, {
-  name: 'Tài liệu tham khảo',
-  img: Cua3
-}, {
-  name: 'Bài mẫu',
-  img: Cua4
-},];
 
 export default function Chang1Page() {
   const chuaChonSach = useRef(isUndefined(useSelector(boSachSelector.selectChoice)));

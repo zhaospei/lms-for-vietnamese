@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { boSachSelector } from "@/redux/bosach/bosachSelector";
 import { nameToSlug } from "@/utils/searchParams";
 import React from "react";
-import { AssetInfo } from "../page";
+import { AssetInfo } from "@/types/slug";
 import _, { isUndefined } from "lodash";
 import Image from "next/image";
 import NotFoundImage from '@/public/images/404-Not-found.svg';

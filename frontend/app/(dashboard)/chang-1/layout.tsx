@@ -6,13 +6,13 @@ import { boSachActions } from "@/redux/bosach/bosachSlice";
 import { Breadcrumb, Space, Typography } from "antd";
 import { ItemType } from "antd/es/breadcrumb/Breadcrumb";
 import { useDispatch, useSelector } from "react-redux";
-import { Cửa } from "./page";
-import { DEFAULT_DOOR_SLUG, DoorSlug, doorSlugName } from './[cua]/page';
+import { Cửa } from '@/types/slug';
+import { DEFAULT_DOOR_SLUG, DoorSlug, doorSlugName } from "@/types/slug";
 import { usePathname, useRouter } from "next/navigation";
 import { isUndefined } from "lodash";
 import Link from "next/link";
 import { slugToName } from "@/utils/searchParams";
-import { ChuyenDeSlug, chuyenDeSlug2Name } from "./[cua]/[chuyende]/page";
+import { ChuyenDeSlug, chuyenDeSlug2Name } from "@/types/slug";
 
 const { Text } = Typography;
 
