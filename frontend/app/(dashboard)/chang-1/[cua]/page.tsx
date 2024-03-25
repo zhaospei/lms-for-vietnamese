@@ -10,6 +10,63 @@ import { DoorSlug, doorSlugName, DEFAULT_DOOR_SLUG } from "@/types/slug";
 
 const {Text} = Typography;
 
+import { BRICES_FONT, MAIN_FONT } from '@/styles/fonts';
+import Chang2 from '@/public/images/background/chang2.png'
+import Chang1Bg from '@/public/images/home_main.png'
+import { TenBoSach, bookIdList } from "@/components/common/ChooseBook";
+import { boSachActions } from "@/redux/bosach/bosachSlice";
+import { Breadcrumb, Space } from "antd";
+import { ItemType } from "antd/es/breadcrumb/Breadcrumb";
+import { useDispatch } from "react-redux";
+import { usePathname } from "next/navigation";
+import { ChuyenDeSlug } from "@/types/slug";
+import Link from 'next/link';
+import { Cửa } from '@/types/slug';
+import { useSelector } from 'react-redux';
+import { boSachSelector } from '@/redux/bosach/bosachSelector';
+import { isUndefined } from 'lodash';
+
+const menuBoSach = bookIdList.map((book, i) => {
+    return {
+        key: i,
+        label: (
+            <MenuBoSach book={book}/>
+        )
+    }
+})
+
+function MenuBoSach({
+    book
+}: {
+    book: TenBoSach
+}) {
+    const dispatch = useDispatch();
+    const router = useRouter();
+    return (
+        <button onClick={() => {
+            router.push('/chang-1')
+            dispatch(boSachActions.updateChoice(book));
+        }}>
+            <Text strong>{book}</Text>
+        </button>
+    )
+}
+
+const menuCua = Cửa.map((info, i) => ({
+    key: i,
+    path: `cua-${i+1}`,
+    label: info.name
+}))
+
+
+function itemRender(route: ItemType, params: any, routes: ItemType[], paths: string[]): React.ReactNode {
+    // if (route.title === 'Tri thức nền tảng')
+    // console.log(paths)
+    return (
+        <Link href={`/${paths.join('/')}`}><Text strong className="text-lg">{route.title}</Text></Link>
+    )
+}
+
 export interface Chang1CuaPageParams extends SearchParams {
     cua: DoorSlug
 }
@@ -29,13 +86,49 @@ export default function Chang1CuaPage({
         router.replace(`/chang-1/${DEFAULT_DOOR_SLUG}`);
         return <></>
     }
+
+    const bosach = useSelector(boSachSelector.selectChoice) || 'Cánh diều';
+    const pathname = usePathname().split('/').slice(1);
+    const doorSlug = pathname.length >= 2 ? pathname[1] : undefined;
+    const chuyendeSlug = pathname.length >= 3 ? pathname[2] : undefined;
+    // console.log(doorSlug)
+    const doorName = !isUndefined(doorSlug) ? slugToName(doorSlugName, doorSlug in doorSlugName ? doorSlug as DoorSlug : DEFAULT_DOOR_SLUG) : undefined;
+    const chuyendeName = !isUndefined(chuyendeSlug) ? slugToName(chuyenDeSlug2Name, chuyendeSlug as ChuyenDeSlug) : undefined
+    const items: ItemType[] = [{
+        title: 'Chặng 1',
+        path: 'chang-1'
+    }, {
+        title: bosach,
+        // menu: {
+        //     items: menuBoSach
+        // }
+    }];
+
+    if (!isUndefined(doorName))
+        items.push({
+            title: doorName,
+            path: doorSlug
+            // menu: {
+            //     'items': menuCua
+            // }
+        })
+
+    if (!isUndefined(chuyendeName)) {
+        items.push({
+            title: chuyendeName,
+            path: chuyendeSlug
+        })
+    }
+    
     return (
-        <main className="min-h-screen">
+        <main className="min-h-screen md:w-[70vw] mx-auto">
+            <Breadcrumb itemRender={itemRender} items={items} className="mt-8"/>
             <div className="flex flex-col items-center gap-10">
-                <Text strong className='text-xl p-3 bg-light-primary rounded-xl w-fit'>
+                
+                <Text strong className='mt-4 text-xl p-4 font-extrabold text-3xl bg-light-primary rounded-xl w-fit'>
                     {slugToName(doorSlugName, cua as DoorSlug)}
                 </Text>
-                <div className="w-[70vw]">
+                <div className="w-full">
                     <Row gutter={[25, 33]}>
                         {
                             cacChuyenDe.map((chuyende, i) => {
@@ -73,7 +166,7 @@ function Chuyende({
             <div className="absolute z-10 -top-[11px] flex items-start justify-center">
                 <div className="w-[194px] h-[11px] bg-primary rounded-t-[10px] relative z-10"/>
                 <div className="w-[164px] h-[41px] bg-primary rounded-b-[30px] absolute z-20
-                        text-dark-primary font-[700] text-xl flex items-center justify-center">
+                        text-white font-[700] text-xl flex items-center justify-center">
                     {`Chuyên đề ${id}`}
                 </div>
             </div>

@@ -3,6 +3,7 @@ import Authentication from './authentication.js'
 export const auth = (req, res, next) => {
     try {
         const authToken = req.get('Authorization')
+        // console.log(authToken)
         // const authToken = req.cookies.authToken;
         // console.log(authToken)
         if (!authToken) {

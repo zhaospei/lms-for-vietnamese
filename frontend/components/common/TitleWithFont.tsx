@@ -1,5 +1,5 @@
 import React from 'react'
-import { BRICES_FONT } from '@/styles/fonts';
+import { BRICES_FONT, MAIN_FONT } from '@/styles/fonts';
 
 
 export default function TitleWithFont({
@@ -8,7 +8,7 @@ export default function TitleWithFont({
 }: any) {
     return (
         <div className={className}>
-            <p className={BRICES_FONT.className}> {title} </p>
+            <p className={MAIN_FONT.className}> {title} </p>
         </div>
     )
 }

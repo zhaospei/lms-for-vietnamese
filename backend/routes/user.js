@@ -12,7 +12,12 @@ import {
   forgotPassword,
   changeAvatar,
   changeBio,
+  getScore,
   changeScore,
+  changeLearn,
+  getLearn,
+  changeBook,
+  getBook
 } from '../controllers/user.js'
 import { auth } from '../middlewares/auth.js'
 import { superAuth } from '../middlewares/superauth.js'
@@ -34,6 +39,11 @@ router.route('/api/users/:studentid').get(auth, getUsersByStudentId)
 router.route('/api/users/change-password/').post(auth, changePassword)
 router.post('/api/users/changeAvatar', auth, avatarUpload.single('up'), changeAvatar);
 router.route('/api/users/changeBio').post(auth, changeBio);
+router.route('/api/users/changeBook').post(auth, changeBook);
+router.route('/api/users/book/getBook').get(auth, getBook);
 router.route('/api/users/changeScore').post(auth, changeScore);
+router.route('/api/users/score/getScore').get(auth, getScore);
+router.route('/api/users/changeLearn').post(auth, changeLearn);
+router.route('/api/users/learn/getLearn').get(auth, getLearn);
 
 export default router;

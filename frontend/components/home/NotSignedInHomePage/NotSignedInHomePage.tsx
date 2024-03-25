@@ -119,10 +119,9 @@ function AboutScheduleAndMySubjects() {
   useEffect(() => {
     const typed = new Typed(el.current, {
       strings: [
-        'Chặng 1: Tri thức nền tảng',
-        'Chặng 1: Tài liệu tham khảo',
-        'Chặng 2: Trò chơi kiểm tra tri thức',
-        'Chặng 3: Phòng thực hành nói',
+        'Chặng 1: Hành trang tri thức',
+        'Chặng 2: Trò chơi ôn tập',
+        'Chặng 3: Diễn đàn trao đổi',
       ],
       typeSpeed: 50,
       loop: true,
@@ -135,14 +134,14 @@ function AboutScheduleAndMySubjects() {
   }, []);
   return (
       <div className="absolute top-0 w-full bg-[#E1F0DA] flex flex-col z-[1]">
-        <div className='absolute ' style={{width: '100%', height: '700px', position: 'relative'}}>
+        <div className='absolute gradient-image' style={{width: '100%', height: '700px', position: 'relative'}}>
           <Image src={HomeMain} alt="home_main" fill sizes="100vw"/>
           
-          <div className="flex relative items-center justify-center pt-[150px]" style={{display: 'flex', color: 'white', fontSize: '48px', zIndex: 2}}> 
-            <div className={BRICES_FONT.className}>
-              <p className="text-[#FFC700]">Chinh phục Chuyên đề</p> 
-              <p style={{fontSize: '128px', lineHeight: "96px"}}>Ngữ văn <span className="text-white" style={{fontSize: '200px'}}>10</span></p>
-              <div className={MAIN_FONT.className} style={{fontSize: '30px'}}> 
+          <div className="flex relative items-center justify-between pt-[150px] pl-16" style={{display: 'flex', color: 'white', fontSize: '48px', zIndex: 2}}> 
+            <div className={`${MAIN_FONT.className} font-black header-info text-[#FF9800]`} >
+              <p className="text-[#90D26D]">Chinh phục Chuyên đề</p> 
+              <p style={{fontSize: '128px', lineHeight: "132px"}}>Ngữ văn <span style={{fontSize: '200px'}}>10</span></p>
+              <div className={MAIN_FONT.className} style={{fontWeight: '500', fontSize: '30px', color: 'white', marginTop: '16px'}}> 
                 <span ref={el} />
               </div>
             </div>
@@ -152,9 +151,9 @@ function AboutScheduleAndMySubjects() {
             </div>
             {/* <p style={{fontSize: '36px'}}>Hiểu biết - Tư duy - Phát triển</p> */}
           </div>
-          <div className="z-[1] absolute w-full h-full top-0" style={{backgroundColor: 'rgba(0, 0, 0, 0.6'}}>
+          {/* <div className="z-[1] absolute w-full h-full top-0" style={{backgroundColor: 'rgba(0, 0, 0, 0.2'}}>
 
-          </div>
+          </div> */}
         </div>
       
       <div className="flex flex-col items-center">

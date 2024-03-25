@@ -4,7 +4,7 @@ import { THEME } from "@/styles/theme";
 import React, { ReactNode, useEffect, useRef, useState } from "react";
 import LogoIcon from '../../../public/images/logo.png';
 import LogoIconDark from '../../../public/images/logo_dark.png';
-import LogoUET from '../../../public/images/uet-logo.svg';
+import LogoUET from '../../../public/images/logo_dark.png';
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "@/redux/auth/authSlice";
 import { authSelector } from "@/redux/auth/authSelector";
@@ -27,6 +27,8 @@ import Image from "next/image";
 import { useDebouncedCallback } from "use-debounce";
 import { getURL } from "@/utils/navigation";
 import { usePathname } from 'next/navigation';
+import { ProgressBar } from "../../common/ProgressBar";
+
 interface TabProps {
   selected: boolean;
   children: ReactNode;
@@ -47,6 +49,7 @@ export default function Header() {
   const [openAvt, setOpenAvt] = useState(false)
   const searchValue = useRef('')
   const searchParams = useSearchParams();
+  
 
   const handleOnSearch = useDebouncedCallback((): void => {
     router.replace(getURL('/search', {
@@ -95,14 +98,53 @@ export default function Header() {
     setOpenAvt(false)
     router.push('/profile?studentid=' + cookies.get('studentid'));
   }
+  const mainRef = useRef<HTMLElement | null>(null);
   const pathName = usePathname();
-  console.log(pathName)
+  // console.log(pathName)
+  if ('.pdf' === pathName.slice(-4)) {
+    return <header
+    className="sticky w-full top-0  z-[1000] bg-white shadow h-[60px]"
+    style={{
+      transition: 'padding-left 0.3s ease-in-out',
+      // background: `url(${HomeMain.src})`,
+      // backgroundRepeat: 'no-repeat',
+      // backgroundSize: '100% 100%'
+    }}
+  >
+    {/* <div className="z-[1] absolute w-full h-full top-0" style={{ transition: 'border-radius 0.3s ease-in-out',
+          boxShadow: 'inset 1px 0px 0px #F4F4F4, inset 0 -1px 0px #EFEFEF'}}>
+
+   </div> */}
+
+    <div
+      className="relative flex jutify-center items-center z-[100] h-full"
+      style={{
+        // borderTopLeftRadius: scroll ? 0 : THEME.LAYOUT_ELEMENT_BORDER_RADIUS,
+        // borderBottomLeftRadius: scroll ? 0 : THEME.LAYOUT_ELEMENT_BORDER_RADIUS,
+        transition: 'border-radius 0.3s ease-in-out',
+      }}
+    >
+      
+      <div className="h-full flex text-lg jutify-center items-center mx-auto">
+        <a onClick={() => router.back()} className="cursor-pointer sp-back-to-site w-[80px] h-[60px] absolute top-0 left-0" style={{"background": "url(https://kenh14cdn.com/web_images/icon-arrow.png) center center #ff6a02 no-repeat;"}}></a>
+        <h3 className="m-1 group"> 
+          <a href="/" className="text-primary font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+            <Image src={LogoUET} alt="logo" height={50} className="mr-8"/>
+          </a>
+          
+          {/* <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div> */}
+        </h3>
+
+    </div>
+    </div>
+  </header>;
+  }
 
   const isHome = links.includes(pathName);
 
   return isHome ? (
     <header
-      className="w-full top-0 z-[1000] mt-[48px]"
+      className="w-full top-0 z-[1000] mt-[16px]"
       style={{
         transition: 'padding-left 0.3s ease-in-out',
         // background: `url(${HomeMain.src})`,
@@ -115,7 +157,7 @@ export default function Header() {
      </div> */}
 
       <div
-        className="relative flex items-center h-[100px] px-8 z-[100]"
+        className="relative flex items-center h-[100px] px-16 z-[100]"
         style={{
           // borderTopLeftRadius: scroll ? 0 : THEME.LAYOUT_ELEMENT_BORDER_RADIUS,
           // borderBottomLeftRadius: scroll ? 0 : THEME.LAYOUT_ELEMENT_BORDER_RADIUS,
@@ -123,9 +165,9 @@ export default function Header() {
         }}
       >
         <div className="flex-1 text-lg md:flex-row flex-col md:items-center items-start gap-5 md:flex">
-          <h3 className="m-1 group"> 
+          <h3 className="m-1 group mr-16"> 
             <a href="/" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
-              <Image src={LogoIcon} alt="logo" height={200} />
+              <Image src={LogoIcon} alt="logo" height={50} />
             </a>
             
             {/* <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div> */}
@@ -133,14 +175,14 @@ export default function Header() {
 
           <h3 className="m-1 group"> 
             <a href="/chang-1" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
-              Chặng 1: Dữ liệu đa phương thức
+              Chặng 1: Hành trang tri thức
             </a>
             <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
           </h3>
 
           <h3 className="m-1 group"> 
             <a href="/chang-2" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
-              Chặng 2: Trò chơi kiểm tra tri thức
+              Chặng 2: Trò chơi ôn tập
             </a>
             <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
           </h3>
@@ -246,14 +288,14 @@ export default function Header() {
 
         <h3 className="m-1 group"> 
           <a href="/chang-1" className="text-primary font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
-            Chặng 1: Dữ liệu đa phương thức
+            Chặng 1: Hành trang tri thức
           </a>
           <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
         </h3>
 
         <h3 className="m-1 group"> 
           <a href="/chang-2" className="text-primary font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
-            Chặng 2: Trò chơi kiểm tra tri thức
+            Chặng 2: Trò chơi ôn tập
           </a>
           <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
         </h3>

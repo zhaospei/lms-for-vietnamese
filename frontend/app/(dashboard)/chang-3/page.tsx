@@ -9,6 +9,7 @@ import SpeakImg from '../../../public/images/ill/speak.jpg';
 import Fetcher from '@/api/Fetcher';
 import { UserInfoResponse } from '@/api/userAPI';
 import Cookies from 'universal-cookie';
+import HomeMain from '../../../public/images/home_main.png';
 import dayjs from 'dayjs';
 import 'dayjs/locale/en';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -38,15 +39,19 @@ export default function Profile() {
 
   return (
     <main className='min-h-screen'>
-        <div className='absolute top-[-148px]' style={{width: '100%', height: '400px', position: 'relative'}}>
+        <div className='absolute top-[-116px]' style={{width: '100%', height: '500px', position: 'relative'}}>
           <Image src={Chang3} alt="home_main" fill sizes="100vw"/>
           
           <div className="flex relative items-center text-center justify-center pt-[148px]" style={{display: 'flex', color: 'white', fontSize: '48px', zIndex: 2}}> 
-            <div className="">
-              <p className={BRICES_FONT.className} style={{color: "#E8751A"}}>Chặng 3</p> 
-              <p className='font-bold text-white'>Diễn đàn trao đổi</p>
-              <p className="text-xl"> Tham gia cộng đồng văn học chia sẻ ý kiến, kiến thức và kinh nghiệm.</p>
+            <div className="text-[#E8751A]">
+              <p className="font-bold text-3xl"style={{color: "#E8751A"}}>Chặng 3</p> 
+              <p className='font-extrabold  text-[#E8751A]'>Diễn đàn trao đổi</p>
+              <p className="text-xl text-white w-8/12 text-left mx-auto"> 
+              Chặng 3 được xây dựng dưới dạng một “mạng xã hội thu nhỏ”. Sau khi được đã hoàn thành chặng 1 và chặng 2, học sinh có thể đặt ra các vấn đề mà mình thắc mắc đồng thời chia sẻ sản phẩm là các bài viết, kịch bản, bài nói, vở diễn của cá nhân/tập thể. Ngoài ra, để hỗ trợ cho học sinh luyện tập cáctả\h trình bày, ở chặng 3 được tích hợp cả phòng luyện nói cho phép học sinh tự ghi âm, nghe lại giọng nói của mình. . 
+
+                </p>
             </div>
+        
           </div>
           <div className="z-[1] absolute w-full h-full top-0" style={{background: 'linear-gradient(0deg, rgba(225,240,218,1) 0%, rgba(0,0,0,0.5501050762101716) 50%, rgba(0,0,0,0.8582283255098915) 100%)'}}>
 
@@ -72,10 +77,12 @@ export default function Profile() {
                     </div>
                 </div>
                 <div className="text-center flex flex-col items-center">
-                    <Image src={ShareImg} width={600} height={400} alt="share"></Image>
+                    <Image src={ShareImg} height={180} alt="share" style={{marginTop: '20px'}}></Image>
                     <h3 className="font-bold text-2xl mt-8"> Chia sẻ sản phẩm </h3>
                     <p className="font-medium mt-4 text-gray-500"> 
-                    Bộ tài liệu đã giúp 600 học viên đã đạt IELTS 7.0-8.5 tính tới tháng 5/2021 
+                    Chia sẻ sản phẩm các chuyên đề mà em/nhóm em đã thực hiện. Đồng thời đọc/xem và nhận xét các sản phẩm của mọi người.
+
+
                     </p>
                 </div>
             </a>
@@ -97,10 +104,12 @@ export default function Profile() {
                     </div>
                 </div>
                 <div className="text-center flex flex-col items-center">
-                    <Image src={QaImg} width={200} height={200} alt="share"></Image>
+                    <Image src={QaImg} height={180} alt="share" style={{marginTop: '20px'}}></Image>
                     <h3 className="font-bold text-2xl mt-8"> Câu hỏi và giải đáp </h3>
                     <p className="font-medium mt-4 text-gray-500"> 
-                    Bộ tài liệu đã giúp 600 học viên đã đạt IELTS 7.0-8.5 tính tới tháng 5/2021 
+                    Đặt câu hỏi về những vấn đề em thắc mắc để cùng mọi người giải đáp. Đồng thời, em có thể vận dụng những hiểu biết của mình để giúp đỡ, hỗ trợ cho khó khăn của các bạn khác khi học tập chuyên đề
+
+
                     </p>
                 </div>
             </a>
@@ -121,10 +130,11 @@ export default function Profile() {
                     </div>
                 </div>
                 <div className="text-center flex flex-col items-center">
-                    <Image src={SpeakImg} width={180} height={180} alt="share" style={{marginTop: '20px'}}></Image>
+                    <Image src={SpeakImg} height={180} alt="share" style={{marginTop: '20px'}}></Image>
                     <h3 className="font-bold text-2xl mt-8"> Phòng thực hành nói </h3>
                     <p className="font-medium mt-4 text-gray-500"> 
-                    Bộ tài liệu đã giúp 600 học viên đã đạt IELTS 7.0-8.5 tính tới tháng 5/2021 
+                    Luyện tập trình bày, báo cáo trước tập thể bằng cách luyện nói trong Cửa 3- Phòng thực hành nói. Với tính năng cho phép ghi âm, nghe lại, các em sẽ tự điều chỉnh được tốc độ, ngữ điệu khi nói. Từ đó phát huy điểm mạnh, tăng sự tự tin và khắc phục được các khuyết điểm khi trình bày/báo cáo trước tập thể. 
+
                     </p>
                 </div>
             </a>

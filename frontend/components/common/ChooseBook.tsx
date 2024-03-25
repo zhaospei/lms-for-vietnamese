@@ -13,6 +13,7 @@ import { boSachActions } from '@/redux/bosach/bosachSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { boSachSelector } from '@/redux/bosach/bosachSelector';
 
+
 const { Text, Title } = Typography;
 
 const books: BookInfo[] = [{
@@ -30,24 +31,24 @@ const books: BookInfo[] = [{
 }]
 
 export default function ChooseBook({
+    open,
+    setOpenBook,
     children,
 }: {
+    open: boolean,
+    setOpenBook: (open: boolean) => void,
     children?: React.ReactNode
 }) {
     const choosenBook: TenBoSach = useSelector(boSachSelector.selectChoice) || 'Cánh diều';
-    const [open, setOpen] = useState(true);
     const dispatch = useDispatch();
     return (
         <Modal
             open={open}
             onCancel={() => {
                 dispatch(boSachActions.updateChoice(choosenBook));
-                setOpen(false);
+                setOpenBook(false);
             }}
             footer={[
-                // <MyButtonWrapper>
-
-                // </MyButtonWrapper>
             ]}
             className='!w-[60vw]'
         >
@@ -67,6 +68,7 @@ export default function ChooseBook({
     )
     function onClick(id: TenBoSach) {
         dispatch(boSachActions.updateChoice(id));
+        setOpenBook(false);
     }
 }
 

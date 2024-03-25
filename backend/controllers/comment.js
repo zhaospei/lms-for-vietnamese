@@ -13,21 +13,7 @@ import { createNoti } from "../controllers/notification.js";
 export const createComment = async (req, res) => {
     try {
         let { content, pageType, pageId, parentId, preCommentId } = req.body;
-        
-        // if (pageType === 'S') {
-        //     const subject = await Subject.findOne({
-        //         where: {
-        //             Code: pageId
-        //         }
-        //     })
-        //     if (!subject) {
-        //         res.status(404).send({ error: 'Subject not found' })
-        //         return
-        //     }
-        //     // console.log(subject)
-        //     pageId = subject.Id
-        // }
-        // console.log(pageId)
+    
         const decodedUser = res.locals.decodedUser
         const comment = await Comment.create({
             Content: content,
@@ -208,10 +194,7 @@ export const getChildrenComment = async (req, res) => {
                 ParentId: commentId
             }
         });
-        // console.log(comments)
         const commentDTOs = await Promise.all(comments.map( async (comment) => {
-            // console.log(comment)
-            // const commentModel = await Comment.findByPk(comment.CommentId)
             const commentDTO = await CommentDTO.convertToDto(comment, decodedUser.Id);
             return commentDTO;
         }));
@@ -238,7 +221,6 @@ export const getVersionByComment = async (req, res) => {
             return commentVersionDTO;
         }));
 
-        // console.log(commentDTOs)
         res.status(200).send(commentDTOs);
     } catch (error) {
         res.status(500).send(error)

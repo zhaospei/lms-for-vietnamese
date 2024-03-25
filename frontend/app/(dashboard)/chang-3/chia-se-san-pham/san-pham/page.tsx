@@ -203,141 +203,114 @@ export default function Documentdetail() {
     }
 
     return (<>
-        <Main title = "Tài liệu" className="w-[48rem] mx-auto rounded-lg my-12 p-[30px]">
-            {/* <br />
-            <div className = {`flex`}>
-                <div className = {`ml-[10px]`}>
-                    <div style={{marginBottom: '12px', fontSize: '32px', lineHeight: '1.25', letterSpacing: '-.03em', fontWeight: '600'}}>{filename}</div>
-                </div>
-            </div> */}
-            {/* <br /> */}
-            {/* <div className = {`font-medium text-xl my-[5px] text-orange-500 hover:text-orange-300 cursor-pointer`} onClick = {handleSubject}> <span className="text-black">trong</span> {subname}</div> */}
-            <TitleWithBox title={filename} size="ultra" color="#143601" /> 
-            <div className = {`mt-4 flex justify-between`}>
-                {/* <div className = {`flex font-semibold`}> */}
-                <div className="flex items-center cursor-pointer" onClick = {handleAuthor}>
-                    <Avatar className="mr-4" src={imageURL} size={36}></Avatar>
-                    <div style={{marginRight: 'auto', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>
-                        <Text strong style={{fontSize: '14px'}}>
-                        {author} <span style={{color: '#6F767E'}}> gửi vào lúc </span> { commentDate }
-
-                        </Text>
-
-                    </div>
-                {/* </div>
-                    { commentDate }
-                <div> */}
-                </div>
-                <div className="flex ">
-                    <div className={isLiking===0?"flex items-center mr-2": "hidden items-center"}>
-                                <ClipLoader
-                                color="#1A4301"
-                                size={24}
-                                cssOverride={{
-                                    'borderWidth': '4px'
-                                }}
-                                />
-                    </div>
-                    <button className="flex items-center button-stroke product__favorite mx-4 px-4 py-2 rounded-lg" style={{boxShadow: "0 0 0 2px #EFEFEF inset"}} onClick={toggleLike}>
-                            {/* <svg class="icon icon-heart-fill">
-                            <use xlink:href="#icon-heart-fill"></use>
-                            </svg><span>32</span> */} 
-                            <HeartIcon size={24}  solid={isLike} solidOnHover className="mr-2"/>
-                            {likeCnt}
+        <Main title = "Tài liệu" className="relative max-w-[75vw] mx-auto rounded-lg my-12 flex justify-between">
+            <div data-test-id="back-button" className="z-[10] absolute flex items-center left-[-80px] top-0">
+                <div className="rounded-full bg-green-300" style={{"animation": "1s cubic-bezier(0.165, 0.84, 0.44, 1) 0s 1 normal forwards running hideShadow"}}>
+                    <button aria-label="Quay lại" className="H" data-test-id="back-icon-button" type="button" onClick={() => router.back()} >
+                        <div className="" style={{}}>
+                            <div className="flex items-center justify-center" style={{"height": "48px", "width": "48px"}}>
+                                <svg className="Hn_ Uvi gUZ U9O kVc" height="20" width="20" viewBox="0 0 24 24" aria-hidden="true" aria-label="" role="img">
+                                    <path d="M8.41 4.59a2 2 0 1 1 2.83 2.82L8.66 10H21a2 2 0 0 1 0 4H8.66l2.58 2.59a2 2 0 1 1-2.82 2.82L1 12z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
                     </button>
-
                 </div>
-
-                    {/* <div className = {`flex items-center cursor-pointer`} onClick = {handleAuthor}>
-                        <Avatar className="" src={imageURL} size={48}></Avatar>
+            </div>
+            <div style={{maxWidth: '50%'}}>
+                <div className = {``}>
+                        {(link[link.length - 1] === 'f' || link[link.length - 1] === 'F')  && (
+                            <embed src = {link} width = "100%" height="700px"/>
+                        )}
+                        {(link[link.length - 1] === 'g' || link[link.length - 1] === 'G') && (
+                            <Image src = {link} alt = "Không tải được ảnh" width='100%' height='100%'/>
+                        )}
+                </div>
+            </div>
+            <div className="w-full h-full p-4 ml-8 pt-8">
+                <TitleWithBox title={filename} size="ultra" color="#143601" /> 
+                <div className = {`mt-4 flex justify-between`}>
+                    {/* <div className = {`flex font-semibold`}> */}
+                    <div className="flex items-center cursor-pointer" onClick = {handleAuthor}>
+                        <Avatar className="mr-4" src={imageURL} size={36}></Avatar>
                         <div style={{marginRight: 'auto', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>
-                            <Text strong style={{fontSize: '18px'}}>
-                            {author}
-                            </Text>
-                        </div>
-                    </div>
-                    <div className = {`flex bg-white hover:bg-slate-200 p-2 rounded-lg ml-[50px] cursor-pointer`}>
-                        <FaBook className = {`text-blue-700`} style={{fontSize : '40px'}} />
-                        <div className = {`ml-[10px] my-[5px] text-orange-500 hover:text-orange-300`} onClick = {handleSubject}>{subname}</div>
-                    </div>
-                    <div className = {`flex bg-white hover:bg-slate-200 p-2 rounded-lg ml-[50px] cursor-pointer`}>
-                        <FiClock className = {`text-blue-700`} style={{fontSize : '40px'}} />
-                        <div className = {`ml-[10px] my-[5px] text-purple-500 hover:text-purple-300`}>{months[new Date(time).getMonth()] + ' ' + new Date(time).getDate() + ', ' + new Date(time).getFullYear()}</div>
-                    </div> */}
-                {/* </div> */}
-            </div>
-            <div className="flex justify-between mb-4">
-                <div>
-                </div>
-                
-            </div>
-            <div className = {`max-w-full max-h-full min-w-full min-h-full mt-4`}>
-                    {(link[link.length - 1] === 'f' || link[link.length - 1] === 'F')  && (
-                        <embed src = {link} width = "100%" height="700px"/>
-                    )}
-                    {(link[link.length - 1] === 'g' || link[link.length - 1] === 'G') && (
-                        <Image src = {link} alt = "Không tải được ảnh" width='100%'/>
-                    )}
-                </div>
-            <div className = {`flex mb-8`}>
-                <div> 
-                { content }
-                </div>
-                
-                {/* </div> */}
+                            <Text strong style={{fontSize: '14px'}}>
+                            {author} <span style={{color: '#6F767E'}}> gửi vào lúc </span> { commentDate }
 
-                {/* <div className = {`ml-[20px] my-[200px] `}>
-                    <button className = {`text-black hover:text-blue-500`} onClick = {handleLike}>
-                        <div className = {`flex flex-col items-center`}>
-                            <div className = {`flex max-w-fit`}>
-                                <div className = {`rounded-full bg-blue-500 hover:bg-blue-700 p-1`}>
-                                    <BiSolidLike className = {`cursor-pointer text-white`} style={{fontSize : '30px'}}/>
-                                </div>
-                                <div className = {`ml-[10px] my-[5px] font-semibold text-[20px]`}>{numoflike} Like</div>
-                            </div>
+                            </Text>
+
                         </div>
-                    </button>
-                    <br />
-                    <br />
-                    <br />
-                    <button className = {`text-black hover:text-green-300`} onClick = {handleDown}>
-                        <a className = {``} href = {link} download = "" target = "_blank">
-                            <div className = {`flex flex-col items-center`}>
-                                <button  className = {`flex`}>
-                                    <IoMdDocument className = {`cursor-pointer text-green-500 hover:text-green-300`} style={{fontSize : '50px'}}/>
-                                    <div className = {`text-[15px] max-w-[70px] my-[3px] font-semibold`}>Mở trong tab mới</div>
-                                </button>
-                            </div>
-                        </a>
-                    </button>
-                </div> */}
-                <ReportForm
-                    // key={(editingSubject?.id ?? '') + editingSubject?.getFinalScore?.()}
-                    // key={editingSubject.current?.id ?? ''}
-                    reportInfo = {
-                        {
-                        pageId: documentId,
-                        pageType: "D"
+                    {/* </div>
+                        { commentDate }
+                    <div> */}
+                    </div>
+                    <div className="flex ">
+                        <div className={isLiking===0?"flex items-center mr-2": "hidden items-center"}>
+                                    <ClipLoader
+                                    color="#1A4301"
+                                    size={24}
+                                    cssOverride={{
+                                        'borderWidth': '4px'
+                                    }}
+                                    />
+                        </div>
+                        <button className="flex items-center button-stroke product__favorite mx-4 px-4 py-2 rounded-lg" style={{boxShadow: "0 0 0 2px #EFEFEF inset"}} onClick={toggleLike}>
+                                {/* <svg class="icon icon-heart-fill">
+                                <use xlink:href="#icon-heart-fill"></use>
+                                </svg><span>32</span> */} 
+                                <HeartIcon size={24}  solid={isLike} solidOnHover className="mr-2"/>
+                                {likeCnt}
+                        </button>
+
+                    </div>
+
+                </div>
+                <div className="flex justify-between mb-4">
+                    <div>
+                    </div>
+                    
+                </div>
+
+                <div className = {`flex flex-col mb-8`}>
+                    <div> 
+                    { content }
+                    </div>
+                    <div className="overflow-y-auto overflow-x-hidden mt-8">
+                        <Comment pageId={documentId} pageType='D'/>
+                    </div>
+                    
+                    
+                    <ReportForm
+                        // key={(editingSubject?.id ?? '') + editingSubject?.getFinalScore?.()}
+                        // key={editingSubject.current?.id ?? ''}
+                        reportInfo = {
+                            {
+                            pageId: documentId,
+                            pageType: "D"
+                            }
                         }
-                    }
-                    onSave= {(newSubject) => {
-                        // console.log(newSubject)
-                        Fetcher.post('/report/', {
-                        "content": newSubject?.content,
-                        "pageType": newSubject?.pageType,
-                        "pageId": newSubject?.pageId,
-                        "type": newSubject?.type,
-                        }).then((response) => {
-                        console.log(response)
-                        setOpenReportForm(false);
-                        }).catch((error) => {
-                        console.log(error)
-                        });
-                    }}
-                    open={openReportForm}
-                    onCancel={() => setOpenReportForm(false)}
-                    />
+                        onSave= {(newSubject) => {
+                            // console.log(newSubject)
+                            Fetcher.post('/report/', {
+                            "content": newSubject?.content,
+                            "pageType": newSubject?.pageType,
+                            "pageId": newSubject?.pageId,
+                            "type": newSubject?.type,
+                            }).then((response) => {
+                            console.log(response)
+                            setOpenReportForm(false);
+                            }).catch((error) => {
+                            console.log(error)
+                            });
+                        }}
+                        open={openReportForm}
+                        onCancel={() => setOpenReportForm(false)}
+                        />
+                </div>
+
             </div>
+            
             {/* <Comment pageId={documentId} pageType='D'/> */}
         </Main>
     </>)

@@ -10,6 +10,7 @@ export default class UserDTO {
       date: user.Birth,
       bio: user.Bio,
       avatar: user.Avatar ? user.Avatar : null,
+      book: user.Book,
     }
   }
 }

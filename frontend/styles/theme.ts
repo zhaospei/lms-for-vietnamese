@@ -3,7 +3,7 @@
 // import { inter } from "../utils/fonts";
 
 export const THEME = {
-    PRIMARY_COLOR: '#538D22',
+    PRIMARY_COLOR: '#2C7865',
     DARK_PRIMARY_COLOR: '#1A4301',
     LIGHT_PRIMARY_COLOR: '#AAD576',
     SECONDARY_COLOR: '#FFFFFF',

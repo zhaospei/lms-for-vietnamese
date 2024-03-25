@@ -35,14 +35,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors())
 app.use(cookieParser());
 const PORT = process.env.PORT;
-//app.get('/', (req, res) => {
-    // const ipAddress = req.connection.remoteAddress
-    // const ipPort = req.connection.remotePort
-    // console.log(ipAddress);
-    // console.log(ipPort);
-    // console.log(req.headers.host);
-    //res.status(200).send('Hello World!')
-//})
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 

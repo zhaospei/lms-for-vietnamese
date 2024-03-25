@@ -126,7 +126,7 @@ export default function Profile() {
         
         
         
-        <div className='flex max-w-3xl mx-auto flex-col'>
+        <div className='flex max-w-5xl mx-auto flex-col'>
           
             <div className='mb-12'>
                 <div className="flex justify-end items-end mt-2">

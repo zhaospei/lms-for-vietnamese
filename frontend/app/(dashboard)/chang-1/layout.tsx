@@ -56,8 +56,8 @@ export default function Chang1Layout({
     }
 
     return (
-        <Space direction='vertical' className="w-full p-5">
-            <Breadcrumb itemRender={itemRender} items={items} />
+        <Space direction='vertical' className="w-full">
+            {/* <Breadcrumb itemRender={itemRender} items={items} /> */}
             {children}
         </Space>
     );

@@ -1,5 +1,7 @@
 import User from "../models/user.js"
+import Record from "../models/record.js"
 import Authentication from '../middlewares/authentication.js'
+import Learnd from "../models/learnd.js"
 import UserDTO from '../dto/users.js'
 import UserHandleDTO from '../dto/userHandle.js'
 import { Op } from 'sequelize'
@@ -257,7 +259,7 @@ export const authenticateUser = async (req, res) => {
     try {
         const { body } = req
         const user = await User.findOne({
-            attributes: ['Id', 'Name', 'StudentId', 'PasswordHash', 'Role'],
+            attributes: ['Id', 'Name', 'StudentId', 'PasswordHash', 'Role', 'Book'],
             where: {
                 StudentId: body.studentid,
             },
@@ -422,10 +424,10 @@ export const changeBio = async(req, res) => {
     }
 }
 
-export const changeScore = async(req, res) => {
+export const changeBook = async(req, res) => {
     try {
-        let score = req.body.score;
-        console.log(score);
+        let book = req.body.book;
+        console.log(book);
         let decodedUser = res.locals.decodedUser;
         let user = await User.findOne({
             where: {
@@ -433,15 +435,166 @@ export const changeScore = async(req, res) => {
             }
         });
         // console.log(user);
-        if (user.Score < score) {
-            user.Score = score;
-        }
+        user.Book = book;
         await user.save();
         res.status(200).json("changed successfully!")
     } catch (err) {
         res.status(500).json(err);
     }
 }
+
+export const getBook = async(req, res) => {
+    try {
+
+        let decodedUser = res.locals.decodedUser;
+        let user = await User.findOne({
+            where: {
+                Id: decodedUser.Id,
+            }
+        });
+        if (user) {
+            res.status(200).send({
+                'book': user.Book
+            });
+        } else {
+            res.status(200).send({
+                'book': 0
+            });
+        }
+        // res.status(200).json("changed successfully!")
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}
+
+export const changeScore = async(req, res) => {
+    try {
+        let { score, time, type}  = req.body;
+        // let time = req.body.time;
+        console.log(score);
+        let decodedUser = res.locals.decodedUser;
+        let user = await Record.findOne({
+            where: {
+                UserId: decodedUser.Id,
+                Type: type
+            }
+        });
+        if (user) {
+            if (user.Score < score) {
+                user.Score = score;
+                user.Time = time;
+            } else if (user.Score == score && user.Time > time) {
+                user.Time = time;
+            }
+            await user.save();
+            res.status(200).json("changed successfully!")
+        } else {
+            const createUser = await Record.create({
+                UserId: decodedUser.Id,
+                Score: score,
+                Time: time,
+                Type: type,
+            })
+            await createUser.save();
+            res.status(200).json("changed successfully!")
+        }
+       
+        // console.log(user);
+        
+        
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}
+
+export const getScore = async(req, res) => {
+    try {
+        let { type }  = req.query;
+        // let time = req.body.time;
+        // console.log(score);
+        let decodedUser = res.locals.decodedUser;
+        let user = await Record.findOne({
+            where: {
+                UserId: decodedUser.Id,
+                Type: type
+            }
+        });
+        // console.log(user);
+        if (user) {
+            res.status(200).json(user);
+        } else {
+            res.status(200).json({Score: 0, Time: 0});
+        }
+        // await user.save();
+        // res.status(200).json("changed successfully!")
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}
+
+
+export const changeLearn = async(req, res) => {
+    try {
+        let { score, link}  = req.body;
+        // let time = req.body.time;
+        console.log(score, link);
+        let decodedUser = res.locals.decodedUser;
+        let user = await Learnd.findOne({
+            where: {
+                UserId: decodedUser.Id,
+                Link: link
+            }
+        });
+        if (user) {
+            console.log("OK");
+            if (user.Score < score) {
+                user.Score = score;
+            } 
+            await user.save();
+            res.status(200).json("changed successfully!")
+        } else {
+            const createUser = await Learnd.create({
+                UserId: decodedUser.Id,
+                Link: link,
+                Score: score,
+            })
+            await createUser.save();
+            res.status(200).json("changed successfully!")
+        }
+       
+        // console.log(user);
+        
+        
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}
+
+export const getLearn = async(req, res) => {
+    try {
+        // console.log(req)
+        let { link }  = req.query;
+        // let time = req.body.time;
+        // console.log(score);
+        let decodedUser = res.locals.decodedUser;
+        console.log(decodedUser, link);
+        let user = await Learnd.findOne({
+            where: {
+                UserId: decodedUser.Id,
+                Link: link
+            }
+        });
+        // console.log(user);
+        if (user) {
+            res.status(200).json(user);
+        } else {
+            res.status(200).json({Score: 0});
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}
+
 
 
 // export const getScore = async(req, res) => {

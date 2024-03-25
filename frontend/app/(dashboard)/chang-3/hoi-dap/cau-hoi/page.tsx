@@ -200,7 +200,21 @@ export default function Documentdetail() {
     }
 
     return (<>
-        <Main title = "Tài liệu" className="w-[48rem] mx-auto rounded-lg my-12  p-[30px]">
+        <Main title = "Tài liệu" className="max-w-5xl mx-auto rounded-lg my-12  p-[30px]">
+            <div data-test-id="back-button" className="z-[10] absolute flex items-center left-[-80px] top-0">
+                <div className="rounded-full bg-green-300" style={{"animation": "1s cubic-bezier(0.165, 0.84, 0.44, 1) 0s 1 normal forwards running hideShadow"}}>
+                    <button aria-label="Quay lại" className="H" data-test-id="back-icon-button" type="button" onClick={() => router.back()} >
+                        <div className="" style={{}}>
+                            <div className="flex items-center justify-center" style={{"height": "48px", "width": "48px"}}>
+                                <svg className="Hn_ Uvi gUZ U9O kVc" height="20" width="20" viewBox="0 0 24 24" aria-hidden="true" aria-label="" role="img">
+                                    <path d="M8.41 4.59a2 2 0 1 1 2.83 2.82L8.66 10H21a2 2 0 0 1 0 4H8.66l2.58 2.59a2 2 0 1 1-2.82 2.82L1 12z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
             {/* <br />
             <div className = {`flex`}>
                 <div className = {`ml-[10px]`}>

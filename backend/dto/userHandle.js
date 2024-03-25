@@ -8,6 +8,7 @@ export default class UserHandleDTO {
             studentId: user.StudentId,
             name: user.Name,
             avatar: user.Avatar ? user.Avatar : null,
+            book: user.Book,
         }
     }
 }

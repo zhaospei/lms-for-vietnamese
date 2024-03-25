@@ -186,10 +186,10 @@ const changeImage = () => {
 
   return (
     <main className='min-h-screen mt-[50px]'>
-        <div className='flex max-w-5xl mx-auto flex-col'>
+        <div className='flex w-[75vw] mx-auto flex-col'>
           <div className='text-[#c04826]'>
-              <TitleWithFont title='Chia sẻ sản phẩm' className='text-5xl'></TitleWithFont>
-              <TitleWithFont title='Chuyên đề ngữ văn 10' className='text-7xl'></TitleWithFont>
+              <TitleWithFont title='Chia sẻ sản phẩm' className='text-5xl font-black'></TitleWithFont>
+              <TitleWithFont title='Chuyên đề ngữ văn 10' className='text-7xl font-black'></TitleWithFont>
           </div>
             <div className='mb-12'>
                 <div className="flex justify-end items-end mt-2">
@@ -278,7 +278,7 @@ const changeImage = () => {
                   </button>
             </div> 
           </div> )}
-        <div className='grid grid-cols-2 gap-4'>
+        <div className='grid grid-cols-3 gap-4'>
             <CauHoiList comments={data ?? []} />
         </div>
             
@@ -445,7 +445,7 @@ function CauHoiInfo({
                 </div>
             </div>
 
-            <div className = {`max-w-full max-h-full min-w-full min-h-full mt-4`}>
+            <div className = {`max-w-full max-h-full min-w-full min-h-full mt-4 rounded-lg`}>
                 {(link[link.length - 1] === 'f' || link[link.length - 1] === 'F')  && (
                     <embed src = {link} width = "100%" height="700px"/>
                 )}

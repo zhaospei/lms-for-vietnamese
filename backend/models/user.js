@@ -45,6 +45,10 @@ const User = sequelize.define("User", {
     Avatar: {
         type: DataTypes.TEXT,
         defaultValue: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6aMSd6UXIgSwBn5c9fvTlZwMjPjeP7vGfnSXXMy68evP4I6USVcPZqq5OYSbxUAtdbEk&usqp=CAU"
+    },
+    Book: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
     }
  },
  {

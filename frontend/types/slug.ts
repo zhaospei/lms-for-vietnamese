@@ -48,18 +48,23 @@ export interface AssetInfo {
 ;export const Cửa: {
   name: DoorName;
   img: StaticImport;
+  mota: string;
 }[] = [{
   name: 'Tri thức nền tảng',
-  img: Cua1
+  img: Cua1,
+  mota: 'Cửa 1 thuộc chặng 1 sẽ cung cấp tri thức nền tảng, cơ bản để HS học tập chuyên đề. Hệ thống tri thức này vừa kế thừa sách giáo khoa chuyên đề Ngữ văn 10 vừa có sự phát triển về nội dung và hình thức. Đặc biệt, với cách trình bày dưới dạng tài liệu đa phương thức thú vị và bắt mắt, cửa 1 sẽ giúp cho HS hiểu và ghi nhớ nhanh chóng, dễ dàng.'
 }, {
   name: 'Gợi mở',
-  img: Cua2
+  img: Cua2,
+  mota: 'Cửa 2 thuộc chặng 1 sẽ hướng dẫn cụ thể cho học sinh phương pháp, cách thực hiện các chuyên đề. Nội dung kiến thức của cửa 2 bám sát sách giáo khoa chuyên đề của từng bộ sách nhưng được triển khai dưới dạng tài liệu đa phương thức thú vị và bắt mắt. Hoàn thành cửa 2, học sinh về cơ bản đã có được những tri thức cần thiết của chuyên đề.'
 }, {
   name: 'Tài liệu tham khảo',
-  img: Cua3
+  img: Cua3,
+  mota: 'Cửa 3 thuộc chặng 1 cung cấp cho HS các nguồn tài liệu tham khảo để học tập các chuyên đề. Nguồn tài liệu này sử dụng cho cả ba bộ sách. Các tài liệu này sẽ định hướng, hỗ trợ cho học sinh học tập các chuyên đề.'
 }, {
   name: 'Bài mẫu',
-  img: Cua4
+  img: Cua4,
+  mota: 'Cửa 4 thuộc chặng 1 cung cấp cho HS các mẫu sản phẩm để tham khảo. Về cơ bản, các bài mẫu đã được kiểm định chất lượng. Do đó, thông qua các bài mẫu học sinh sẽ học tập được cách làm, cách triển khai các vấn đề. Đối với Chuyên đề 2, các mẫu sân khấu hóa sẽ là các ví dụ minh họa về cách diễn xuất, cách tổ chức sân khấu cho học sinh.'
 },];
 export type DoorName = 'Tri thức nền tảng' | 'Gợi mở' | 'Tài liệu tham khảo' | 'Bài mẫu';
 export type DoorSlug = 'tri-thuc-nen-tang' | 'goi-mo' | 'tai-lieu-tham-khao' | 'bai-mau';

@@ -7,14 +7,16 @@ export interface AuthState {
     role?: "admin" | "user",
     studentId: string,
     name?: string,
-    avtLink?: string
+    avtLink?: string,
+    book?: number,
 }
 
 const initialState: AuthState = {
     signedIn: false,
     logging: true,
     role: "user",
-    studentId: ''
+    studentId: '',
+    book: 0
 }
 
 export const {reducer: authReducer, actions: authActions} = createSlice({

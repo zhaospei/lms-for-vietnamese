@@ -42,17 +42,20 @@ export default function Profile() {
     <main className='min-h-screen'>
         {/* <div className='flex items-center justify-center m-12 mb-24'>
             <div className='bg-[#AAD576] font-bold text-3xl rounded-full inline-block px-3'>
-              Chặng 2: Trò chơi kiểm tra tri thức
+              Chặng 2: Trò chơi ôn tập
             </div>
         </div> */}
-        <div className='absolute top-[-148px]' style={{width: '100%', height: '400px', position: 'relative'}}>
+        <div className='absolute top-[-116px]' style={{width: '100%', height: '500px', position: 'relative'}}>
           <Image src={Chang2} alt="home_main" fill sizes="100vw"/>
           
           <div className="flex relative items-center text-center justify-center pt-[148px]" style={{display: 'flex', color: 'white', fontSize: '48px', zIndex: 2}}> 
-            <div className="">
-              <p className={BRICES_FONT.className} style={{color: "#E8751A"}}>Chặng 2</p> 
-              <p className='font-bold text-white'>Trò chơi kiểm tra tri thức</p>
-              <p className="text-xl"> Tham gia các trò chơi hấp dẫn để nhớ rõ tri thức đã học.</p>
+            <div className="text-[#E8751A]">
+              <p className="font-bold text-3xl"style={{color: "#E8751A"}}>Chặng 2</p> 
+              <p className='font-extrabold  text-[#E8751A]'>Trò chơi ôn tập</p>
+              <p className="text-xl text-white w-8/12 text-left mx-auto"> 
+              Với hình thức vừa học vừa chơi Chặng 2 - Trò chơi kiểm tra tri thức sẽ tạo nên sự hứng thú, hấp dẫn cho học sinh. Thông qua đó học sinh có thể ôn tập, củng cố kiến thức đã học đồng thời tự kiểm tra mức độ tiếp nhận và vận dụng tri thức nền tảng ở chặng 1. 
+
+                </p>
             </div>
           </div>
           <div className="z-[1] absolute w-full h-full top-0" style={{background: 'linear-gradient(0deg, rgba(225,240,218,1) 0%, rgba(0,0,0,0.5501050762101716) 50%, rgba(0,0,0,0.8582283255098915) 100%)'}}>
@@ -67,7 +70,6 @@ export default function Profile() {
                 border-2 border-black
                 border-2 relative top-0 
                 hover:-top-5 transition-inset duration-300 
-                h-[200px]
                 ease-in-out cursor-pointer" 
                 // style={{}} 
                 href="/chang-2/chuyen-de" style={{
@@ -77,7 +79,7 @@ export default function Profile() {
                   // backgroundRepeat: 'no-repeat',
                   // backgroundSize: '100% 100%'
                 }}>
-                  <div className="z-[1] absolute w-full h-full top-0" style={{backgroundColor: 'rgba(0, 0, 0, 0.6', "border": "2px solid #f5f6fa",}}>
+                  <div className="rounded-lg z-[1] absolute w-full h-full top-0" style={{backgroundColor: 'rgba(0, 0, 0, 0.6', "border": "2px solid #f5f6fa",}}>
 
 </div>
                 <div className="text-center flex-col items-center flex text-white relative z-[100]">
@@ -104,7 +106,7 @@ export default function Profile() {
                   // backgroundSize: '100% 100%'
                 }}
                 >
-                  <div className="z-[1] absolute w-full h-full top-0" style={{backgroundColor: 'rgba(0, 0, 0, 0.6', "border": "2px solid #f5f6fa",}}>
+                  <div className="rounded-lg z-[1] absolute w-full h-full top-0" style={{backgroundColor: 'rgba(0, 0, 0, 0.6', "border": "2px solid #f5f6fa",}}>
 
 </div>
                 <div className="text-center flex-col items-center flex text-white relative z-[100]">

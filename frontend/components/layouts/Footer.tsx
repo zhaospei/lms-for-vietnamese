@@ -1,14 +1,19 @@
 import Image from 'next/image'
 import React from 'react'
-import UETLogo from '../../public/images/uet-logo.svg';
+import UETLogo from '../../public/images/logo_dark.png';
 import { THEME } from '@/styles/theme';
 import LogoIconDark from '@/public/images/logo_dark.png';
-import LogoUET from '@/public/images/uet-logo.svg';
+import LogoUET from '@/public/images/logo_dark.png';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+    const pathName = usePathname();
+    if ('.pdf' === pathName.slice(-4)) {
+        return null;
+    }
     return (
-        <footer className='w-full mb-8'>
-            <div className='flex py-[60px] w-11/12 mx-auto justify-between' style={{ borderTop: "1px solid #ADBC9F", marginTop: '3.5rem' }}>
+        <footer className='w-full mb-8 footer'>
+            <div className='flex py-[60px] w-11/12 mx-auto justify-between' style={{marginTop: '3.5rem' }}>
                 <div className='w-1/5 font-bold text-3xl flex flex-col justify-between' style={{ color: THEME.PRIMARY_COLOR }}>
                     <Image src={LogoUET} alt="logo"></Image>
                     <div >
@@ -19,8 +24,8 @@ export default function Footer() {
                 <div className="flex justify-between gap-4 w-8/12 text-lg font-medium"  dir="ltr">
    <div className="flex flex-col gap-8"  dir="ltr">
         <a href="/" target="_blank">Trang chủ</a>
-        <a href="/chang-1/" target="_blank">Dữ liệu đa phương thức</a>
-        <a href="/chang-2/" target="_blank">Trò chơi kiểm tra tri thức</a>
+        <a href="/chang-1/" target="_blank">Hành trang tri thức</a>
+        <a href="/chang-2/" target="_blank">Trò chơi ôn tập</a>
         <a href="/chang-3/" target="_blank">Diễn đàn trao đổi</a>
         <a href="/help/" target="_blank">Hướng dẫn sử dụng</a>
     </div>
