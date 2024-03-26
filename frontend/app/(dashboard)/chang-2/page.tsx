@@ -34,10 +34,16 @@ import search from '@/utils/search';
 import SearchBar from '@/components/common/SearchBar/SearchBar';
 import Editor from '@/components/common/Editor/Editor';
 const { Paragraph, Text, Title } = Typography;
+import ChooseBook from "@/components/common/ChooseBook"
+import { boSachSelector } from '@/redux/bosach/bosachSelector';
+
+
 
 const cookies = new Cookies();
 export default function Profile() {
-
+  const [openBook, setOpenBook] = React.useState(false);
+  const toggleBook = () => { setOpenBook(!openBook) }
+  const bosach = useSelector(boSachSelector.selectChoice) || 'Cánh diều';
   return (
     <main className='min-h-screen'>
         {/* <div className='flex items-center justify-center m-12 mb-24'>
@@ -63,8 +69,22 @@ export default function Profile() {
           </div>
         </div>
 
-        <div className="flex flex-col max-w-5xl mx-auto">
-            <a className="bg-white flex justify-center 
+        { 
+            
+            bosach === 'Kết nối tri thức' ?
+        (<div className="flex flex-col max-w-5xl mx-auto">
+            <ChooseBook open={openBook} setOpenBook={setOpenBook}/>
+            <div className='flex justify-center'>
+              <div className='text-3xl font-bold text-center mt-12 mb-8'>
+                Bộ sách hiện tại: {bosach}
+              </div>
+            </div>
+            <div className='w-full'>
+              <button className="float-right text-white font-bold rounded-lg hover:bg-white hover:text-green-900 bg-green-200 bg-green-900 text-lg font-mainfont px-8 py-2" onClick={toggleBook}>
+                Thay đổi bộ sách 
+              </button>
+            </div>
+            <a className="bg-white flex justify-center mt-[50px]
                 mb-[30px]
                 rounded-lg p-10 
                 border-2 border-black
@@ -116,9 +136,23 @@ export default function Profile() {
                      <i>Sắp có</i>
                     </p>
                 </div>
-            </div>
+            </div>) 
 
-        </div>
+        </div>) : (
+              <div className="flex flex-col max-w-5xl mx-auto">
+                <ChooseBook open={openBook} setOpenBook={setOpenBook}/>
+                <div className='flex justify-center'>
+                  <div className='text-3xl font-bold text-center mt-12 mb-8'>
+                    Dữ liệu cho bộ sách {bosach} đang được cập nhât. Để thay đổi bộ sách khác vui lòng nút phía dưới.
+                  </div>
+                </div>
+                <div className='w-full'>
+                  <button className="float-right text-white font-bold rounded-lg hover:bg-white hover:text-green-900 bg-green-200 bg-green-900 text-lg font-mainfont px-8 py-2" onClick={toggleBook}>
+                    Thay đổi bộ sách 
+                  </button>
+                </div>
+              </div>
+            )}
 
 
     </main >

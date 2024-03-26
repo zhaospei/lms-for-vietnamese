@@ -150,7 +150,7 @@ export default function Chang1Page() {
         </div>
       <div className='flex flex-col w-full md:w-[70vw] mx-auto gap-10'>
         <Breadcrumb itemRender={itemRender} items={items} />
-        
+        <div className='italic'> Bạn đang sử dụng bộ sách <span className='font-bold'>{bosach}</span>, để thay đổi bộ sách vui lòng chọn nút phía dưới.</div>
         {/* <Text strong className='text-xl p-3 bg-light-primary rounded-xl w-fit'>
           Chặng 1: Hành trang tri thức
         </Text> */}

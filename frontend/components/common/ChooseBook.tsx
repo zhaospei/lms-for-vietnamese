@@ -2,7 +2,9 @@
 import { Modal, Space, Typography } from 'antd'
 import Image from 'next/image';
 import React, { useState } from 'react'
-import CanhDieu from '@/public/images/logo-sachcanhdieu.png';
+import CanhDieu from '@/public/images/logo/canhdieu.png';
+import KetNoi from '@/public/images/logo/ketnoitrithuc.png';
+import ChanTroi from '@/public/images/logo/chantroisangtao.png';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import MyButtonWrapper from './(MyButton)/MyButtonWrapper';
 import { THEME } from '@/styles/theme';
@@ -21,11 +23,11 @@ const books: BookInfo[] = [{
     name: 'Bộ cánh diều',
     id: 'Cánh diều'
 }, {
-    img: CanhDieu,
+    img: KetNoi,
     name: 'Bộ kết nối tri thức với cuộc sống',
     id: 'Kết nối tri thức'
 }, {
-    img: CanhDieu,
+    img: ChanTroi,
     name: 'Bộ Chân trời sáng tạo',
     id: 'Chân trời sáng tạo'
 }]
@@ -54,7 +56,7 @@ export default function ChooseBook({
         >
             <Space direction='vertical' align='center'>
                 <Title level={3}>Lựa chọn bộ sách</Title>
-                <div className="flex gap-5">
+                <div className="grid grid-cols-3 gap-5">
                 {
                     books.map((book) => (
                         <div key={book.id}>
@@ -105,9 +107,9 @@ function Box({
     //     </button>
     // )
     return (
-        <button className="flex flex-col gap-5 items-center justify-center relative text-center" onClick={() => onClick(id)}>
+        <button className="flex flex-col gap-5 items-center justify-center relative text-center w-full h-full" onClick={() => onClick(id)}>
             <div
-                className={`bg-[rgb(242,245,247)] rounded-xl px-10 border-[3px] hover:border-light-primary`}
+                className={`bg-[rgb(242,245,247)] rounded-xl px-10 border-[3px] hover:border-light-primary w-full p-12 box-border h-full flex items-center justify-center relative`}
                 style={
                     isChoosen ? {
                         borderColor: THEME.PRIMARY_COLOR
@@ -117,7 +119,7 @@ function Box({
                     }
                 }
             >
-                <Image src={img} alt={name} ></Image>
+                <Image src={img} alt={name} className='w-full'></Image>
             </div>
             {isChoosen && <FcOk className='absolute top-0 right-0 translate-x-[45%] -translate-y-[40%]' size={'10%'} />}
             <Text strong >{name}</Text>
