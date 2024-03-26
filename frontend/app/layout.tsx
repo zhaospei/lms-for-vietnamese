@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import { ReduxProvider } from '@/redux/provider';
 import { MAIN_FONT } from '@/styles/fonts';
 import { ConfigProvider } from 'antd';
+import Script from 'next/script'
 import { THEME } from '@/styles/theme';
 import { ToastContainer } from 'react-toastify';
 import SWRProvider from '@/components/provider/SWRProvider';
@@ -34,6 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${brices.variable} ${MAIN_FONT.className}`}>
+      <Script defer src="https://us.umami.is/script.js" data-website-id="97409280-6ec4-41d3-b94c-c6dfa83cb01b" />
       <body className='bg-[#E1F0DA]'>
         <ReduxProvider>
           <ConfigProvider

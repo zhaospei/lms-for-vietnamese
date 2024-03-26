@@ -2,6 +2,8 @@
 
 // Import necessary modules and components
 import { useEffect, useState, useRef } from "react";
+import { AudioRecorder } from 'react-audio-voice-recorder';
+
 
 // Declare a global interface to add the webkitSpeechRecognition property to the Window object
 declare global {
@@ -9,6 +11,14 @@ declare global {
     webkitSpeechRecognition: any;
   }
 }
+
+const addAudioElement = (blob:any ) => {
+  const url = URL.createObjectURL(blob);
+  const audio = document.createElement("audio");
+  audio.src = url;
+  audio.controls = true;
+  document.body.appendChild(audio);
+};
 
 // Export the MicrophoneComponent function component
 export default function MicrophoneComponent() {
@@ -79,6 +89,16 @@ export default function MicrophoneComponent() {
               Phòng thực hành nói
             </div>
         </div>
+        <AudioRecorder 
+      onRecordingComplete={addAudioElement}
+      audioTrackConstraints={{
+        noiseSuppression: true,
+        echoCancellation: true,
+      }} 
+      downloadOnSavePress={true}
+      downloadFileExtension="webm"
+      showVisualizer={true}
+    />
     <div className="flex items-center justify-center w-full mt-36">
       <div className="w-full">
         {(isRecording || transcript) && (
