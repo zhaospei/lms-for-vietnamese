@@ -33,6 +33,7 @@ export default function SubjectPreview(props: Props) {
         <Preview
             imgHeight={imgHeight}
             imgSrc={subject?.imgLink}
+            color='red'
             url="/all-subjects/details"
             params={params}
             star={

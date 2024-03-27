@@ -54,6 +54,7 @@ export default function Documents({
                                     url={getURL('/all-subjects/documents/details', {
                                         documentId: doc.id
                                     })}
+                                    color='red'
                                     title={doc?.name ?? ''}
                                     info={
                                         <Text type='secondary' strong>{`${doc?.download} lượt tải, ${doc?.like} lượt thích`}</Text>

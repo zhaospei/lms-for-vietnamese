@@ -60,6 +60,7 @@ export default function RegisteredSubjectPage() {
                   subjectId: sub.id
                 })}
                 title={sub.name}
+                color='red'
                 tag={<LetterGradeTag grade={getLetterGrade(sub)} className="rounded-md p-1" />}
                 info={<Text strong type='secondary'>{`${sub.code}, ${sub.credits} tín chỉ`}</Text>}
               />

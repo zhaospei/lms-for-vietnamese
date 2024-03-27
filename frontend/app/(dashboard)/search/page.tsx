@@ -52,6 +52,7 @@ export default function SearchPage() {
                                             subjectId: sub.id
                                         })}
                                         title={sub.name}
+                                        color='red'
                                         info={
                                             <Text type="secondary">{`${sub.code}, ${sub.credits} tín chỉ`}</Text>
                                         }

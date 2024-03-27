@@ -39,6 +39,7 @@ export default function RelatedSubject({
                     return (
                         <div className="mb-5">
                             <Preview
+                                color='red'
                                 imgSrc={subject?.imgLink}
                                 url={getURL<AllSubjectsDetailsPageProps['searchParams']>("/all-subjects/details", { subjectId: subject?.id ?? '' })}
                                 title={subject?.name ?? ''}
