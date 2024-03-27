@@ -47,7 +47,7 @@ export default function Profile() {
               <p className="font-bold text-3xl"style={{color: "#E8751A"}}>Chặng 3</p> 
               <p className='font-extrabold  text-[#E8751A]'>Diễn đàn trao đổi</p>
               <p className="text-xl text-white w-8/12 text-left mx-auto"> 
-              Chặng 3 được xây dựng dưới dạng một “mạng xã hội thu nhỏ”. Sau khi được đã hoàn thành chặng 1 và chặng 2, học sinh có thể đặt ra các vấn đề mà mình thắc mắc đồng thời chia sẻ sản phẩm là các bài viết, kịch bản, bài nói, vở diễn của cá nhân/tập thể. Ngoài ra, để hỗ trợ cho học sinh luyện tập cáctả\h trình bày, ở chặng 3 được tích hợp cả phòng luyện nói cho phép học sinh tự ghi âm, nghe lại giọng nói của mình. . 
+              Chặng 3 được xây dựng dưới dạng một “mạng xã hội thu nhỏ”. Sau khi được đã hoàn thành chặng 1 và chặng 2, học sinh có thể đặt ra các vấn đề mà mình thắc mắc đồng thời chia sẻ sản phẩm là các bài viết, kịch bản, bài nói, vở diễn của cá nhân/tập thể. Ngoài ra, để hỗ trợ cho học sinh luyện tập cách trình bày, ở chặng 3 được tích hợp cả phòng luyện nói cho phép học sinh tự ghi âm, nghe lại giọng nói của mình. . 
 
                 </p>
             </div>

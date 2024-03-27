@@ -5,10 +5,11 @@ import { THEME } from '@/styles/theme';
 import LogoIconDark from '@/public/images/logo_dark.png';
 import LogoUET from '@/public/images/logo_dark.png';
 import { usePathname } from 'next/navigation';
+import path from 'path';
 
 export default function Footer() {
     const pathName = usePathname();
-    if ('.pdf' === pathName.slice(-4)) {
+    if ('.pdf' === pathName.slice(-4) || '.png' === pathName.slice(-4) || '.mp4' === pathName.slice(-4)) {
         return null;
     }
     return (

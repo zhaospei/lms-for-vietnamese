@@ -53,18 +53,14 @@ export default function DashboardLayout({
                     studentId: cookies.get('studentid'),
                 }));
             }).catch((error) => {
-        console.log('haha')
 
                 dispatch(authActions.updateAuthState({
                     signedIn: false,
                     logging: false
                 }));
-                cookies.remove('authToken', {
-                    path: '/'
-                });
-                console.log(error)
+                
                 if (!accessibleRoute(pathName))
-                    router.push('/');
+                    router.push('/signin');
             });
     }, [authState.signedIn, dispatch, pathName, router])
 

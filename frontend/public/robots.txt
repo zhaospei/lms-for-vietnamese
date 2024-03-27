@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: http://cpchuyendenguvan10.id.vn
+
+# Sitemaps
+Sitemap: http://cpchuyendenguvan10.id.vn/sitemap.xml

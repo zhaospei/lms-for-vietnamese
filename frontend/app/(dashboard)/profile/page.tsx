@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { use, useEffect, useMemo, useState } from 'react';
 import { LikeOutlined, DownloadOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { Typography, Progress, Avatar, DatePicker, DatePickerProps, List, Space } from 'antd';
 import Image from 'next/image';
@@ -49,6 +49,7 @@ export default function Profile() {
   const currentStudentId = cookies.get('studentid');
   const [otherAvt, setOtherAvt] = useState('')
   const [searchDoc, setSearchDoc] = useState('');
+  const [book, setBook] = useState('');
   const handleSearchDoc = useDebouncedCallback((search) => {
     setSearchDoc(search)
   }, 300)
@@ -68,6 +69,16 @@ export default function Profile() {
         // }))
         setOtherAvt(response.avatar)
         setMSSV(response.studentId);
+        if (response.book == 1) {
+          setBook('Cánh diều');
+        } else if (response.book == 2) {
+          setBook('Kết nối tri thức với cuộc sống');
+        } else if (response.book == 3) {
+          setBook('Chân trời sáng tạo');
+        } 
+        else {
+          setBook('Chưa chọn bộ sách');
+        }
         setName(response.name);
         setBirth(response.date);
         setBio(response.bio);
@@ -201,10 +212,10 @@ export default function Profile() {
                 <label className="font-light text-gray-500">Họ và tên</label>
                 <Paragraph className="font-semibold text-lg pt-3">{name}</Paragraph>
               </div>
-              <div className='flex-col'>
+              {/* <div className='flex-col'>
                 <label className="font-light text-gray-500">Ngày sinh</label>
                 <Paragraph className="font-semibold text-lg pt-3">{birth}</Paragraph>
-              </div>
+              </div> */}
               <div className='flex-col'>
                 <label className="font-light text-gray-500">Tài khoản email</label>
                 <Paragraph className="font-semibold text-lg pt-3">{mssv}</Paragraph>
@@ -247,13 +258,17 @@ export default function Profile() {
                     />
                     {/* <Paragraph className="font-semibold text-lg pt-3" editable={{ onChange: (newValue) => { handleFinishEditName(newValue) } }}>{name}</Paragraph> */}
                   </div>
-                  <div className="flex flex-col gap-3">
+                  {/* <div className="flex flex-col gap-3">
                     <label className="font-light text-gray-500">Ngày sinh</label>
                     <DatePicker className='font-semibold text-lg' onChange={handleFinishEditBirth} value={dayjs(birth, 'YYYY-MM-DD')} />
-                  </div>
+                  </div> */}
                   <div className="flex-col">
                     <div className="font-light text-gray-500">Tài khoản email</div>
                     <Paragraph className="font-semibold text-lg pt-3">{mssv}</Paragraph>
+                  </div>
+                  <div className="flex-col">
+                    <div className="font-light text-gray-500">Bộ sách</div>
+                    <Paragraph className="font-semibold text-lg pt-3">{book}</Paragraph>
                   </div>
                 </div>
               </div>

@@ -5,4 +5,5 @@ export interface UserInfoResponse {
     date: string,
     avatar: string,
     bio: string,
+    book: number,
 }
