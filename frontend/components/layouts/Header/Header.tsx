@@ -165,33 +165,33 @@ export default function Header() {
         }}
       >
         <div className="flex-1 text-lg md:flex-row flex-col md:items-center items-start gap-5 md:flex">
-          <h3 className="m-1 group mr-16"> 
-            <a href="/" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+          <h3 className="m-1 group mr-16 bg-[rgba(0,0,0,.5)] px-4 py-2 rounded-full"> 
+            <a href="/" className="text-white font-semibold  cursor-pointer transition-font-size duration-500 ease-in-out">
               <Image src={LogoIcon} alt="logo" height={50} />
             </a>
             
             {/* <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div> */}
           </h3>
 
-          <h3 className="m-1 group"> 
-            <a href="/chang-1" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+          <h3 className="m-1 group bg-[rgba(0,0,0,.5)] px-4 py-2 rounded-full"> 
+            <a href="/chang-1" className="text-white font-semibold  cursor-pointer transition-font-size duration-500 ease-in-out">
               Chặng 1: Hành trang tri thức
             </a>
-            <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
+            <div className="h-1 w-0 bg-white transition-width duration-500 ease-in-out group-hover:w-full"></div>
           </h3>
 
-          <h3 className="m-1 group"> 
-            <a href="/chang-2" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+          <h3 className="m-1 group bg-[rgba(0,0,0,.5)] px-4 py-2 rounded-full"> 
+            <a href="/chang-2" className="text-white font-semibold  cursor-pointer transition-font-size duration-500 ease-in-out">
               Chặng 2: Trò chơi ôn tập
             </a>
-            <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
+            <div className="h-1 w-0 bg-white transition-width duration-500 ease-in-out group-hover:w-full"></div>
           </h3>
 
-          <h3 className="m-1 group"> 
-            <a href="/chang-3" className="text-white font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
-              Chặng 3: Diễn đàn trao đổi
+          <h3 className="m-1 group bg-[rgba(0,0,0,.5)] px-4 py-2 rounded-full"> 
+            <a href="/chang-3" className="text-white font-semibold  cursor-pointer transition-font-size duration-500 ease-in-out">
+              Chặng 3: Diễn đàn - Triển lãm
             </a>
-            <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
+            <div className="h-1 w-0 bg-white transition-width duration-500 ease-in-out group-hover:w-full"></div>
           </h3>
 
           {/* <SearchBar
@@ -279,7 +279,7 @@ export default function Header() {
     >
       <div className="flex-1 text-lg md:flex-row flex-col md:items-center items-start gap-5 md:flex">
         <h3 className="m-1 group"> 
-          <a href="/" className="text-primary font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+          <a href="/" className="text-primary font-semibold  cursor-pointer transition-font-size duration-500 ease-in-out">
             <Image src={LogoUET} alt="logo" height={50} className="mr-8"/>
           </a>
           
@@ -287,22 +287,22 @@ export default function Header() {
         </h3>
 
         <h3 className="m-1 group"> 
-          <a href="/chang-1" className="text-primary font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+          <a href="/chang-1" className="text-primary font-semibold  cursor-pointer transition-font-size duration-500 ease-in-out">
             Chặng 1: Hành trang tri thức
           </a>
           <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
         </h3>
 
         <h3 className="m-1 group"> 
-          <a href="/chang-2" className="text-primary font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
+          <a href="/chang-2" className="text-primary font-semibold cursor-pointer transition-font-size duration-500 ease-in-out">
             Chặng 2: Trò chơi ôn tập
           </a>
           <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
         </h3>
 
         <h3 className="m-1 group"> 
-          <a href="/chang-3" className="text-primary font-semibold group-hover:text-primary cursor-pointer transition-font-size duration-500 ease-in-out">
-            Chặng 3: Diễn đàn trao đổi
+          <a href="/chang-3" className="text-primary font-semibold cursor-pointer transition-font-size duration-500 ease-in-out">
+            Chặng 3: Diễn đàn - Triển lãm
           </a>
           <div className="h-1 w-0 bg-primary transition-width duration-500 ease-in-out group-hover:w-full"></div>
         </h3>

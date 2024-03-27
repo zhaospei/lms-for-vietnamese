@@ -138,3 +138,10 @@ table, th, td {
 .tonghop a:hover {
   font-weight: bold;
 }
+
+thead tr {
+  background-color: #538d22;
+}
+.cc td:nth-child(1) {
+  text-align: center; 
+}

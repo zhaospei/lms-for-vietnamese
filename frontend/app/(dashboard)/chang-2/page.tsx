@@ -55,16 +55,16 @@ export default function Profile() {
           <Image src={Chang2} alt="home_main" fill sizes="100vw"/>
           
           <div className="flex relative items-center text-center justify-center pt-[148px]" style={{display: 'flex', color: 'white', fontSize: '48px', zIndex: 2}}> 
-            <div className="text-[#E8751A]">
+            <div className="text-[#E8751A] w-8/12 mx-auto bg-[rgba(255,255,255,.5)] px-8 py-4 rounded-lg">
               <p className="font-bold text-3xl"style={{color: "#E8751A"}}>Chặng 2</p> 
               <p className='font-extrabold  text-[#E8751A]'>Trò chơi ôn tập</p>
-              <p className="text-xl text-white w-8/12 text-left mx-auto"> 
+              <p className="text-xl text-black text-left "> 
               Với hình thức vừa học vừa chơi Chặng 2 - Trò chơi kiểm tra tri thức sẽ tạo nên sự hứng thú, hấp dẫn cho học sinh. Thông qua đó học sinh có thể ôn tập, củng cố kiến thức đã học đồng thời tự kiểm tra mức độ tiếp nhận và vận dụng tri thức nền tảng ở chặng 1. 
 
                 </p>
             </div>
           </div>
-          <div className="z-[1] absolute w-full h-full top-0" style={{background: 'linear-gradient(0deg, rgba(225,240,218,1) 0%, rgba(0,0,0,0.5501050762101716) 50%, rgba(0,0,0,0.8582283255098915) 100%)'}}>
+          <div className="z-[1] absolute w-full h-full top-0" style={{background: 'linear-gradient(0deg, rgba(225,240,218,0.7) 0%, rgba(0,0,0,0.0.4) 70%, rgba(0,0,0,0.8582283255098915) 100%)'}}>
 
           </div>
         </div>
@@ -75,7 +75,7 @@ export default function Profile() {
         (<div className="flex flex-col max-w-5xl mx-auto">
             <ChooseBook open={openBook} setOpenBook={setOpenBook}/>
             <div className='flex justify-center'>
-              <div className='text-3xl font-bold text-center mt-12 mb-8'>
+              <div className='text-3xl font-bold text-center'>
                 Bộ sách hiện tại: {bosach}
               </div>
             </div>

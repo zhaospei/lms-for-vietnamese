@@ -9,7 +9,7 @@ import path from 'path';
 
 export default function Footer() {
     const pathName = usePathname();
-    if ('.pdf' === pathName.slice(-4) || '.png' === pathName.slice(-4) || '.mp4' === pathName.slice(-4)) {
+    if ('.pdf' === pathName.slice(-4) || '.png' === pathName.slice(-4) || '.mp4' === pathName.slice(-4) || 'hanh-noi' === pathName.slice(-8)) {
         return null;
     }
     return (
@@ -27,7 +27,7 @@ export default function Footer() {
         <a href="/" target="_blank">Trang chủ</a>
         <a href="/chang-1/" target="_blank">Hành trang tri thức</a>
         <a href="/chang-2/" target="_blank">Trò chơi ôn tập</a>
-        <a href="/chang-3/" target="_blank">Diễn đàn trao đổi</a>
+        <a href="/chang-3/" target="_blank">Diễn đàn - Triển lãm</a>
         <a href="/help/" target="_blank">Hướng dẫn sử dụng</a>
     </div>
    <div className="flex flex-col gap-8"  dir="ltr">

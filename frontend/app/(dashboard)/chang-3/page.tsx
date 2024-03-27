@@ -43,17 +43,15 @@ export default function Profile() {
           <Image src={Chang3} alt="home_main" fill sizes="100vw"/>
           
           <div className="flex relative items-center text-center justify-center pt-[148px]" style={{display: 'flex', color: 'white', fontSize: '48px', zIndex: 2}}> 
-            <div className="text-[#E8751A]">
+            <div className="text-[#E8751A] w-8/12 mx-auto bg-[rgba(255,255,255,.5)] px-8 py-4 rounded-lg">
               <p className="font-bold text-3xl"style={{color: "#E8751A"}}>Chặng 3</p> 
-              <p className='font-extrabold  text-[#E8751A]'>Diễn đàn trao đổi</p>
-              <p className="text-xl text-white w-8/12 text-left mx-auto"> 
-              Chặng 3 được xây dựng dưới dạng một “mạng xã hội thu nhỏ”. Sau khi được đã hoàn thành chặng 1 và chặng 2, học sinh có thể đặt ra các vấn đề mà mình thắc mắc đồng thời chia sẻ sản phẩm là các bài viết, kịch bản, bài nói, vở diễn của cá nhân/tập thể. Ngoài ra, để hỗ trợ cho học sinh luyện tập cách trình bày, ở chặng 3 được tích hợp cả phòng luyện nói cho phép học sinh tự ghi âm, nghe lại giọng nói của mình. . 
-
+              <p className='font-extrabold  text-[#E8751A]'>Diễn đàn - Triển lãm</p>
+              <p className="text-xl text-black text-left "> 
+              Chặng 3 được xây dựng dưới dạng một “mạng xã hội thu nhỏ”. Sau khi được đã hoàn thành chặng 1 và chặng 2, học sinh có thể đặt ra các vấn đề mà mình thắc mắc đồng thời chia sẻ sản phẩm là các bài viết, kịch bản, bài nói, vở diễn của cá nhân/tập thể. Ngoài ra, để hỗ trợ cho học sinh luyện tập cách trình bày, ở chặng 3 được tích hợp cả phòng luyện nói cho phép học sinh tự ghi âm, nghe lại giọng nói của mình.
                 </p>
             </div>
-        
           </div>
-          <div className="z-[1] absolute w-full h-full top-0" style={{background: 'linear-gradient(0deg, rgba(225,240,218,1) 0%, rgba(0,0,0,0.5501050762101716) 50%, rgba(0,0,0,0.8582283255098915) 100%)'}}>
+          <div className="z-[1] absolute w-full h-full top-0" style={{background: 'linear-gradient(0deg, rgba(225,240,218,0.7) 0%, rgba(0,0,0,0.0.4) 70%, rgba(0,0,0,0.8582283255098915) 100%)'}}>
 
           </div>
         </div>
@@ -78,7 +76,7 @@ export default function Profile() {
                 </div>
                 <div className="text-center flex flex-col items-center">
                     <Image src={ShareImg} height={180} alt="share" style={{marginTop: '20px'}}></Image>
-                    <h3 className="font-bold text-2xl mt-8"> Chia sẻ sản phẩm </h3>
+                    <h3 className="font-bold text-2xl mt-8"> Triển lãm sản phẩm </h3>
                     <p className="font-medium mt-4 text-gray-500"> 
                     Chia sẻ sản phẩm các chuyên đề mà em/nhóm em đã thực hiện. Đồng thời đọc/xem và nhận xét các sản phẩm của mọi người.
 

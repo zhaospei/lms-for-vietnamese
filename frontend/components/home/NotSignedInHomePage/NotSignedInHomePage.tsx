@@ -121,7 +121,7 @@ function AboutScheduleAndMySubjects() {
       strings: [
         'Chặng 1: Hành trang tri thức',
         'Chặng 2: Trò chơi ôn tập',
-        'Chặng 3: Diễn đàn trao đổi',
+        'Chặng 3: Diễn đàn - Triển lãm',
       ],
       typeSpeed: 50,
       loop: true,
@@ -138,9 +138,9 @@ function AboutScheduleAndMySubjects() {
           <Image src={HomeMain} alt="home_main" fill sizes="100vw"/>
           
           <div className="flex relative items-center justify-between pt-[150px] pl-16" style={{display: 'flex', color: 'white', fontSize: '48px', zIndex: 2}}> 
-            <div className={`${MAIN_FONT.className} font-black header-info text-[#FF9800]`} >
-              <p className="text-[#90D26D]">Chinh phục Chuyên đề</p> 
-              <p style={{fontSize: '128px', lineHeight: "132px"}}>Ngữ văn <span style={{fontSize: '200px'}}>10</span></p>
+            <div className={`${MAIN_FONT.className} font-black header-info text-[#FF9800] bg-[rgba(255,255,255,.5)] px-8 py-4`} >
+              <p className="text-[#2b7663]">Chinh phục Chuyên đề</p> 
+              <p style={{fontSize: '128px', lineHeight: "132px"}}>NGỮ VĂN <span style={{fontSize: '200px'}}>10</span></p>
               <div className={MAIN_FONT.className} style={{fontWeight: '500', fontSize: '30px', color: 'white', marginTop: '16px'}}> 
                 <span ref={el} />
               </div>
@@ -185,7 +185,7 @@ function AboutScheduleAndMySubjects() {
 </div>
 <div className="trusted-grid-wrapper">
 <Image src={img3} alt="Dược" width={95} height={500} />
-  <p className="trusted-text _3">Chặng 3:  <span className="text-green-900 font-bold">Diễn đàn </span>trao đổi</p>
+  <p className="trusted-text _3">Chặng 3:  <span className="text-green-900 font-bold">Diễn đàn </span> - Triển lãm</p>
 </div>
         </div>
         <div className="flex bg-[#114232] w-full my-16 px-16 justify-between items-center">

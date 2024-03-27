@@ -133,18 +133,21 @@ export default function Chang1Page() {
   return (
     <main className='min-h-screen'>
       <div className='absolute top-[-116px]' style={{width: '100%', height: '500px', position: 'relative'}}>
-          <Image src={Chang1Bg} alt="home_main" fill sizes=""/>
+          <Image src={Chang1Bg} alt="home_main" fill sizes="100vw"/>
           
           <div className="flex relative items-center text-center justify-center pt-[148px]" style={{display: 'flex', color: 'white', fontSize: '48px', zIndex: 2}}> 
-            <div className="text-[#E8751A]">
+            <div className="text-[#E8751A] w-8/12 mx-auto bg-[rgba(255,255,255,.5)] px-8 py-4 rounded-lg">
               <p className="font-bold text-3xl"style={{color: "#E8751A"}}>Chặng 1</p> 
               <p className='font-extrabold  text-[#E8751A]'>Hành trang tri thức</p>
-              <p className="text-xl text-white w-8/12 text-left mx-auto"> 
-                Chặng 1 xây dựng nguồn dữ liệu đa phương thức cho ba chuyên đề học tập Ngữ văn lớp 10. Nội dung kiến thức chặng 1 được bám sát với Chương trình giáo dục phổ thông 2018 và được xây dựng theo định hướng của ba bộ sách giáo khoa Cánh Diều, Kết nối tri thức với cuộc sống và Chân trời sáng tạo. Hệ thống kiến thức được trình bày dưới hình thức kết hợp của phương tiện ngôn ngữ và phương tiện phi ngôn ngữ. 
+              <p className="text-xl text-black text-left "> 
+              Chặng 1 xây dựng nguồn dữ liệu đa phương thức cho ba chuyên đề học tập Ngữ văn lớp 10. Nội dung kiến thức chặng 1 được bám sát với Chương trình giáo dục phổ thông 2018 và được xây dựng theo định hướng của ba bộ sách giáo khoa Cánh Diều, Kết nối tri thức với cuộc sống và Chân trời sáng tạo. Hệ thống kiến thức được trình bày dưới hình thức kết hợp của phương tiện ngôn ngữ và phương tiện phi ngôn ngữ.
+
+
+
                 </p>
             </div>
           </div>
-          <div className="z-[1] absolute w-full h-full top-0" style={{background: 'linear-gradient(0deg, rgba(225,240,218,1) 0%, rgba(0,0,0,0.5501050762101716) 50%, rgba(0,0,0,0.8582283255098915) 100%)'}}>
+          <div className="z-[1] absolute w-full h-full top-0" style={{background: 'linear-gradient(0deg, rgba(225,240,218,0.7) 0%, rgba(0,0,0,0.0.4) 70%, rgba(0,0,0,0.8582283255098915) 100%)'}}>
 
           </div>
         </div>
@@ -167,11 +170,11 @@ export default function Chang1Page() {
                         <p className='w-fit'>
                           <Text className='text-xl'>{`Cửa ${i + 1}`}</Text> <br />
                           <Text strong className='text-2xl'>{info.name}</Text>
-                          <Paragraph italic>
+                          <Paragraph italic className='text-justify'>
                             {info.mota}
                           </Paragraph>
                         </p>
-                        <Image src={info.img} alt={info.name} className='ml-auto h-[120px] w-auto'></Image>
+                        <Image src={info.img} alt={info.name} className='ml-auto w-[120px]'></Image>
                       </div>
                     </Link>
                   </Col>

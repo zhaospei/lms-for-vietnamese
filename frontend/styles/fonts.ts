@@ -11,12 +11,12 @@ import { Quicksand } from 'next/font/google'
 
 // export const MAIN_FONT = Inter({ subsets: ['latin'] })
 
-export const MAIN_FONT = Quicksand({ subsets: ['latin'] })
+export const MAIN_FONT = Noto_Serif({ subsets: ['latin'] })
 
 export const BRICES_FONT = localFont({
     src: [
       {
-        path: '../public/fonts/bookmand.ttf',
+        path: '../public/fonts/ClassiqueSaigon.ttf',
         weight: '400'
       },
     ],

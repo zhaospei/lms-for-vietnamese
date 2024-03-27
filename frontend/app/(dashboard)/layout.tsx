@@ -41,11 +41,10 @@ export default function DashboardLayout({
         if (authState.signedIn)
             return
         Fetcher.get<any, UserInfoResponse>('/users/' + cookies.get('studentid'), {
-            timeout: 5000
+            timeout: 2000
         })
             .then((response) => {
                 console.log('haha')
-
                 dispatch(authActions.updateAuthState({
                     signedIn: true,
                     logging: false,
@@ -53,6 +52,7 @@ export default function DashboardLayout({
                     studentId: cookies.get('studentid'),
                 }));
             }).catch((error) => {
+                console.log(error)
 
                 dispatch(authActions.updateAuthState({
                     signedIn: false,

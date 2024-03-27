@@ -2,7 +2,6 @@
 
 // Import necessary modules and components
 import { useEffect, useState, useRef } from "react";
-import { AudioRecorder } from 'react-audio-voice-recorder';
 
 
 // Declare a global interface to add the webkitSpeechRecognition property to the Window object
@@ -12,13 +11,10 @@ declare global {
   }
 }
 
-const addAudioElement = (blob:any ) => {
-  const url = URL.createObjectURL(blob);
-  const audio = document.createElement("audio");
-  audio.src = url;
-  audio.controls = true;
-  document.body.appendChild(audio);
-};
+import Image from "next/image";
+import BK1 from '@/public/images/bang-kiem/1.png'
+import BK2 from '@/public/images/bang-kiem/2-1.png'
+import BK3 from '@/public/images/bang-kiem/2-2.png'
 
 // Export the MicrophoneComponent function component
 export default function MicrophoneComponent() {
@@ -26,6 +22,7 @@ export default function MicrophoneComponent() {
   const [isRecording, setIsRecording] = useState(false);
   const [recordingComplete, setRecordingComplete] = useState(false);
   const [transcript, setTranscript] = useState("");
+  const [data, setData] = useState<any[]>();
 
   // Reference to store the SpeechRecognition instance
   const recognitionRef = useRef<any>(null);
@@ -51,6 +48,7 @@ export default function MicrophoneComponent() {
     // Start the speech recognition
     recognitionRef.current.start();
   };
+
 
   // Cleanup effect when the component unmounts
   useEffect(() => {
@@ -89,64 +87,12 @@ export default function MicrophoneComponent() {
               Phòng thực hành nói
             </div>
         </div>
-        <AudioRecorder 
-      onRecordingComplete={addAudioElement}
-      audioTrackConstraints={{
-        noiseSuppression: true,
-        echoCancellation: true,
-      }} 
-      downloadOnSavePress={true}
-      downloadFileExtension="webm"
-      showVisualizer={true}
-    />
-    <div className="flex items-center justify-center w-full mt-36">
-      <div className="w-full">
-        {(isRecording || transcript) && (
-          <div className="w-1/4 m-auto rounded-md border p-4 bg-white">
-            <div className="flex-1 flex w-full justify-between">
-              <div className="space-y-1">
-                <p className="text-sm font-medium leading-none">
-                  {recordingComplete ? "Đã ghi âm" : "Đang ghi âm"}
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  {recordingComplete
-                    ? "Cảm ơn đã sử dụng. Có thể chất lượng ghi âm không được tốt"
-                    : "Bắt đầu nói..."}
-                </p>
-              </div>
-              {isRecording && (
-                <div className="rounded-full w-4 h-4 bg-red-400 animate-pulse" />
-              )}
-            </div>
-
-            {transcript && (
-              <div className="border rounded-md p-2 h-fullm mt-4">
-                <p className="mb-0">{transcript}</p>
-              </div>
-            )}
-          </div>
-        )}
-
-        <div className="flex items-center w-full">
-          {isRecording ? (
-            // Button for stopping recording
-            <button
+       
+    <div className="w-full flex flex-col h-full gap-16 mb-16">
+      <div className="fixed bottom-0 right-0 p-16 z-[10000]">
+        <button
               onClick={handleToggleRecording}
-              className="mt-10 m-auto flex items-center justify-center bg-red-400 hover:bg-red-500 rounded-full w-20 h-20 focus:outline-none"
-            >
-              <svg
-                className="h-12 w-12 "
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path fill="white" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-              </svg>
-            </button>
-          ) : (
-            // Button for starting recording
-            <button
-              onClick={handleToggleRecording}
-              className="mt-10 m-auto flex items-center justify-center bg-[#538D22] hover:bg-[#245501] rounded-full w-20 h-20 focus:outline-none"
+              className="flex items-center justify-center bg-[#538D22] hover:bg-[#245501] rounded-full w-20 h-20 focus:outline-none"
             >
               <svg
                 viewBox="0 0 256 256"
@@ -159,9 +105,198 @@ export default function MicrophoneComponent() {
                 />
               </svg>
             </button>
-          )}
-        </div>
-      </div>
+            </div>
+          <div className="max-w-5xl mx-auto flex flex-col gap-16">
+          <table>
+            <caption className="caption-top mb-8 font-bold text-xl">Bảng kiểm kỹ năng trình bày giới thiệu 
+một tập thơ/ một tập truyện ngắn hoặc một tiểu thuyết 
+</caption>
+<thead>
+  <tr>
+    <th>Nội dung</th>
+    <th style={{width: '10%'}}>Đạt </th>
+    <th style={{width: '10%'}}>Chưa đạt </th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><br />Chào hỏi trước khi bắt đầu, giới thiệu tên mình và chào trước khi kết thúc, cảm ơn người nghe.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="1" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="1" value="30"/></td>
+  </tr>
+  <tr>
+    <td><br />Bài giới thiệu có đủ các phần mở đầu, nội dung chính và kết thúc. </td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="2" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="2" value="30"/></td>
+  </tr>
+  <tr>
+    <td style={{"borderRightWidth": '0', textAlign: 'center', fontWeight: 'bold'}}>Mở đầu</td>
+  </tr>
+  <tr>
+    <td>Tạo được ấn tượng, sự chú ý từ phía người nghe.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="3" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="3" value="30"/></td>
+  </tr>
+  <tr>
+    <td>Giới thiệu thông tin cơ bản của tập thơ, tập truyện ngắn hay tiểu thuyết: thể loại, tác giả, nhan đề, chủ đề chung, nhà xuất bản. </td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="4" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="4" value="30"/></td>
+  </tr>
+  <tr>
+    <td>Nhận xét, đánh giá khái quát về nội dung, nghệ thuật của  tập thơ, tập truyện ngắn hay tiểu thuyết</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="5" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="5" value="30"/></td>
+  </tr>
+  <tr>
+  <td style={{"borderRightWidth": '0', textAlign: 'center', fontWeight: 'bold'}}>Nội dung chính</td>
+  </tr>
+  <tr>
+    <td>Tóm tắt được nội dung chính của tập thơ tập truyện ngắn hay tiểu thuyết </td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="6" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="6" value="30"/></td>
+  </tr>
+  <tr>
+    <td>Làm nổi bật được nội dung nghệ thuật của tác phẩm </td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="7" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="7" value="30"/></td>
+  </tr>
+  <tr>
+    <td>Chỉ ra một vài điểm tương đồng và khác biệt giữa nội dung và cách viết giữa bài thơ/ các truyện và giữa các tác giả ( nếu là tập thơ/ tập truyện của nhiều tác giả).</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="8" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="8" value="30"/></td>
+  </tr>
+  <tr>
+    <td>Thể hiện cảm nhận/ đánh giá về một số nét đặc biệt trong nội dung tác phẩm và cách viết của tác giả.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="9" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="9" value="30"/></td>
+  </tr>
+  <tr>
+  <td style={{"borderRightWidth": '0', textAlign: 'center', fontWeight: 'bold'}}>Kết thúc</td>
+  </tr>
+  <tr>
+    <td>Nêu bình luận chung về tác phẩm, thể hiện sự yêu thích tác phẩm.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="10" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="10" value="30"/></td>
+  </tr>
+  <tr>
+    <td>Đề xuất mọi người tìm đọc và lý do nên đọc tác phẩm.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="11" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="11" value="30"/></td>
+  </tr>
+  <tr>
+    <td>Sử dụng giọng điệu, cử chỉ, nét mặt, ánh mắt phù hợp.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="12" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="12" value="30"/></td>
+  </tr>
+  <tr>
+    <td>Ngôn ngữ nói ngắn gọn, trong sáng, khúc chiết, truyền cảm.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="13" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="13" value="30"/></td>
+  </tr>
+  <tr>
+    <td>Tự tin và có tương tác với người nghe khi trình bày.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="14" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="14" value="30"/></td>
+  </tr>
+  <tr>
+    <td>Sử dụng hiệu quả các phương tiện trực quan để làm rõ nội dung giới thiệu.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="15" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="15" value="30"/></td>
+  </tr>
+</tbody>
+</table>
+
+<table className="cc">
+<caption className="caption-top mb-8 font-bold text-xl">Bảng kiểm kỹ năng trình bày báo cáo về một vấn đề văn học dân gian
+</caption>
+<thead>
+  <tr>
+    <th></th>
+    <th>Hình thức </th>
+    <th style={{width: '10%'}}></th>
+    <th style={{width: '10%'}}></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>STT</td>
+    <td>Tiêu chí </td>
+    <td className="text-center">Đạt</td>
+    <td className="text-center">Không đạt</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Cấu trúc và bố cục:<br />Báo cáo được trình bày theo cấu trúc chuẩn, logic, khoa học, dễ theo dõi. (theo quy định bài báo cáo)<br />Bố cục rõ ràng, cân đối, phân chia các phần, mục, tiểu mục hợp lý.<br />Mục lục đầy đủ, chính xác, thể hiện rõ cấu trúc của báo cáo</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="21" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="21" value="30"/></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Trình bày:<br />Sử dụng font chữ, cỡ chữ phù hợp, dễ đọc (theo quy định bài báo cáo).<br />Chữ in rõ ràng, sắc nét, không lem nhem, nhòe nhoẹt.<br />Canh lề, giãn dòng hợp lý, đảm bảo bố cục đẹp mắt, khoa học.<br />Sử dụng bảng biểu, hình ảnh, sơ đồ minh họa khoa học, rõ ràng, có chú thích đầy đủ.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="22" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="22" value="30"/></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Trích dẫn tài liệu:<br />Trích dẫn tài liệu theo đúng quy định, thống nhất trong toàn bộ báo cáo.<br />Ghi rõ nguồn gốc tài liệu tham khảo, đảm bảo tính minh bạch.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="23" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="23" value="30"/></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Bìa báo cáo:<br />Bìa báo cáo được thiết kế đẹp mắt, khoa học, thể hiện đầy đủ thông tin về bài báo cáo.<br />Bìa báo cáo phải có đầy đủ thông tin: Tên đề tài; Tên tác giả; Tên trường, lớp; Địa danh, ngày tháng năm</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="24" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="24" value="30"/></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Chữ viết và ngữ pháp:<br />Sử dụng ngôn ngữ khoa học, chính xác, rõ ràng, dễ hiểu.<br />Cấu trúc câu văn chặt chẽ, logic, không mắc lỗi ngữ pháp.<br />Chữ viết đúng chính tả, không lỗi chính tả, lỗi dùng từ.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="25" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="25" value="30"/></td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Một số tiêu chí khác: <br />Báo cáo cần được trình bày gọn gàng, sạch đẹp, không nhăn nhúm, rách nát.<br />Số trang được đánh máy liên tục, rõ ràng.<br />Báo cáo có thể được đóng gáy hoặc đóng bìa mềm.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="26" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="26" value="30"/></td>
+  </tr>
+  <tr>
+    <td>Nội dung</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>Tính chính xác và khoa học về vấn đề văn học dân gian:<br />Nội dung nghiên cứu được trình bày một cách chính xác, khách quan, khoa học.<br />Dữ liệu nghiên cứu được thu thập và sử dụng một cách hợp lý, có căn cứ.<br />Phương pháp nghiên cứu được áp dụng phù hợp với mục tiêu nghiên cứu.<br />Kết quả nghiên cứu được trình bày rõ ràng, logic, có ý nghĩa khoa học.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="27" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="27" value="30"/></td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>Tính độc đáo và sáng tạo:<br />Nghiên cứu đề cập đến vấn đề mới hoặc có góc nhìn mới, độc đáo.<br />Kết quả nghiên cứu có đóng góp mới cho lĩnh vực nghiên cứu.<br />Thể hiện tư duy sáng tạo, độc lập của người nghiên cứu.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="28" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="29" value="30"/></td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>Tính logic và chặt chẽ:<br />Nội dung nghiên cứu được trình bày một cách logic, chặt chẽ, có sự liên kết giữa các phần.<br />Lập luận khoa học, dẫn chứng rõ ràng, thuyết phục.<br />Kết luận nghiên cứu được rút ra một cách hợp lý từ dữ liệu và phân tích.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="30" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="30" value="30"/></td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>Tính ứng dụng và giá trị thực tiễn:<br />Kết quả nghiên cứu có thể áp dụng vào thực tế để giải quyết vấn đề hoặc cải thiện tình trạng hiện tại.<br />Nghiên cứu có giá trị khoa học và thực tiễn cao.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="31" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="31" value="30"/></td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>Khả năng trình bày:<br />Báo cáo được trình bày rõ ràng, dễ hiểu, thu hút người đọc.<br />Hình ảnh, biểu đồ được sử dụng hiệu quả để minh họa cho nội dung.<br />Người trình bày có kiến thức sâu rộng về nội dung nghiên cứu, trả lời các câu hỏi một cách tự tin, thuyết phục.</td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="32" value="30"/></td>
+    <td><input className='mx-auto w-full' type="radio" id="age1" name="33" value="30"/></td>
+  </tr>
+</tbody>
+</table>
+
+          </div>
     </div>
     </main>
   );

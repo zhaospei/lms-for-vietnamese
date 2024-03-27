@@ -1,134 +1,163 @@
 'use client';
-import React, { useEffect, useMemo, useState } from 'react';
-import { LikeOutlined, DownloadOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
-import { Typography, Progress, Avatar, DatePicker, DatePickerProps, List, Space } from 'antd';
-import Image from 'next/image';
-import ShareImg from '../../../public/images/ill/share.png';
-import QaImg from '../../../public/images/ill/qa.png';
-import SpeakImg from '../../../public/images/ill/speak.jpg';
-import Fetcher from '@/api/Fetcher';
-import { UserInfoResponse } from '@/api/userAPI';
-import Cookies from 'universal-cookie';
-import HomeMain from '../../../../public/images/fish_game.png';
-import FishComing from '../../../../public/images/fish_game_2.jpg';
-import dayjs from 'dayjs';
-import 'dayjs/locale/en';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { DocumentClass } from '@/types/document';
-import MyButtonWrapper from '@/components/common/(MyButton)/MyButtonWrapper';
-import EditableText from '@/components/common/EditableText';
-import { useDispatch, useSelector } from 'react-redux';
-import { authActions } from '@/redux/auth/authSlice';
-import { authSelector } from '@/redux/auth/authSelector';
-import { PageProps } from '@/types/PageProps';
-import DocumentImage from '@/components/common/DocumentImage';
-import { getExtOfFile } from '@/utils/getExtOfFile';
+
+import { useRouter, useSearchParams } from "next/navigation";
+import { SearchParams } from "@/types/PageProps";
+import { Col, Row, Typography } from "antd";
+import { nameToSlug, slugToName } from "@/utils/searchParams";
+import { cacChuyenDe, ThongTinChuyenDe, chuyenDeSlug2Name } from "@/types/slug";
+import Image from "next/image";
+import { DoorSlug, doorSlugName, DEFAULT_DOOR_SLUG } from "@/types/slug";
+
+const {Text} = Typography;
+
+import { BRICES_FONT, MAIN_FONT } from '@/styles/fonts';
+import Chang2 from '@/public/images/background/chang2.png'
+import Chang1Bg from '@/public/images/home_main.png'
+import { TenBoSach, bookIdList } from "@/components/common/ChooseBook";
+import { boSachActions } from "@/redux/bosach/bosachSlice";
+import { Breadcrumb, Space } from "antd";
+import { ItemType } from "antd/es/breadcrumb/Breadcrumb";
+import { useDispatch } from "react-redux";
+import { usePathname } from "next/navigation";
+import { ChuyenDeSlug } from "@/types/slug";
 import Link from 'next/link';
-import { getURL } from '@/utils/navigation';
-import LikeIcon from '@/components/common/(Icons)/LikeIcon';
-import DownloadIcon from '@/components/common/(Icons)/DownloadIcon';
-import { useDebouncedCallback } from 'use-debounce';
-import search from '@/utils/search';
-import SearchBar from '@/components/common/SearchBar/SearchBar';
-import Editor from '@/components/common/Editor/Editor';
-const { Paragraph, Text, Title } = Typography;
+import { Cửa } from '@/types/slug';
+import { useSelector } from 'react-redux';
+import { boSachSelector } from '@/redux/bosach/bosachSelector';
+import { isUndefined } from 'lodash';
 
-const cookies = new Cookies();
-export default function Profile() {
+const menuBoSach = bookIdList.map((book, i) => {
+    return {
+        key: i,
+        label: (
+            <MenuBoSach book={book}/>
+        )
+    }
+})
 
+function MenuBoSach({
+    book
+}: {
+    book: TenBoSach
+}) {
+    const dispatch = useDispatch();
+    const router = useRouter();
     return (
-        <main className='min-h-screen'>
-            <div className='flex items-center justify-center m-12'>
-                <div className='bg-[#AAD576] font-bold text-3xl rounded-full inline-block px-3'>
-                    Chọn chuyên đề
+        <button onClick={() => {
+            router.push('/chang-1')
+            dispatch(boSachActions.updateChoice(book));
+        }}>
+            <Text strong>{book}</Text>
+        </button>
+    )
+}
+
+const menuCua = Cửa.map((info, i) => ({
+    key: i,
+    path: `cua-${i+1}`,
+    label: info.name
+}))
+
+
+function itemRender(route: ItemType, params: any, routes: ItemType[], paths: string[]): React.ReactNode {
+    // if (route.title === 'Tri thức nền tảng')
+    // console.log(paths)
+    return (
+        <Link href={`/${paths.join('/')}`}><Text strong className="text-lg">{route.title}</Text></Link>
+    )
+}
+
+export interface Chang1CuaPageParams extends SearchParams {
+    cua: DoorSlug
+}
+
+export default function Chang1CuaPage({
+    params: {
+        cua
+    }
+}: {
+    params: {
+        cua: string
+    }
+}) {
+    const router = useRouter();
+
+    const bosach = useSelector(boSachSelector.selectChoice) || 'Cánh diều';
+    const pathname = usePathname().split('/').slice(1);
+    const doorSlug = pathname.length >= 2 ? pathname[1] : undefined;
+    const chuyendeSlug = pathname.length >= 3 ? pathname[2] : undefined;
+    // console.log(doorSlug)
+    const doorName = !isUndefined(doorSlug) ? slugToName(doorSlugName, doorSlug in doorSlugName ? doorSlug as DoorSlug : DEFAULT_DOOR_SLUG) : undefined;
+    const chuyendeName = !isUndefined(chuyendeSlug) ? slugToName(chuyenDeSlug2Name, chuyendeSlug as ChuyenDeSlug) : undefined
+    const items: ItemType[] = [{
+        title: 'Chặng 2',
+        path: 'chang-2'
+    }, {
+        title: 'Con cá tham ăn',
+        path: 'chuyen-de'
+        // menu: {
+        //     items: menuBoSach
+        // }
+    }];
+    
+    return (
+        <main className="min-h-screen md:w-[70vw] mx-auto">
+            <Breadcrumb itemRender={itemRender} items={items} className="mt-8"/>
+            <div className="flex flex-col items-center gap-10">
+                
+                <Text strong className='mt-4 text-xl p-4 font-extrabold text-3xl bg-light-primary rounded-xl w-fit'>
+                    Lựa chọn chuyên đề
+                </Text>
+                <div className="w-full">
+                    <Row gutter={[25, 33]}>
+                        {
+                            cacChuyenDe.map((chuyende, i) => {
+                                return (
+                                    <Col key={i} lg={{ span: 8 }} xs={{ span: 24 }} className="flex" flex={1}>
+                                        <div className="flex-1"><Chuyende {...chuyende} cua={cua} /></div>
+                                    </Col>
+                                )
+                            })
+                        }
+                    </Row>
                 </div>
             </div>
-
-            <div className="flex flex-col max-w-5xl mx-auto">
-                <a className="bg-white flex justify-center 
-                mb-[30px]
-                rounded-lg p-10 
-                border-2 border-black
-                border-2 relative top-0 
-                hover:-top-5 transition-inset duration-300 
-                h-[100px]
-                ease-in-out cursor-pointer"
-                    // style={{}} 
-                    href="/chang-2/fish-game" style={{
-                        "border": "2px solid #f5f6fa",
-                        // transition: 'padding-left 0.3s ease-in-out',
-                        //   background: `url(${HomeMain.src})`,
-                        // backgroundRepeat: 'no-repeat',
-                        // backgroundSize: '100% 100%'
-                    }}>
-                    <div className="z-[1] absolute w-full h-full top-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.6', "border": "2px solid #f5f6fa", }}>
-
-                    </div>
-                    <div className="text-center flex-col items-center flex justify-center text-white relative z-[100]">
-                        {/* <Image src={ShareImg} width={600} height={400} alt="share"></Image> */}
-                        <h3 className="font-bold text-2xl"> TẬP NGHIÊN CỨU VÀ VIẾT BÁO CÁO VỀ MỘT VẤN ĐỀ VĂN HỌC DÂN GIAN
-                        </h3>
-                    </div>
-                </a>
-
-                <a className="bg-white flex justify-center 
-                mb-[30px]
-                rounded-lg p-10 
-                border-2 border-black
-                border-2 relative top-0 
-                hover:-top-5 transition-inset duration-300 
-                h-[100px]
-                ease-in-out cursor-pointer"
-                    // style={{}} 
-                    href="/chang-2/fish-game" style={{
-                        "border": "2px solid #f5f6fa",
-                        // transition: 'padding-left 0.3s ease-in-out',
-                        //   background: `url(${HomeMain.src})`,
-                        // backgroundRepeat: 'no-repeat',
-                        // backgroundSize: '100% 100%'
-                    }}>
-                    <div className="z-[1] absolute w-full h-full top-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.6', "border": "2px solid #f5f6fa", }}>
-
-                    </div>
-                    <div className="text-center flex-col items-center flex justify-center text-white relative z-[100]">
-                        {/* <Image src={ShareImg} width={600} height={400} alt="share"></Image> */}
-                        <h3 className="font-bold text-2xl"> SÂN KHẤU HOÁ TÁC PHẨM VĂN HỌC
-
-                        </h3>
-                    </div>
-                </a>
-
-                <a className="bg-white flex justify-center 
-                mb-[30px]
-                rounded-lg p-10 
-                border-2 border-black
-                border-2 relative top-0 
-                hover:-top-5 transition-inset duration-300 
-                h-[100px]
-                ease-in-out cursor-pointer"
-                    // style={{}} 
-                    href="/chang-2/fish-game" style={{
-                        "border": "2px solid #f5f6fa",
-                        // transition: 'padding-left 0.3s ease-in-out',
-                        //   background: `url(${HomeMain.src})`,
-                        // backgroundRepeat: 'no-repeat',
-                        // backgroundSize: '100% 100%'
-                    }}>
-                    <div className="z-[1] absolute w-full h-full top-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.6', "border": "2px solid #f5f6fa", }}>
-
-                    </div>
-                    <div className="text-center flex-col items-center flex justify-center text-white relative z-[100]">
-                        {/* <Image src={ShareImg} width={600} height={400} alt="share"></Image> */}
-                        <h3 className="font-bold text-2xl"> 
-                            <p>ĐỌC, VIẾT VÀ GIỚI THIỆU MỘT TẬP THƠ, </p>
-                            <p>MỘT TẬP TRUYỆN NGẮN HOẶC MỘT TIỂU THUYẾT </p>
-                        </h3>
-                    </div>
-                </a>
-
-            </div>
-
-
-        </main >
+        </main>
     );
 }
+
+function Chuyende({
+    img,
+    id: id,
+    ten: ten,
+    mota,
+    cua
+}: ThongTinChuyenDe & {
+    cua: string
+}) {
+    return (
+        <a className="bg-white flex flex-col items-center h-full
+                rounded-lg p-10
+                border-2 relative top-0
+                transition ease-in-out duration-300 hover:-translate-y-1 hover:shadow-lg hover:scale-[103%]"
+            // style={{ "border": "2px solid #f5f6fa" }}
+            href={`/chang-2/fish-game/${nameToSlug(chuyenDeSlug2Name, ten)}`}
+        >
+            <div className="absolute z-10 -top-[11px] flex items-start justify-center">
+                <div className="w-[194px] h-[11px] bg-primary rounded-t-[10px] relative z-10"/>
+                <div className="w-[164px] h-[41px] bg-primary rounded-b-[30px] absolute z-20
+                        text-white font-[700] text-xl flex items-center justify-center">
+                    {`Chuyên đề ${id}`}
+                </div>
+            </div>
+            <Image src={img} alt={ten} className="my-5"/>
+            <div className="text-center">
+                <h3 className="font-bold text-2xl mt-8 ">{ten}</h3>
+                <p className="font-medium mt-4 text-gray-500">
+                    {mota}
+                </p>
+            </div>
+        </a>
+    )
+}
+
