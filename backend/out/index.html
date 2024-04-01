@@ -8,7 +8,7 @@
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function(){
 
-            var questions = [
+            var questions_cd1 = [
                 ['Câu 1: Đặc điểm cơ bản của văn học dân gian bao gồm:',
                 'A.  Tính nguyên hợp, tính tập thể, tính truyền miệng , tính diễn xướng, tính dị bản.',
 'B. Tính truyền miệng,  tính diễn xướng, tính ước lệ, tượng trưng',
@@ -74,16 +74,163 @@
 'C']
 
 ]
-        
+        var questions_cd2 = [
+        ['Câu 1: Điền từ còn thiếu vào chỗ trống: “Sân khấu hóa tác phẩm văn học là (...) một tác phẩm văn học để đem biểu diễn dưới hình thức một vở kịch, vở chèo, vở cải lương, vở tuồng hay một tiết mục thuộc các loại hình nghệ thuật khác như múa, múa rối, nhạc kịch”',
+'A. Hoạt động chuyển thể',
+'B. Hoạt động quan sát',
+'C. Hoạt động phát triển',
+'D. Hoạt động nhận diện',
+'A'],
+['Câu 2: Có mấy hình thức sân khấu hóa tác phẩm văn học?',
+'A. 1.',
+'B. 2.',
+'C. 3.',
+'D. 4.',
+'B'],
+['Câu 3: Thế nào là Sân khấu hóa để phóng tác tác phẩm văn học?',
+'A. Là hoạt động chỉ nhằm minh họa cốt truyện, nhân vật của tác phẩm văn học.',
+'B. Là hoạt động dùng ngôn ngữ sân khấu để trực quan hóa các tác phẩm văn học',
+'C.  Là hoạt động vừa minh họa cốt truyện và nhân vật vừa diễn giải tác phẩm văn học.',
+'Là hoạt động sân khấu hóa thêm bớt nhiều chi tiết khác biệt so với tác phẩm ban đầu.',
+'C'],
+['Câu 4.Đâu không phải là ý nghĩa của việc sân khấu hóa tác phẩm văn học ?',
+'A.  Sân khấu và tác phẩm văn học chính là hoạt động mở rộng đời sống của tác phẩm văn học.',
+'B. Sân khấu hóa tác phẩm văn học  tích cực hóa việc nhận thức cảm thụ tác phẩm văn học.',
+'C. Giúp học sinh đồng sáng tạo cùng các tác giả văn học để  thay đổi cốt truyện cho phù hợp.',
+'D. Phát huy năng lực sáng tạo và rèn luyện khả năng làm việc tập thể cho học sinh.',
+'C'],
+['Câu 5. Các nhân tố cơ bản của hoạt động sân khấu hóa tác phẩm văn học bao gồm:',
+'A. Kịch bản, sân khấu.',
+'B. Sân khấu, dàn dựng.',
+'C. Dàn dựng, diễn viên.',
+'D. Kịch bản, dàn dựng',
+'D'],
+['Câu 6: Thành tố quan trọng nhất của kịch bản là gì?',
+'A. Hành động và lời thoại.',
+'B. Lời thoại và tên nhân vật.',
+'C. Hành động và diễn viên.',
+'D. Lời thoại và diễn viên.',
+'A'],
+['Câu 7: Đâu không phải là thành tố của hoạt động dàn dựng:',
+'A. Kịch bản.',
+'B. Đạo diễn.',
+'C. Diễn viên.',
+'D. Tác phẩm văn học.',
+'D'],
+['Câu 8: Trong  bước hình thành ý tưởng cho hoạt động sân khấu hóa tác phẩm văn học, học sinh cần:',
+'A. Chọn hiện tượng văn học; Tìm kiếm ý tưởng sân khấu hóa; Lựa chọn hình thức biểu diễn',
+'B. Lựa chọn hình thức biểu diễn; Lựa chọn diễn viên; Lựa chọn đạo diễn',
+'C. Chọn hiện tượng văn học; Lựa chọn diễn viên; Lựa chọn hình thức biểu diễn',
+'D. Tìm kiếm ý tưởng sân khấu hóa; Lựa chọn hình thức biểu diễn; Lựa chọn đạo diễn',
+'A'],
+['Câu 9: Việc viết kịch bản không có các thao tác nào dưới đây:',
+'A. Ghi tiêu đề kịch bản, tên tác giả, tác phẩm văn học mà bạn chuyển thể ở phần mở đầu của kịch bản.',
+'B. Khi tiêu đề mỗi cảnh khi chuyển sang cảnh mới',
+'C. Ghi tên các diễn viên và đạo diễn mỗi cảnh',
+'D. Mô tả bối cảnh và hành động',
+'C'],
+ ['Câu 10: Các tác phẩm thơ, truyện thơ, ngâm khúc,... có thể triển hay để sân khấu hóa tác phẩm được hay không?',
+'A. Có',
+'B.Không',
+'A'],
+
+        ]
+
+        var questions_cd3 = [
+        ['Câu 1. Viết về một bài về một tập thơ, một tập truyện ngắn hoặc một tiểu thuyết có thể hiểu đơn giản:',
+'A.  Là hình thức trình bày kết quả của sự tiếp nhận, thẩm thấu, đánh giá những nội dung đã được đọc bằng ngôn ngữ viết.',  
+'B. Là hình thức trình bày tóm tắt những nội dung đã được đọc bằng ngôn ngữ viết.',
+'C. Là hình thức sáng tạo thêm nội dung cho tác phẩm đã học (viết thêm các bài thơ, truyện ngắn hay phần kết cho tiểu thuyết)',
+'D. Là hình thức trình bày ghi chép của sự tiếp nhận, thẩm thấu, đánh giá những nội dung của người khác.',
+'A'],
+
+['Câu 2:  Khi viết bài về một tập thơ, một tập truyện ngắn hoặc một tiểu thuyết thiên về nghiên cứu thì bài viết mang đặc trưng của loại văn bản nào?',
+'A. Văn bản thông tin',
+'B. Văn bản biểu cảm',
+'C. Văn bản nghị luận',
+'D. Văn bản miêu tả', 
+'C'],
+
+['Câu 3. Khi viết bài về một tập thơ, một tập truyện ngắn hoặc một tiểu thuyết thiên về quảng bá, giới thiệu thì bài viết mang đặc trưng của loại văn bản nào?',
+'A. Văn bản thông tin',
+'B. Văn bản biểu cảm',
+'C. Văn bản nghị luận',
+'D. Văn bản miêu tả',
+'A'],
+
+['Câu 4. Khi viết bài về một tập thơ, một tập truyện ngắn hoặc một tiểu thuyết thiên về thưởng thức, rung cảm, tri âm thì bài viết mang đặc trưng của loại văn bản nào?',
+'A. Văn bản thông tin',
+'B. Văn bản biểu cảm',
+'C. Văn bản nghị luận',
+'D. Văn bản miêu tả',
+'B'], 
+
+['Câu 5. Tìm hiểu thông tin khái quát về cuốn sách bao gồm các thông tin nào?',
+'A. Nhan đề, năm xuất bản, tác giả, mục lục, lời giới thiệu (hoặc lời nói đầu, lời tựa)',
+'B. Số lượng sách đã bán, nhan đề, số bản dịch, lời giới thiệu (hoặc lời nói đầu, lời tựa)',
+'C. Nhan đề, năm xuất bản, tác giả, mục lục, số lượng sách đã bán,  số bản dịch',
+'D. Nhan đề, năm xuất bản, số bản dịch, lời giới thiệu (hoặc lời nói đầu, lời tựa)',
+'A'],
+
+['Câu 6. Ngôn ngữ được sử dụng trong bài viết thiên về hướng nghiên cứu cần:',
+'A. Trau chuốt, chú trọng sử dụng nhiều biện pháp tu từ',
+'B. Đảm bảo tính khách quan, khoa học',
+'C. Chú trọng việc bộc lộ cảm xúc chủ quan', 
+'D.Sử dụng bút pháp trữ tình, chấm phá',
+'B'],
+
+['Câu 7: Khi viết bài về một tập thơ, một tập truyện ngắn hoặc một tiểu thuyết thiên về hướng nào thì bài viết tương đồng với lối viết theo kiểu tản văn hoặc tùy bút?',
+'A. Thiên về giới thiệu, quảng bá',
+'B. Thiên về cảm nhận, thường thức',
+'C. Thiên về tóm tắt',
+'D. Thiên về nghiên cứu',
+'B'],
+
+['Câu 8: Mục tiêu của viết bài theo hướng giới thiệu, quảng bá là gì?',
+'A. Thể hiện sự hiểu biết của bản thân về cuốn sách',
+'B. Cung cấp các thông tin về sách để mọi người cùng nghiên cứu',
+'C. Gợi ý đọc sách và phát triển thị trường sách.',
+'D. Thể hiện khả năng thường thức, cảm nhận cuốn sách của bản thân',
+'C'], 
+
+['Câu 9. Để có một bài viết chất lượng, nên thực hiện theo quy trình các bước như thế nào?',
+'A. 4 bước: Chuẩn bị → Lập dàn ý → Viết → Chỉnh sửa, hoàn thiện',
+'B. 4 bước: Lựa chọn sách → Đọc sách → Ghi chép → Chỉnh sửa',
+'C. 3 bước: Chuẩn bị →Đọc sách  → Chỉnh sửa, hoàn thiện',
+'D. 5 bước: Lựa chọn sách →Lập hồ sơ đọc sách → Đọc sách → Viết→ Chỉnh sửa', 
+'A'], 
+
+['Câu 10: Trong bước chỉnh sửa, hoàn thiện, cần:',
+'A. Kiểm tra độ chính xác của những trích dẫn; cân nhắc chọn các hình ảnh minh hoạ; rà soát lại văn bản về phương diện mạch lạc và liên kết; kiểm tra chính tả và diễn đạt.',
+'B. Kiểm tra chính tả và diễn đạt; lập hồ sơ đọc sách; cân nhắc chọn các hình ảnh minh hoạ; rà soát lại văn bản về phương diện mạch lạc và liên kết.',
+'C. Cân nhắc chọn các hình ảnh minh hoạ; rà soát lại văn bản về phương diện mạch lạc và liên kết; hoàn thiện phiếu đọc sách, kiểm tra chính tả và diễn đạt.',
+'D. Kiểm tra chính tả và diễn đạt; rà soát lại văn bản về phương diện mạch lạc và liên kết; lập hồ sơ đọc sách; hoàn thiện phiếu đọc sách.', 
+'A'], 
+
+        ]
             var oBox = document.getElementById('playBox');//游戏盒子
-            var audio = new Audio('sounds/background.mp3');
-            audio.play();
+            var backgroundSound = new Audio('sounds/plants-vs-zombies-theme-2.mp3');
+            var tickSound = new Audio('sounds/tick.mp3');
+            backgroundSound.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+            var wrongSound = new Audio('sounds/nottrue.mp3');
+            var killSound = new Audio('sounds/killpop.mp3');
+            var timeSound = new Audio('sounds/wrong.mp3');
+            var loseSound = new Audio('sounds/no.mp3');
+            var winnerSound = new Audio('sounds/winner.mp3');
 			var gd = oBox.getContext('2d');//用来绘制元素
             var aBox = document.getElementById('answerBox');//答案盒子
-            var aFish = [];//鱼数组
+            
+            
+
+            function StartGame() {    
+                var aFish = [];//鱼数组
             var fishs = [1, 2, 3, 1, 2, 3, 1, 2, 3, 3]
+            // var fishs = [1, 2];
             let answer = false;
-            let score = 100;
+            var score = 0;
             let curFish = 0;
             let delayTime = 0;
             let timeAnswer = 0;
@@ -92,6 +239,7 @@
             let aY  = 0;
             let time = 300;
             let allFish = 10;
+            // let allFish = 2;
             const BackgroundImg = new Image();
             var params = location.href.split('?')[1].split('&');
             data = {};
@@ -99,6 +247,14 @@
                 data[params[x].split('=')[0]] = params[x].split('=')[1];
             }
             console.log(data);
+            let questions = questions_cd1
+            if (data['chuyende'] == 'van-hoc-dan-gian') {
+                questions = questions_cd1
+            } else if (data['chuyende'] == 'san-khau-hoa') {
+                questions = questions_cd2
+            } else if (data['chuyende'] == 'tho-truyen-tieu-thuyet') {
+                questions = questions_cd3
+            }
             BackgroundImg.src = 'images/background.png';
             const Fish_1Img = new Image();
             Fish_1Img.src = 'images/characters/fishmain/mainlv3/main.png';
@@ -182,239 +338,284 @@
             // var oF = new Fish(150, 75, [Fish_1Img, Fish_2Img, Fish_3Img, Fish_4Img, Fish_5Img], 1, -1);
             // aFish.push(oF)
             const mainFish = new MainFish(100, 50, [Fish_1Img, Fish_2Img, Fish_3Img, Fish_4Img, Fish_5Img], 1, 1);
-                var gameLoop = setInterval(() => {
-                    // console.log(aFish.length)
-                    if (allFish == 0) {
-                        winGame = true;
-                        aBox.style.display = 'flex';
-                        aBox.innerHTML = 'Chúc mừng bạn đã hoàn thành trò chơi với số điểm là: ' + score;
-                    }
-                    if (winGame) {
-                        clearInterval(gameLoop);
-                        fetch('http://112.137.129.161:8000/api/users/changeScore', {
-                            method: 'POST',
-                            headers: {
-                                'Authorization': 'Bearer ' + data['authToken'],
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({score: parseInt(score)})  
-                            })
-                            .then(resp => resp.json())
-                            .then(json => console.log(JSON.stringify(json)))
-                    }
-                    if (!answer) {
-                        if (curFish < 100) {
-                            aFish.splice(curFish--, 1);
-                            console.log(curFish);
-                            curFish = 1000;
-                            allFish--;
+                    var gameLoop = setInterval(() => {
+                        // console.log(aFish.length)
+                        if (allFish == 0) {
+                            winGame = true;
+                            
                         }
-                    
-                        delayTime -= 1;
-                        if (delayTime < 0) delayTime = 0;
-
-                    // if (oBox != null && gd != null) {
-                        const context = oBox.getContext("2d");
-                        // gd.fillStyle = "#000000"
-                        // gd.fillRect(0, 0, gd.canvas.width, gd.canvas.height)
-                        // console.log(aFish);
-                        // .onload = () => {
-                        if (context != null) {
-                            context.clearRect(0, 0, context?.canvas.width, context?.canvas.height);
-                            context.drawImage(BackgroundImg, 0, 0)
+                        if (winGame) {
+                            
+                            if (allFish != 0) {
+                                var startBox = document.getElementById('lose-box');
+                                startBox.style.display = 'flex';
+                                // StartGame();
+                                loseSound.play();
+                            } else {
+                                var startBox = document.getElementById('win-box');
+                                startBox.style.display = 'flex';
+                                // StartGame();
+                                var axBox = document.getElementById('win-text');
+                                axBox.innerHTML = 'Chúc mừng bạn đã hoàn thành trò chơi với số điểm là: ' + score;
+                                winnerSound.play();
+                            }
+                            clearInterval(gameLoop);
+                            clearInterval(c1);
+                            clearInterval(c2);
+                            clearInterval(c3);
+                            // fetch('http://112.137.129.161:8000/api/users/changeScore', {
+                            //     method: 'POST',
+                            //     headers: {
+                            //         'Authorization': 'Bearer ' + data['authToken'],
+                            //         'Content-Type': 'application/json'
+                            //     },
+                            //     body: JSON.stringify({score: parseInt(score)})  
+                            //     })
+                            //     .then(resp => resp.json())
+                            //     .then(json => console.log(JSON.stringify(json)))
                         }
-                        // // console.log("OK");
+                        if (!answer) {
+                            if (curFish < 100) {
+                                aFish.splice(curFish--, 1);
+                                console.log(curFish);
+                                curFish = 1000;
+                                allFish--;
+                            }
                         
-                            for(let i = 0; i < aFish.length; i++){
-                                // if(util.isNotInScreen(oBox.width, oBox.height, aFish[i], 75)){
-                                //     aFish.splice(i--, 1);
-                                //     // aFish
-                                //     continue;
-                                // }
-                                aFish[i].move(context);
-                                // console.log(aFish[i].x, aFish[i].y, aFish[i].w, aFish[i].h, aFish[i].frame[aFish[i].nowFrame]);
-                                // if (context != null) context.drawImage(aFish[i].frame[aFish[i].nowFrame], aFish[i].x, aFish[i].y, aFish[i].w, aFish[i].h);
-                                aFish[i].draw(context);
-                            };
-                            mainFish.draw(context);
-                            mainFish.move(context);
-                            if (delayTime == 0) {
-                                for(let f = 0; f < aFish.length; f++){ 
-                                    
-                                    // console.log(util.isNotCollision(aFish[f], mainFish));
-                                    if (
-                                        aFish[f].x < mainFish.x + mainFish.w &&
-                                        aFish[f].x + aFish[f].w > mainFish.x &&
-                                        aFish[f].y < mainFish.y + mainFish.h &&
-                                        aFish[f].y + aFish[f].h > mainFish.y    
-                                    ) {
-                                    // if (util.isNotCollision(aFish[f], MainFish) == true) {
-                                        console.log("OK");
-                                        // setAnswer((old) =>  true);
+                            delayTime -= 1;
+                            if (delayTime < 0) delayTime = 0;
 
-                                        answer = true;
-                                        aBox.style.display = 'flex';
-                                        console.log(aFish[f])
-                                        var QBox = document.getElementById('cauhoi');
-                                        var ABox = document.getElementById('A');
-                                        var BBox = document.getElementById('B');
-                                        var CBox = document.getElementById('C');
-                                        var DBox = document.getElementById('D');
-                                        aX = mainFish.x;
-                                        aY = mainFish.y;
+                        // if (oBox != null && gd != null) {
+                            const context = oBox.getContext("2d");
+                            // gd.fillStyle = "#000000"
+                            // gd.fillRect(0, 0, gd.canvas.width, gd.canvas.height)
+                            // console.log(aFish);
+                            // .onload = () => {
+                            if (context != null) {
+                                context.clearRect(0, 0, context?.canvas.width, context?.canvas.height);
+                                context.drawImage(BackgroundImg, 0, 0)
+                            }
+                            // // console.log("OK");
+                            
+                                for(let i = 0; i < aFish.length; i++){
+                                    // if(util.isNotInScreen(oBox.width, oBox.height, aFish[i], 75)){
+                                    //     aFish.splice(i--, 1);
+                                    //     // aFish
+                                    //     continue;
+                                    // }
+                                    aFish[i].move(context);
+                                    // console.log(aFish[i].x, aFish[i].y, aFish[i].w, aFish[i].h, aFish[i].frame[aFish[i].nowFrame]);
+                                    // if (context != null) context.drawImage(aFish[i].frame[aFish[i].nowFrame], aFish[i].x, aFish[i].y, aFish[i].w, aFish[i].h);
+                                    aFish[i].draw(context);
+                                };
+                                mainFish.draw(context);
+                                mainFish.move(context);
+                                if (delayTime == 0) {
+                                    for(let f = 0; f < aFish.length; f++){ 
                                         
-                                        // setAnswer((oldValue) => !oldValue);
-                                        QBox.innerHTML = aFish[f].question;
-                                        ABox.innerHTML = aFish[f].A;
-                                        BBox.innerHTML = aFish[f].B;
-                                        CBox.innerHTML = aFish[f].C;
-                                        DBox.innerHTML = aFish[f].D;
-                                        QBox.className = "";
-                                        QBox.classList.add(aFish[f].answer);
-                                        timeAnswer = 15;
-                                        curFish = f;
-                                        break;
-                                        
-                                        // console.log(answer);
-                                        // aFish.splice(f--, 1);
-                                        // console.log(aFish);
+                                        // console.log(util.isNotCollision(aFish[f], mainFish));
+                                        if (
+                                            aFish[f].x < mainFish.x + mainFish.w &&
+                                            aFish[f].x + aFish[f].w > mainFish.x &&
+                                            aFish[f].y < mainFish.y + mainFish.h &&
+                                            aFish[f].y + aFish[f].h > mainFish.y    
+                                        ) {
+                                        // if (util.isNotCollision(aFish[f], MainFish) == true) {
+                                            console.log("OK");
+                                            // setAnswer((old) =>  true);
+
+                                            answer = true;
+                                            aBox.style.display = 'flex';
+                                            console.log(aFish[f])
+                                            var QBox = document.getElementById('cauhoi');
+                                            var ABox = document.getElementById('A');
+                                            var BBox = document.getElementById('B');
+                                            var CBox = document.getElementById('C');
+                                            var DBox = document.getElementById('D');
+                                            aX = mainFish.x;
+                                            aY = mainFish.y;
+                                            
+                                            // setAnswer((oldValue) => !oldValue);
+                                            QBox.innerHTML = aFish[f].question;
+                                            ABox.innerHTML = aFish[f].A;
+                                            BBox.innerHTML = aFish[f].B;
+                                            CBox.innerHTML = aFish[f].C;
+                                            DBox.innerHTML = aFish[f].D;
+                                            QBox.className = "";
+                                            QBox.classList.add(aFish[f].answer);
+                                            timeAnswer = 30;
+                                            curFish = f;
+                                            break;
+                                            
+                                            // console.log(answer);
+                                            // aFish.splice(f--, 1);
+                                            // console.log(aFish);
+                                        }
                                     }
                                 }
                             }
+                        // }
+                    }, 16);
+                    var c1 = setInterval(function(){
+                        for(var i = 0; i < aFish.length; i++){
+                            aFish[i].nextFrame();
                         }
-                    // }
-                }, 16);
-                setInterval(function(){
-                    for(var i = 0; i < aFish.length; i++){
-                        aFish[i].nextFrame();
-                    }
-                    mainFish.nextFrame();
-                    // for(var i = 0; i < aCoin.length; i++){
-                    //     aCoin[i].nextFrame();
-                    // }
-                    // for(var i = 0; i < aDeadFish.length; i++){
-                    //     aDeadFish[i].nextFrame();
-                    // }
-                    // cannon.nextFrame();
-                }, 150);
+                        mainFish.nextFrame();
+                        // for(var i = 0; i < aCoin.length; i++){
+                        //     aCoin[i].nextFrame();
+                        // }
+                        // for(var i = 0; i < aDeadFish.length; i++){
+                        //     aDeadFish[i].nextFrame();
+                        // }
+                        // cannon.nextFrame();
+                    }, 150);
 
-                setInterval(function() {
-                    const timeAnswerBox = document.getElementById('time-answer');
-                    if (timeAnswerBox) {
-                        timeAnswerBox.innerHTML = timeAnswer;
-                    }
-                    time = time - 1;
-                    const timeBox = document.getElementById('time-all');
-                    if (timeBox) {
-                        var cc = ''
-                        cc = Math.floor(time / 60) + '-';
-                        if (time % 60 < 10) {
-                            cc += '0';
+                    var c2 = setInterval(function() {
+                        const timeAnswerBox = document.getElementById('time-answer');
+                        if (timeAnswerBox) {
+                            timeAnswerBox.innerHTML = timeAnswer;
                         }
-                        cc += time % 60;
-                        timeBox.innerHTML = cc;
-                    }
-                    if (time < 0) {
-                        winGame = true;
-                    }
-                    
-                    timeAnswer -= 1;
-                    if (timeAnswer < 0) {
-                        timeAnswer = 0;
-                    }
-                    if (timeAnswer == 0 && answer) {
-                        curFish = 1000;
-                        aBox.style.display = 'none';
-                        answer = false;
-                        delayTime = 100;
-                    }
-                }, 1000);
-                const handler = (e) => {
-                    // console.log({x: e.clientX, y: e.clientY})
-                    const currentPoint = computePointInCanvas(e)
-                    if (!currentPoint) return
-
-                    if (!answer) {
-                    // console.log(currentPoint)
-                        mainFish.wX = currentPoint.x - 50;
-                        mainFish.wY = currentPoint.y;
-                    }
-                }
-
-                const computePointInCanvas = (e) => {
-                    const canvas = oBox
-                    if (!canvas) return
-
-                    const rect = canvas.getBoundingClientRect()
-                    const x = e.clientX - rect.left
-                    const y = e.clientY - rect.top
-
-                    return {x, y}
-                }
-
-                oBox.addEventListener('mousemove', handler)
-
-                document.onclick = function(ev){
-                    if (answer) {
-						var x1 = ev.pageX;
-						var y1 = ev.pageY;
-                        var QBox = document.getElementById('cauhoi');
-                        var ABox = document.getElementById('A').getBoundingClientRect();
-                        var BBox = document.getElementById('B').getBoundingClientRect();
-                        var CBox = document.getElementById('C').getBoundingClientRect();
-                        var DBox = document.getElementById('D').getBoundingClientRect();
-						var cur = 'X'
-                        if (checkColison(x1, y1, ABox)) {
-                            cur = 'A'
-                        } else if (checkColison(x1, y1, BBox)) {
-                            cur = 'B'
-                        } else if (checkColison(x1, y1, CBox)) {
-                            cur = 'C'
-                        } else if (checkColison(x1, y1, DBox)) {
-                            cur = 'D'
-                        }
-                        console.log(cur);
-                        // console.log(QBox.classList)
-                        if (cur != 'X') {
-                            var animationBox = document.getElementById('animationBox');
-                            var chuoiBox = document.getElementById('chuoi');
-                            var sadBox = document.getElementById('sad');
-                            animationBox.style.left = aX + 'px';
-                            animationBox.style.top = aY + 'px';
-                            if (cur == QBox.classList[0]) {
-                                var cscore = aFish[curFish].score + (timeAnswer - 15) * aFish[curFish].score * 0.01;
-                                score += cscore;
-                                var scoreBox = document.getElementById('score');
-                                animationBox.innerHTML = '+' + parseInt(cscore); 
-                                animationBox.style.color = 'green';
-                                animationBox.style.display = 'block';
-                                scoreBox.innerHTML = parseInt(score);
-                                chuoiBox.style.display = 'block';
-                                
-                                console.log(score);
-                            } else {
-                                aFish[curFish].score -= aFish[curFish].score * 0.1;
-                                curFish = 1000;
-                                animationBox.innerHTML = 'Sai rồi!'
-                                animationBox.style.color = 'red';
-                                animationBox.style.display = 'block';
-                                sadBox.style.display = 'block'
+                        time = time - 1;
+                        const timeBox = document.getElementById('time-all');
+                        if (timeBox) {
+                            var cc = ''
+                            cc = Math.floor(time / 60) + ':';
+                            if (time % 60 < 10) {
+                                cc += '0';
                             }
+                            cc += time % 60;
+                            timeBox.innerHTML = cc;
+                        }
+                        if (time < 0) {
+                            winGame = true;
+                        }
+                        
+                        timeAnswer -= 1;
+                        if (timeAnswer < 0) {
+                            timeAnswer = 0;
+                        }
+                        if (timeAnswer == 0 && answer) {
+                            curFish = 1000;
+                            timeSound.play();
                             aBox.style.display = 'none';
-                            
-                            setTimeout(function() {
-                                animationBox.style.display = 'none';
-                                chuoiBox.style.display = 'none';
-                                sadBox.style.display = 'none';
-                            }, 1000);
-                            
                             answer = false;
                             delayTime = 100;
                         }
-					};
+                    }, 1000);
+                    const handler = (e) => {
+                        // console.log({x: e.clientX, y: e.clientY})
+                        const currentPoint = computePointInCanvas(e)
+                        if (!currentPoint) return
+
+                        if (!answer) {
+                        // console.log(currentPoint)
+                            mainFish.wX = currentPoint.x - 50;
+                            mainFish.wY = currentPoint.y;
+                        }
+                    }
+
+                    const computePointInCanvas = (e) => {
+                        const canvas = oBox
+                        if (!canvas) return
+
+                        const rect = canvas.getBoundingClientRect()
+                        const x = e.clientX - rect.left
+                        const y = e.clientY - rect.top
+
+                        return {x, y}
+                    }
+
+                    oBox.addEventListener('mousemove', handler)
+
+                    document.onclick = function(ev){
+                        if (answer) {
+                            var x1 = ev.pageX;
+                            var y1 = ev.pageY;
+                            var QBox = document.getElementById('cauhoi');
+                            var ABox = document.getElementById('A').getBoundingClientRect();
+                            var BBox = document.getElementById('B').getBoundingClientRect();
+                            var CBox = document.getElementById('C').getBoundingClientRect();
+                            var DBox = document.getElementById('D').getBoundingClientRect();
+                            var cur = 'X'
+                            if (checkColison(x1, y1, ABox)) {
+                                cur = 'A'
+                            } else if (checkColison(x1, y1, BBox)) {
+                                cur = 'B'
+                            } else if (checkColison(x1, y1, CBox)) {
+                                cur = 'C'
+                            } else if (checkColison(x1, y1, DBox)) {
+                                cur = 'D'
+                            }
+                            console.log(cur);
+                            // console.log(QBox.classList)
+                            if (cur != 'X') {
+                                var animationBox = document.getElementById('animationBox');
+                                var chuoiBox = document.getElementById('chuoi');
+                                var sadBox = document.getElementById('sad');
+                                animationBox.style.left = aX + 'px';
+                                animationBox.style.top = aY + 'px';
+                                if (cur == QBox.classList[0]) {
+                                    var cscore = aFish[curFish].score + (timeAnswer - 15) * aFish[curFish].score * 0.01;
+                                    score += cscore;
+                                    var scoreBox = document.getElementById('score');
+                                    animationBox.innerHTML = '+' + parseInt(cscore); 
+                                    animationBox.style.color = 'green';
+                                    animationBox.style.display = 'block';
+                                    scoreBox.innerHTML = parseInt(score);
+                                    chuoiBox.style.display = 'block';
+                                    killSound.play();
+                                    
+                                    console.log(score);
+                                } else {
+                                    aFish[curFish].score -= aFish[curFish].score * 0.1;
+                                    curFish = 1000;
+                                    animationBox.innerHTML = 'Sai rồi!'
+                                    animationBox.style.color = 'red';
+                                    animationBox.style.display = 'block';
+                                    sadBox.style.display = 'block';
+                                    wrongSound.play();
+                                }
+                                aBox.style.display = 'none';
+                                
+                                setTimeout(function() {
+                                    animationBox.style.display = 'none';
+                                    chuoiBox.style.display = 'none';
+                                    sadBox.style.display = 'none';
+                                }, 1000);
+                                
+                                answer = false;
+                                delayTime = 100;
+                            }
+                        };
+                    }
+                    // return () => oBox.addEventListener('mousemove', handler)
                 }
-                // return () => oBox.addEventListener('mousemove', handler)
-            }, false);
+
+                document.getElementById("start-btn").addEventListener("click",
+                        function(){
+                            var startBox = document.getElementById('start-box');
+                            startBox.style.display = 'none';
+                            StartGame();
+                            backgroundSound.play();
+                        });
+                document.getElementById("playagain-btn").addEventListener("click",
+                function(){
+                    var startBox = document.getElementById('lose-box');
+                    startBox.style.display = 'none';
+                    StartGame();
+                    backgroundSound.play();
+                });
+
+                document.getElementById("playagain2-btn").addEventListener("click",
+                function(){
+                    var startBox = document.getElementById('win-box');
+                    startBox.style.display = 'none';
+                    StartGame();
+                    backgroundSound.play();
+                });
+                        
+
+                }, false);
   // State variables to manage recording status, completion, and transcript
   
 
@@ -423,8 +624,42 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-        #answerBox {
+        .btn {
+            display: inline-block;
+            width: max-content;
+            height: max-content;
+            font-size: 30px;
+            text-align: center;
+            border-radius: 1rem;
+            border: none;
+            color: #7f8c8d;
+            background-color: white;
+            padding: 10px 30px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-weight: 600;
+            word-wrap: break-word;
+        }
+        .btn:hover {
+            color: green;
+        }
+        #answerBox, #start-box, #lose-box, #win-box{
             font-family: 'Work Sans', sans-serif;
+            
+        }
+
+        #start-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+        }
+
+        #lose-box,  #win-box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
 
         #animationBox {
@@ -448,7 +683,7 @@
             color: white;
             background-color: rgba(0, 0, 0, 0.588);
             font-size: 24px;
-            font-weight: 800;
+            font-weight: 400;
             z-index: 100;
         }
 
@@ -458,6 +693,15 @@
             border-radius: 5px;
             /* margin: 10px; */
             cursor: pointer;
+        }
+        
+        .answerB:hover {
+            box-shadow: 0 0px 1.5px -4px rgba(255, 255, 255, 0.333),
+        0 0px 3.9px -4px rgba(255, 255, 255, 0.436),
+        0 0px 7.9px -4px rgba(255, 255, 255, 0.505),
+        0 0px 15px -4px rgba(255, 255, 255, 0.577),
+        0 0px 30.2px -4px rgba(255, 255, 255, 0.688),
+        0 0px 80px -4px rgba(255, 255, 255, 1);
         }
 
         .correct {
@@ -480,14 +724,38 @@
 
     </canvas>
 
+    <div id='start-box' style="box-sizing: border-box; padding: 80px; flex-direction: column; width: 1024px; height: 600px; position: absolute; z-index: 1000; top: 0; background-color: rgba(0, 0, 0, 0.391); color: white; background-image: url('./images/menu_background.png')">
+        <div style="font-weight: 800; font-size: 60px"> CON CÁ THAM ĂN </div>
+        <div style="font-size: 24px"> Ở trò chơi này em sẽ săn bắt 10 con cá gồm các câu hỏi thuộc một trong ba chuyên đề: Tập nghiên cứu và báo báo về một vấn đề văn học dân gian; Sân khấu hóa tác phẩm văn học; Đọc, viết và giới thiệu một tập thơ, một tập truyện hoặc một tiểu thuyết. </div>
+        <div class="btn" id="start-btn"> Bắt đầu! </div>
+    </div>
+
+    <div id='lose-box' style="display: none; box-sizing: border-box; padding: 80px; flex-direction: column; width: 1024px; height: 600px; position: absolute; z-index: 1000; top: 0; background-color: rgba(0, 0, 0, 0.391); color: white; background-image: url('./images/menu_background.png')">
+        <div style="font-weight: 800; font-size: 60px"> THUA RỒI! </div>
+        <image width="400px" src="https://content.imageresizer.com/images/memes/Squidward-cleaning-loser-meme-2.jpg"></image>
+        <div style="font-size: 24px"> Bạn không săn nổi 10 con cá sao?  </div>
+        <div class="btn" id="playagain-btn"> Chơi lại! </div>
+    </div>
+
+    <div id='win-box' style="display:none; box-sizing: border-box; padding: 80px; flex-direction: column; width: 1024px; height: 600px; position: absolute; z-index: 1000; top: 0; background-color: rgba(0, 0, 0, 0.391); color: white; background-image: url('./images/menu_background.png')">
+        <div style="font-weight: 800; font-size: 60px"> CHÚC MỪNG! </div>
+        <image width="400px" src="https://i.pinimg.com/originals/5b/61/7f/5b617fb7d2cd9632484170ecc1a33ef4.jpg"></image>
+        <div id='win-text' style="font-size: 24px"> Một lần chơi là không đủ?  </div>
+        <div class="btn" id="playagain2-btn"> Chơi lại! </div>
+    </div>
+
     <div id="scoreBox">
-        <div style="padding-left: 10px;"> Thời gian:</div> 
-        <div id="time-all" style="margin-left: 10px;">
-            0-0
+        <div style="display: flex; border-radius: 0.5rem;">
+            <div style="padding-left: 10px;"> Thời gian:</div> 
+            <div id="time-all" style="margin-left: 10px;">
+                5:00
+            </div>
         </div>
-        <div style="margin-left: 20px;"> Điểm: </div> 
-        <div id="score" style="margin-left: 20px; padding-right: 10px;">
-            0
+        <div style="display: flex;">
+            <div style="margin-left: 20px;"> Điểm: </div> 
+            <div id="score" style="margin-left: 20px; padding-right: 10px;">
+                0
+            </div>
         </div>
 
     </div>

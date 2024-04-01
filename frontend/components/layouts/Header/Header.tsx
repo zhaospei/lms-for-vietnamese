@@ -144,7 +144,7 @@ export default function Header() {
 
   return isHome ? (
     <header
-      className="w-full top-0 z-[1000] mt-[16px]"
+      className="w-full top-0 z-[1000] mt-[16px] text-base"
       style={{
         transition: 'padding-left 0.3s ease-in-out',
         // background: `url(${HomeMain.src})`,
@@ -164,7 +164,7 @@ export default function Header() {
           transition: 'border-radius 0.3s ease-in-out',
         }}
       >
-        <div className="flex-1 text-lg md:flex-row flex-col md:items-center items-start gap-5 md:flex">
+        <div className="flex-1 text-base md:flex-row flex-col md:items-center items-start gap-5 md:flex">
           <h3 className="m-1 group mr-16 bg-[rgba(0,0,0,.5)] px-4 py-2 rounded-full"> 
             <a href="/" className="text-white font-semibold  cursor-pointer transition-font-size duration-500 ease-in-out">
               <Image src={LogoIcon} alt="logo" height={50} />

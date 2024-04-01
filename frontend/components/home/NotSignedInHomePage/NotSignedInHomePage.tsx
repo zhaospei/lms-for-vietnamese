@@ -137,17 +137,13 @@ function AboutScheduleAndMySubjects() {
         <div className='absolute gradient-image' style={{width: '100%', height: '700px', position: 'relative'}}>
           <Image src={HomeMain} alt="home_main" fill sizes="100vw"/>
           
-          <div className="flex relative items-center justify-between pt-[150px] pl-16" style={{display: 'flex', color: 'white', fontSize: '48px', zIndex: 2}}> 
+          <div className="flex relative items-center justify-between pt-[200px] pl-16" style={{display: 'flex', color: 'white', fontSize: '48px', zIndex: 2}}> 
             <div className={`${MAIN_FONT.className} font-black header-info text-[#FF9800] bg-[rgba(255,255,255,.5)] px-8 py-4`} >
               <p className="text-[#2b7663]">Chinh phục Chuyên đề</p> 
-              <p style={{fontSize: '128px', lineHeight: "132px"}}>NGỮ VĂN <span style={{fontSize: '200px'}}>10</span></p>
+              <p style={{fontSize: '96px', lineHeight: "132px"}}>NGỮ VĂN <span style={{fontSize: '200px'}}>10</span></p>
               <div className={MAIN_FONT.className} style={{fontWeight: '500', fontSize: '30px', color: 'white', marginTop: '16px'}}> 
                 <span ref={el} />
               </div>
-            </div>
-            
-            <div className="ml-[100px] w-[500px] h-[500px]">
-              {/* <Image src={HomeImage} alt="Dược" width={500} height={500} /> */}
             </div>
             {/* <p style={{fontSize: '36px'}}>Hiểu biết - Tư duy - Phát triển</p> */}
           </div>

@@ -52,10 +52,11 @@ class MainFish {
         ctx.save();
         
         // ctx.rotate(this.rotate);
+        console.log(this.x, this.y, this.w, this.h)
         if (this.rotate == 1) {
             // ctx.translate(this.w, 0);
             ctx.scale(-1, 1);
-            ctx.drawImage(this.frame[this.nowFrame], -this.x, this.y, this.w, this.h);
+            ctx.drawImage(this.frame[this.nowFrame], -this.x - this.w, this.y, this.w, this.h);
         // ctx.drawImage(img, 0, 0, width*-1, height);
         }
         // console.log(image)
@@ -112,7 +113,7 @@ class Fish {
         if (this.rotate == 1) {
             // ctx.translate(this.w, 0);
             ctx.scale(-1, 1);
-            ctx.drawImage(this.frame[this.nowFrame], -this.x, this.y, this.w, this.h);
+            ctx.drawImage(this.frame[this.nowFrame], -this.x - this.w, this.y, this.w, this.h);
         // ctx.drawImage(img, 0, 0, width*-1, height);
         }
         // console.log(image)

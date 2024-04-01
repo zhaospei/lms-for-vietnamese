@@ -189,7 +189,7 @@ const changeImage = () => {
         <div className='flex w-[75vw] mx-auto flex-col'>
           <div className='text-[#c04826]'>
               <TitleWithFont title='Triển lãm sản phẩm' className='text-5xl font-black'></TitleWithFont>
-              <TitleWithFont title='Chuyên đề ngữ văn 10' className='text-7xl font-black'></TitleWithFont>
+              <TitleWithFont title='Chuyên đề Ngữ văn 10' className='text-7xl font-black mt-8'></TitleWithFont>
           </div>
             <div className='mb-12'>
                 <div className="flex justify-end items-end mt-2">

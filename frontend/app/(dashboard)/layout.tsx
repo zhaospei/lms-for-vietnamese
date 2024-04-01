@@ -41,7 +41,7 @@ export default function DashboardLayout({
         if (authState.signedIn)
             return
         Fetcher.get<any, UserInfoResponse>('/users/' + cookies.get('studentid'), {
-            timeout: 2000
+            timeout: 3000
         })
             .then((response) => {
                 console.log('haha')
